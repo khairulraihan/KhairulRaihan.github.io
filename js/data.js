@@ -430,8 +430,8 @@ const portfolioData = {
         "whatsapp": "+62 898-951-8334",
         "whatsappNum": "628989518334",
         "location": "Kota Tangerang, Banten, Indonesia",
-        "linkedin": "https://www.linkedin.com/in/khairul-raihan-hidayat",
-        "linkedinDisplay": "linkedin.com/in/khairul-raihan-hidayat",
+        "linkedin": "https://www.linkedin.com/in/khairul-raihan-hidayat-0a4b62334/",
+        "linkedinDisplay": "linkedin.com/in/khairul-raihan-hidayat-0a4b62334/",
         "github": "https://github.com/KhairulRaihan",
         "cvPath": "assets/docs/Khairul_Raihan_Hidayat_CV.docx"
     },
