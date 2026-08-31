@@ -10,6 +10,18 @@ function getActiveData() {
         if (custom) {
             const parsed = JSON.parse(custom);
             if (parsed && (parsed.hero || parsed.personal) && parsed.projects) {
+                let modified = false;
+                if (parsed.contact && (!parsed.contact.cvPath || (!parsed.contact.cvPath.endsWith('.pdf') && !parsed.contact.cvPath.endsWith('.docx')))) {
+                    parsed.contact.cvPath = 'assets/docs/Khairul_Raihan_Hidayat_CV.pdf';
+                    modified = true;
+                }
+                if (parsed.personal && (!parsed.personal.cvPath || (!parsed.personal.cvPath.endsWith('.pdf') && !parsed.personal.cvPath.endsWith('.docx')))) {
+                    parsed.personal.cvPath = 'assets/docs/Khairul_Raihan_Hidayat_CV.pdf';
+                    modified = true;
+                }
+                if (modified) {
+                    localStorage.setItem('customPortfolioData', JSON.stringify(parsed));
+                }
                 return parsed;
             }
         }
