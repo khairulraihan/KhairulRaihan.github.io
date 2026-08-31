@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khairul Raihan Hidayat | Data Science & Business Intelligence Portfolio</title>
+    <title>Khairul Raihan Hidayat | Data Science & Business Intelligence</title>
     
     <!-- Meta SEO Tags -->
-    <meta name="description" content="Portofolio resmi Khairul Raihan Hidayat - Fresh Graduate Sistem Informasi (Peminatan Data Science, IPK 3.88) dari Universitas Budi Luhur. Spesialisasi dalam NLP, Machine Learning, Tableau BI, dan SQL.">
-    <meta name="keywords" content="Khairul Raihan Hidayat, Data Science Portfolio, Portofolio Data Science, Data Analyst Indonesia, Fresh Graduate Budi Luhur, Machine Learning, NLP, Tableau, Python, SQL">
+    <meta name="description" content="Portofolio resmi Khairul Raihan Hidayat - Sarjana Komputer Sistem Informasi (Data Science, IPK 3.88) dari Universitas Budi Luhur. Spesialisasi dalam NLP, Machine Learning, Tableau BI, dan SQL.">
+    <meta name="keywords" content="Khairul Raihan Hidayat, Data Science, Data Analyst, Portofolio Data, Universitas Budi Luhur, Machine Learning, NLP, Tableau, Python, SQL">
     <meta name="author" content="Khairul Raihan Hidayat">
     
-    <!-- Open Graph / Facebook / LinkedIn -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Khairul Raihan Hidayat | Data Science & BI Portfolio">
     <meta property="og:description" content="Portofolio Data Science & Business Intelligence: Machine Learning, NLP, Tableau Dashboard, dan Visualisasi Data.">
@@ -19,7 +19,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
@@ -27,18 +27,12 @@
 </head>
 <body>
 
-    <!-- Ambient Background Lighting Canvas -->
-    <canvas id="bg-canvas"></canvas>
-    <div class="ambient-glow glow-1"></div>
-    <div class="ambient-glow glow-2"></div>
-    <div class="ambient-glow glow-3"></div>
-
     <!-- Header & Navigation Bar -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#home" class="logo">
                 <div class="logo-badge">KR</div>
-                <span>Khairul<span class="text-gradient">.Data</span></span>
+                <span>Khairul Raihan</span>
             </a>
 
             <nav class="nav-menu" id="nav-menu">
@@ -46,13 +40,13 @@
                 <a href="#about" class="nav-link">Tentang</a>
                 <a href="#skills" class="nav-link">Keahlian</a>
                 <a href="#projects" class="nav-link">Proyek</a>
-                <a href="#demo" class="nav-link">Live Demo NLP</a>
+                <a href="#demo" class="nav-link">NLP Console</a>
                 <a href="#certifications" class="nav-link">Sertifikasi</a>
                 <a href="#contact" class="nav-link">Kontak</a>
             </nav>
 
             <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Mode Gelap/Terang" title="Ganti Tema">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Ganti Tema" title="Ganti Tema">
                     <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -78,7 +72,7 @@
                     <span>Download CV</span>
                 </a>
 
-                <div class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <div class="hamburger" id="hamburger" aria-label="Buka Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -93,58 +87,50 @@
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-text-content reveal">
-                        <div class="hero-badge-container">
-                            <div class="hero-status-badge">
-                                <span class="status-dot"></span>
-                                <span>Tersedia untuk Peluang Karir Data Science & Analytics</span>
-                            </div>
+                        <div class="hero-status-pill">
+                            <span class="status-dot"></span>
+                            <span>Fresh Graduate Sistem Informasi &bull; Peminatan Data Science</span>
                         </div>
 
-                        <h1 class="hero-title">
-                            Halo, Saya <br>
-                            <span class="text-gradient">Khairul Raihan Hidayat</span>
-                        </h1>
+                        <h1 class="hero-title">Khairul Raihan Hidayat</h1>
 
-                        <div class="hero-subtitle">
-                            <span>Fokus pada:</span>
-                            <span class="typewriter-text" id="typewriter"></span>
+                        <div class="hero-role-line">
+                            <span id="typewriter">Data Science & Analytics</span>
                         </div>
 
-                        <p class="hero-description">
-                            Fresh Graduate Sistem Informasi peminatan <strong>Data Science (IPK 3.88/4.00)</strong> dari Universitas Budi Luhur. Menggabungkan analisis data tingkat lanjut, pemodelan Machine Learning (NLP), dan dasbor interaktif Tableau untuk mengubah data mentah menjadi keputusan bisnis bernilai tinggi.
+                        <p class="hero-bio">
+                            Lulusan Sarjana Komputer dari Universitas Budi Luhur dengan <strong>IPK 3.88/4.00</strong>. Berfokus pada siklus analitik data komprehensif: pembersihan dan ekstraksi data berskala besar, pemodelan Machine Learning (NLP), serta perancangan dasbor Business Intelligence interaktif di Tableau.
                         </p>
 
-                        <div class="hero-cta">
+                        <div class="hero-actions">
                             <a href="#projects" class="btn btn-primary">
-                                <span>Lihat Portofolio Proyek</span>
+                                <span>Lihat Proyek Pilihan</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
                             </a>
-                            <a href="#contact" class="btn btn-secondary">
-                                <span>Hubungi Saya</span>
-                            </a>
+                            <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
                         </div>
 
                         <div class="hero-socials">
-                            <a href="https://github.com/KhairulRaihan" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" aria-label="GitHub">
+                            <a href="https://github.com/KhairulRaihan" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub" aria-label="GitHub">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                                 </svg>
                             </a>
-                            <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>
                             </a>
-                            <a href="mailto:khairulraihan617@gmail.com" class="social-link" title="Email" aria-label="Email">
+                            <a href="mailto:khairulraihan617@gmail.com" class="social-icon-btn" title="Email" aria-label="Email">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
                             </a>
-                            <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp" aria-label="WhatsApp">
+                            <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp" aria-label="WhatsApp">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                                 </svg>
@@ -152,106 +138,47 @@
                         </div>
                     </div>
 
-                    <div class="hero-visual reveal reveal-delay-2">
-                        <div class="hero-image-wrapper">
-                            <div class="hero-image-inner">
-                                <img src="assets/images/profile.jpg" alt="Khairul Raihan Hidayat" />
-                            </div>
-
-                            <!-- Floating Badges -->
-                            <div class="floating-badge floating-badge-1">
-                                <div class="badge-icon-box emerald">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="badge-content">
-                                    <h4>IPK 3.88 / 4.00</h4>
-                                    <p>Magna Cum Laude</p>
-                                </div>
-                            </div>
-
-                            <div class="floating-badge floating-badge-2">
-                                <div class="badge-icon-box cyan">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <line x1="18" y1="20" x2="18" y2="10"></line>
-                                        <line x1="12" y1="20" x2="12" y2="4"></line>
-                                        <line x1="6" y1="20" x2="6" y2="14"></line>
-                                    </svg>
-                                </div>
-                                <div class="badge-content">
-                                    <h4>92.4% Akurasi</h4>
-                                    <p>NLP & Machine Learning</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="hero-portrait-card reveal reveal-delay-1">
+                        <img src="assets/images/profile.jpg" alt="Khairul Raihan Hidayat" />
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Stats Bar -->
+        <!-- Stats Row -->
         <section class="stats-section">
             <div class="container">
                 <div class="stats-grid">
-                    <div class="stat-card reveal">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                            </svg>
-                        </div>
-                        <div class="stat-number-wrapper">
+                    <div class="stat-item reveal">
+                        <div class="stat-num-wrapper">
                             <span class="stat-number" data-target="3.88">0</span>
                             <span class="stat-suffix">/4.00</span>
                         </div>
-                        <div class="stat-label">IPK Lulusan Terbaik</div>
+                        <div class="stat-desc">IPK Kelulusan (Magna Cum Laude)</div>
                     </div>
 
-                    <div class="stat-card reveal reveal-delay-1">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                            </svg>
-                        </div>
-                        <div class="stat-number-wrapper">
+                    <div class="stat-item reveal reveal-delay-1">
+                        <div class="stat-num-wrapper">
                             <span class="stat-number" data-target="785">0</span>
                             <span class="stat-suffix">K+</span>
                         </div>
-                        <div class="stat-label">Data Records Dianalisis</div>
+                        <div class="stat-desc">Data Records Historis Dianalisis</div>
                     </div>
 
-                    <div class="stat-card reveal reveal-delay-2">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="18" y1="20" x2="18" y2="10"></line>
-                                <line x1="12" y1="20" x2="12" y2="4"></line>
-                                <line x1="6" y1="20" x2="6" y2="14"></line>
-                            </svg>
-                        </div>
-                        <div class="stat-number-wrapper">
+                    <div class="stat-item reveal reveal-delay-2">
+                        <div class="stat-num-wrapper">
                             <span class="stat-number" data-target="92.4">0</span>
                             <span class="stat-suffix">%</span>
                         </div>
-                        <div class="stat-label">Akurasi Model Machine Learning</div>
+                        <div class="stat-desc">Akurasi Model NLP Skripsi</div>
                     </div>
 
-                    <div class="stat-card reveal reveal-delay-3">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="3" y1="9" x2="21" y2="9"></line>
-                                <line x1="9" y1="21" x2="9" y2="9"></line>
-                            </svg>
-                        </div>
-                        <div class="stat-number-wrapper">
+                    <div class="stat-item reveal reveal-delay-3">
+                        <div class="stat-num-wrapper">
                             <span class="stat-number" data-target="10">0</span>
                             <span class="stat-suffix">+</span>
                         </div>
-                        <div class="stat-label">Proyek & Dasbor Data</div>
+                        <div class="stat-desc">Proyek & Dasbor Visualisasi</div>
                     </div>
                 </div>
             </div>
@@ -261,111 +188,70 @@
         <section class="section" id="about">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-badge">Profil Profesional</span>
-                    <h2 class="section-title">Mengubah Kompleksitas Data Menjadi <span class="text-gradient">Wawasan Strategis</span></h2>
-                    <p class="section-desc">Kombinasi ketelitian analitis, keahlian pemrograman Python & SQL, serta visualisasi data bisnis interaktif.</p>
+                    <span class="section-badge">Profil Akademis & Profesional</span>
+                    <h2 class="section-title">Latar Belakang & Pendekatan Kerja</h2>
+                    <p class="section-desc">Menjembatani analisis statistik murni dengan kebutuhan bisnis nyata melalui rekayasa data yang terstruktur.</p>
                 </div>
 
-                <div class="about-grid">
+                <div class="about-layout">
                     <div class="about-card reveal">
-                        <div class="about-edu-badge">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                            </svg>
-                            <span>Pendidikan Formal (2022 - 2026)</span>
-                        </div>
-
+                        <span class="about-edu-tag">Pendidikan Formal (2022 - 2026)</span>
                         <h3 class="about-edu-title">Universitas Budi Luhur, Jakarta</h3>
-                        <p class="about-edu-sub">Sarjana Komputer (S.Kom) - Sistem Informasi</p>
+                        <p class="about-edu-degree">Sarjana Komputer (S.Kom) - Sistem Informasi &bull; Peminatan Data Science</p>
 
-                        <div class="about-gpa-box">
+                        <div class="about-gpa-pill">
                             <span>Indeks Prestasi Kumulatif:</span>
                             <strong>3.88 / 4.00</strong>
                         </div>
 
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Mata Kuliah Utama yang Dikuasai:</p>
-                        <div class="about-courses">
-                            <span class="course-tag">Analisis Big Data</span>
-                            <span class="course-tag">Pemodelan Data & ML</span>
-                            <span class="course-tag">Rekayasa Data (Data Engineering)</span>
-                            <span class="course-tag">Visualisasi Data & BI</span>
-                            <span class="course-tag">Manajemen Basis Data Relasional</span>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600;">Mata Kuliah Utama:</p>
+                        <div class="about-course-chips">
+                            <span class="course-chip">Analisis Big Data</span>
+                            <span class="course-chip">Pemodelan Data & ML</span>
+                            <span class="course-chip">Rekayasa Data (Data Engineering)</span>
+                            <span class="course-chip">Visualisasi Data & BI</span>
+                            <span class="course-chip">Basis Data Relasional</span>
                         </div>
                     </div>
 
-                    <div class="about-text-content reveal reveal-delay-1">
+                    <div class="about-story reveal reveal-delay-1">
                         <p>
-                            Saya adalah lulusan baru Sistem Informasi dengan spesialisasi <strong>Data Science</strong>. Saya memiliki antusiasme mendalam pada siklus penuh pengolahan data (end-to-end data pipeline), mulai dari <em>data extraction & web scraping</em>, pembersihan teks tak terstruktur, hingga perancangan model prediktif dan dasbor eksekutif.
+                            Sebagai lulusan Sistem Informasi dengan peminatan Data Science, saya berfokus pada alur kerja data terintegrasi: mulai dari eksplorasi data mentah, pembersihan teks dan normalisasi bahasa, perancangan model prediktif, hingga visualisasi dalam format dasbor eksekutif.
                         </p>
                         <p>
-                            Dalam Tugas Akhir, saya merancang aplikasi analisis sentimen respon netizen YouTube dengan membandingkan performa <strong>Support Vector Machine (SVM)</strong> dan <strong>Naive Bayes</strong> yang berhasil mencapai akurasi <strong>92.4%</strong>.
+                            Pada penelitian Tugas Akhir, saya merancang sistem klasifikasi analisis sentimen pada belasan ribu komentar YouTube berbahasa Indonesia dengan membandingkan model <strong>Support Vector Machine (SVM)</strong> dan <strong>Multinomial Naive Bayes</strong>, yang menghasilkan akurasi tertinggi sebesar <strong>92.4%</strong>.
                         </p>
 
-                        <div class="about-pillars">
-                            <div class="pillar-item">
-                                <div class="pillar-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="pillar-text">
-                                    <h5>Machine Learning & NLP</h5>
-                                    <p>Klasifikasi teks, InSet Lexicon, dan pemodelan prediktif.</p>
-                                </div>
+                        <div class="competency-grid">
+                            <div class="competency-item">
+                                <h4>Machine Learning & NLP</h4>
+                                <p>Normalisasi kata slang, leksikon InSet, komparasi algoritma klasifikasi.</p>
                             </div>
-
-                            <div class="pillar-item">
-                                <div class="pillar-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                                        <line x1="12" y1="17" x2="12" y2="21"></line>
-                                    </svg>
-                                </div>
-                                <div class="pillar-text">
-                                    <h5>Business Intelligence</h5>
-                                    <p>Interactive Tableau & Looker Studio dashboard.</p>
-                                </div>
+                            <div class="competency-item">
+                                <h4>Business Intelligence</h4>
+                                <p>Perancangan dasbor interaktif di Tableau & Looker Studio.</p>
                             </div>
-
-                            <div class="pillar-item">
-                                <div class="pillar-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                                    </svg>
-                                </div>
-                                <div class="pillar-text">
-                                    <h5>Data Extraction & SQL</h5>
-                                    <p>Web scraping, data aggregation, dan query relasional.</p>
-                                </div>
+                            <div class="competency-item">
+                                <h4>Ekstraksi & SQL</h4>
+                                <p>Web scraping data tabular dan agregasi kueri relasional kompleks.</p>
                             </div>
-
-                            <div class="pillar-item">
-                                <div class="pillar-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                    </svg>
-                                </div>
-                                <div class="pillar-text">
-                                    <h5>Business-Driven Impact</h5>
-                                    <p>Menerjemahkan statistik menjadi aksi nyata.</p>
-                                </div>
+                            <div class="competency-item">
+                                <h4>Business Value Focus</h4>
+                                <p>Menerjemahkan wawasan statistik menjadi rekomendasi praktis.</p>
                             </div>
                         </div>
 
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <a href="assets/docs/Khairul_Raihan_Hidayat_CV.docx" download class="btn btn-primary">
+                            <a href="assets/docs/Khairul_Raihan_Hidayat_CV.docx" download class="btn btn-primary" id="btn-about-cv">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                     <polyline points="7 10 12 15 17 10"></polyline>
                                     <line x1="12" y1="15" x2="12" y2="3"></line>
                                 </svg>
-                                <span>Unduh Resume Lengkap (ATS)</span>
+                                <span>Unduh Resume (ATS)</span>
                             </a>
                             <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                                <span>Diskusi Langsung via WhatsApp</span>
+                                <span>Hubungi via WhatsApp</span>
                             </a>
                         </div>
                     </div>
@@ -377,13 +263,13 @@
         <section class="section" id="skills">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-badge">Keahlian & Perkakas</span>
-                    <h2 class="section-title">Tech Stack & <span class="text-gradient">Kompetensi Teknis</span></h2>
-                    <p class="section-desc">Perangkat lunak, bahasa pemrograman, dan metodologi data science yang saya gunakan dalam mengeksekusi proyek.</p>
+                    <span class="section-badge">Kompetensi Teknis</span>
+                    <h2 class="section-title">Tech Stack & Perangkat Kerja</h2>
+                    <p class="section-desc">Pengelompokan alat, library, dan teknologi yang digunakan dalam proyek analitik data dan machine learning.</p>
                 </div>
 
-                <div class="skills-container" id="skills-container">
-                    <!-- Injected dynamically via data.js and main.js -->
+                <div class="skills-matrix" id="skills-container">
+                    <!-- Rendered dynamically from data.js -->
                 </div>
             </div>
         </section>
@@ -393,97 +279,88 @@
             <div class="container">
                 <div class="section-header reveal">
                     <span class="section-badge">Studi Kasus & Proyek</span>
-                    <h2 class="section-title">Portofolio <span class="text-gradient">Data Terpilih</span></h2>
-                    <p class="section-desc">Koleksi proyek data science, machine learning, visualisasi dasbor BI, dan eksplorasi analitis.</p>
+                    <h2 class="section-title">Portofolio Proyek Terpilih</h2>
+                    <p class="section-desc">Dokumentasi proyek penelitian skripsi, dasbor analitik bisnis, dan eksplorasi data kuantitatif.</p>
                 </div>
 
-                <!-- Filter Tabs -->
-                <div class="project-filters reveal">
+                <div class="project-filter-bar reveal">
                     <button class="filter-btn active" data-filter="all">Semua Proyek</button>
                     <button class="filter-btn" data-filter="nlp">Machine Learning & NLP</button>
                     <button class="filter-btn" data-filter="bi">Business Intelligence</button>
                     <button class="filter-btn" data-filter="analytics">Data Analytics & Scraping</button>
                 </div>
 
-                <!-- Project Grid -->
                 <div class="projects-grid" id="projects-grid">
                     <!-- Rendered dynamically from data.js -->
                 </div>
             </div>
         </section>
 
-        <!-- Live Interactive Sentiment Analyzer Demo Section -->
-        <section class="section demo-section" id="demo">
+        <!-- Interactive Research Console / Demo Section -->
+        <section class="section" id="demo">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-badge">Interactive Playground</span>
-                    <h2 class="section-title">Uji Langsung <span class="text-gradient">Model Analisis Sentimen NLP</span></h2>
-                    <p class="section-desc">Simulator interaktif yang memproses opini berbahasa Indonesia secara real-time dengan kamus leksikon dan normalisasi kata slang.</p>
+                    <span class="section-badge">Research Testing Console</span>
+                    <h2 class="section-title">Pengujian Langsung Model NLP</h2>
+                    <p class="section-desc">Simulator leksikon sentimen untuk menguji klasifikasi opini teks berbahasa Indonesia dengan normalisasi kata tidak baku.</p>
                 </div>
 
-                <div class="analyzer-card reveal">
-                    <div class="analyzer-header">
-                        <div class="analyzer-title-box">
-                            <h3>NLP Sentiment Classifier (Demo)</h3>
-                            <p>Algoritma: Support Vector Machine (SVM) / Lexicon Hybrid Model</p>
+                <div class="console-card reveal">
+                    <div class="console-header">
+                        <div class="console-title">
+                            <h3>Sentiment Classifier Console</h3>
+                            <p>Metodologi: Kamus Leksikon InSet & Pembobotan Sentimen</p>
                         </div>
-                        <div class="model-selector">
-                            <span class="model-btn active">Bahasa Indonesia</span>
-                        </div>
+                        <span class="console-badge">Bahasa Indonesia</span>
                     </div>
 
-                    <div class="analyzer-input-area">
-                        <label for="analyzer-input" class="form-label">Ketik teks / ulasan yang ingin dianalisis:</label>
-                        <textarea id="analyzer-input" class="analyzer-textarea" placeholder="Contoh: Penjelasan visualisasi data di dashboard ini sangat informatif dan memuaskan!">Penjelasan visualisasi data di dashboard ini sangat informatif dan memuaskan!</textarea>
+                    <label for="analyzer-input" class="form-label">Masukkan teks komentar untuk dianalisis:</label>
+                    <textarea id="analyzer-input" class="console-textarea" placeholder="Contoh: Penjelasan visualisasi data di dashboard ini sangat informatif dan memuaskan!">Penjelasan visualisasi data di dashboard ini sangat informatif dan memuaskan!</textarea>
+
+                    <div class="sample-prompts-row">
+                        <span style="font-size: 0.78rem; color: var(--text-muted);">Pilih contoh uji:</span>
+                        <button type="button" class="sample-chip" data-text="Wah materinya daging banget, analisis datanya rapi dan mudah dipahami!">Contoh Positif (Materi rapi & daging)</button>
+                        <button type="button" class="sample-chip" data-text="Aplikasi sering error, loading lelet bgt dan responnya mengecewakan.">Contoh Negatif (Error, lelet bgt)</button>
+                        <button type="button" class="sample-chip" data-text="Video sudah ditonton sampai selesai, standar saja.">Contoh Netral (Standar saja)</button>
                     </div>
 
-                    <div class="sample-prompts">
-                        <span class="sample-label">Coba Contoh Cepat:</span>
-                        <button type="button" class="sample-chip" data-text="Wah materinya daging banget, analisis datanya rapi dan mudah dipahami!">👍 Positif ("materi daging, rapi")</button>
-                        <button type="button" class="sample-chip" data-text="Aplikasi sering error, loading lelet bgt dan responnya mengecewakan.">👎 Negatif ("error, lelet bgt")</button>
-                        <button type="button" class="sample-chip" data-text="Video sudah ditonton sampai selesai, lumayan untuk pemula.">😐 Netral ("lumayan pemula")</button>
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <button class="btn btn-primary" id="btn-analyze-text">
+                    <div style="margin-bottom: 1.25rem;">
+                        <button class="btn btn-primary btn-sm" id="btn-analyze-text">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
-                            <span>Analisis Sentimen Sekarang</span>
+                            <span>Jalankan Klasifikasi Teks</span>
                         </button>
                     </div>
 
-                    <div class="analyzer-result-box" id="analyzer-result">
-                        <div class="sentiment-display">
-                            <span class="sentiment-emoji" id="sentiment-emoji">😊</span>
+                    <div class="console-result-grid" id="analyzer-result">
+                        <div class="sentiment-output-box">
+                            <div class="sentiment-emoji" id="sentiment-emoji">😊</div>
                             <div class="sentiment-label positive" id="sentiment-label">POSITIF</div>
                         </div>
 
-                        <div class="confidence-meter">
-                            <h5>Estimasi Distribusi Probabilitas Klasifikasi:</h5>
-                            <div class="prob-bars">
-                                <div class="prob-row">
-                                    <span class="prob-name">Positif</span>
-                                    <div class="prob-bar-track">
-                                        <div class="prob-fill pos" id="prob-pos-fill" style="width: 85%;"></div>
-                                    </div>
-                                    <span class="prob-val" id="prob-pos-val">85%</span>
+                        <div class="prob-bars-list">
+                            <div class="prob-bar-row">
+                                <span class="prob-name">Positif</span>
+                                <div class="prob-track">
+                                    <div class="prob-fill pos" id="prob-pos-fill" style="width: 85%;"></div>
                                 </div>
-                                <div class="prob-row">
-                                    <span class="prob-name">Netral</span>
-                                    <div class="prob-bar-track">
-                                        <div class="prob-fill neu" id="prob-neu-fill" style="width: 10%;"></div>
-                                    </div>
-                                    <span class="prob-val" id="prob-neu-val">10%</span>
+                                <span class="prob-val" id="prob-pos-val">85%</span>
+                            </div>
+                            <div class="prob-bar-row">
+                                <span class="prob-name">Netral</span>
+                                <div class="prob-track">
+                                    <div class="prob-fill neu" id="prob-neu-fill" style="width: 10%;"></div>
                                 </div>
-                                <div class="prob-row">
-                                    <span class="prob-name">Negatif</span>
-                                    <div class="prob-bar-track">
-                                        <div class="prob-fill neg" id="prob-neg-fill" style="width: 5%;"></div>
-                                    </div>
-                                    <span class="prob-val" id="prob-neg-val">5%</span>
+                                <span class="prob-val" id="prob-neu-val">10%</span>
+                            </div>
+                            <div class="prob-bar-row">
+                                <span class="prob-name">Negatif</span>
+                                <div class="prob-track">
+                                    <div class="prob-fill neg" id="prob-neg-fill" style="width: 5%;"></div>
                                 </div>
+                                <span class="prob-val" id="prob-neg-val">5%</span>
                             </div>
                         </div>
                     </div>
@@ -495,9 +372,9 @@
         <section class="section" id="certifications">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-badge">Kredensial & Lisensi</span>
-                    <h2 class="section-title">Sertifikasi & <span class="text-gradient">Pelatihan Profesional</span></h2>
-                    <p class="section-desc">Validasi kompetensi akademis dan industri dalam data analytics, algoritma, dan pemrograman data science.</p>
+                    <span class="section-badge">Kredensial Resmi</span>
+                    <h2 class="section-title">Sertifikasi & Lisensi Keahlian</h2>
+                    <p class="section-desc">Validasi kompetensi profesional dalam data analytics, algoritma komputer, dan pemrograman data science.</p>
                 </div>
 
                 <div class="certifications-grid" id="certifications-grid">
@@ -510,101 +387,94 @@
         <section class="section" id="contact">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-badge">Mari Terhubung</span>
-                    <h2 class="section-title">Siap Berkontribusi <span class="text-gradient">Untuk Tim Anda</span></h2>
-                    <p class="section-desc">Terbuka untuk posisi Data Scientist, Data Analyst, BI Specialist, atau kolaborasi proyek data.</p>
+                    <span class="section-badge">Komunikasi & Kontak</span>
+                    <h2 class="section-title">Informasi Kontak & Kolaborasi</h2>
+                    <p class="section-desc">Terbuka untuk peluang karir Data Scientist, Data Analyst, BI Specialist, atau diskusi riset.</p>
                 </div>
 
-                <div class="contact-grid">
-                    <div class="contact-info-panel reveal">
-                        <div class="contact-info-card">
-                            <div class="contact-card-icon">
+                <div class="contact-layout">
+                    <div class="contact-info-column reveal">
+                        <div class="contact-card-item">
+                            <div class="contact-icon-box">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
                             </div>
-                            <div class="contact-card-details">
-                                <h4>Email Resmi</h4>
-                                <a href="mailto:khairulraihan617@gmail.com">khairulraihan617@gmail.com</a>
+                            <div class="contact-info-details">
+                                <h4>Email</h4>
+                                <a href="mailto:khairulraihan617@gmail.com" id="contact-email-text">khairulraihan617@gmail.com</a>
                                 <br>
-                                <button class="copy-email-btn" id="btn-copy-email">
-                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                    </svg>
-                                    <span>Salin Email</span>
-                                </button>
+                                <button type="button" class="copy-btn" id="btn-copy-email">Salin Email</button>
                             </div>
                         </div>
 
-                        <div class="contact-info-card">
-                            <div class="contact-card-icon">
+                        <div class="contact-card-item">
+                            <div class="contact-icon-box">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                                 </svg>
                             </div>
-                            <div class="contact-card-details">
-                                <h4>WhatsApp / Telepon</h4>
+                            <div class="contact-info-details">
+                                <h4>WhatsApp</h4>
                                 <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer">+62 898-951-8334</a>
                             </div>
                         </div>
 
-                        <div class="contact-info-card">
-                            <div class="contact-card-icon">
+                        <div class="contact-card-item">
+                            <div class="contact-icon-box">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                     <circle cx="12" cy="10" r="3"></circle>
                                 </svg>
                             </div>
-                            <div class="contact-card-details">
-                                <h4>Lokasi Domisili</h4>
+                            <div class="contact-info-details">
+                                <h4>Domisili</h4>
                                 <p>Kota Tangerang, Banten, Indonesia</p>
                             </div>
                         </div>
 
-                        <div class="contact-info-card">
-                            <div class="contact-card-icon">
+                        <div class="contact-card-item">
+                            <div class="contact-icon-box">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>
                             </div>
-                            <div class="contact-card-details">
-                                <h4>LinkedIn Profile</h4>
+                            <div class="contact-info-details">
+                                <h4>LinkedIn</h4>
                                 <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer">linkedin.com/in/khairul-raihan-hidayat</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Contact Form -->
-                    <div class="contact-form-card reveal reveal-delay-1">
+                    <div class="contact-form-container reveal reveal-delay-1">
                         <form id="contact-form">
                             <div class="form-group">
-                                <label for="sender-name" class="form-label">Nama Lengkap / Perusahaan *</label>
-                                <input type="text" id="sender-name" class="form-control" placeholder="Contoh: Sarah / PT Teknologi Indonesia" required>
+                                <label for="sender-name" class="form-label">Nama Lengkap / Instansi *</label>
+                                <input type="text" id="sender-name" class="form-control" placeholder="Nama Anda atau Perusahaan" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="sender-email" class="form-label">Alamat Email Anda *</label>
-                                <input type="email" id="sender-email" class="form-control" placeholder="nama@perusahaan.com" required>
+                                <label for="sender-email" class="form-label">Email Anda *</label>
+                                <input type="email" id="sender-email" class="form-control" placeholder="email@perusahaan.com" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="sender-subject" class="form-label">Subjek Pesan</label>
-                                <input type="text" id="sender-subject" class="form-control" placeholder="Tawaran Kerja / Undangan Wawancara / Diskusi Proyek">
+                                <label for="sender-subject" class="form-label">Subjek</label>
+                                <input type="text" id="sender-subject" class="form-control" placeholder="Peluang Kerja / Kolaborasi Riset">
                             </div>
 
                             <div class="form-group">
-                                <label for="sender-message" class="form-label">Pesan Anda *</label>
-                                <textarea id="sender-message" class="form-control" placeholder="Tuliskan pesan atau detail peluang yang ingin didiskusikan..." required></textarea>
+                                <label for="sender-message" class="form-label">Pesan *</label>
+                                <textarea id="sender-message" class="form-control" placeholder="Tuliskan pesan Anda..." required></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <span>Kirim Pesan</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <line x1="22" y1="2" x2="11" y2="13"></line>
                                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                                 </svg>
-                                <span>Kirim Pesan Sekarang</span>
                             </button>
                         </form>
                     </div>
@@ -617,7 +487,7 @@
     <div class="modal-overlay" id="project-modal">
         <div class="modal-content">
             <button class="modal-close-btn" id="modal-close-btn" aria-label="Tutup Modal">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -632,43 +502,28 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
-                <div class="footer-info">
-                    <a href="#home" class="logo" style="margin-bottom: 0.5rem;">
-                        <div class="logo-badge">KR</div>
-                        <span>Khairul Raihan Hidayat</span>
-                    </a>
-                    <p>Sarjana Komputer - Sistem Informasi (Peminatan Data Science), Universitas Budi Luhur</p>
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.25rem;">Khairul Raihan Hidayat</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Sarjana Komputer &bull; Sistem Informasi (Data Science) &bull; Universitas Budi Luhur</p>
                 </div>
 
-                <div class="footer-socials">
-                    <a href="https://github.com/KhairulRaihan" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                <div class="hero-socials">
+                    <a href="https://github.com/KhairulRaihan" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:khairulraihan617@gmail.com" class="social-link" title="Email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                     </a>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Khairul Raihan Hidayat. Semua hak cipta dilindungi. Hosted with GitHub Pages. &bull; <a href="admin.html" style="color: var(--accent-cyan); text-decoration: underline; opacity: 0.8;" title="Masuk ke Panel Pengelolaan Portofolio">Admin Panel</a></p>
-                <a href="#home" class="back-to-top-btn">
-                    <span>Kembali ke Atas</span>
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="12" y1="19" x2="12" y2="5"></line>
-                        <polyline points="5 12 12 5 19 12"></polyline>
-                    </svg>
-                </a>
+                <p>&copy; 2026 Khairul Raihan Hidayat. Hosted with GitHub Pages. &bull; <a href="admin.html" style="color: var(--accent-blue); text-decoration: underline;" title="Buka Admin CMS">Admin Panel</a></p>
+                <a href="#home" style="color: var(--accent-blue); font-weight: 600;">&uarr; Kembali ke Atas</a>
             </div>
         </div>
     </footer>

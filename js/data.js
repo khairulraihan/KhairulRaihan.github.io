@@ -1,15 +1,15 @@
 /**
  * Portfolio Data Configuration for Khairul Raihan Hidayat
- * Data Science & Analytics Specialist
+ * Data Science & Business Intelligence Specialist
  */
 
 const portfolioData = {
     personal: {
         name: "Khairul Raihan Hidayat",
         nickname: "Raihan",
-        role: "Data Science & BI Analyst",
-        tagline: "Translating Complex Data into Strategic Business Decisions",
-        bio: "Fresh Graduate Sistem Informasi (Peminatan Data Science) dari Universitas Budi Luhur dengan IPK 3.88/4.00. Berpengalaman dalam pemodelan Machine Learning (NLP, Klasifikasi, Clustering), ekstraksi data (Web Scraping & SQL), serta perancangan dasbor Business Intelligence interaktif (Tableau & Looker Studio).",
+        role: "Data Science & BI Specialist",
+        tagline: "Menerjemahkan Data Kompleks Menjadi Keputusan Bisnis Strategis",
+        bio: "Lulusan Sarjana Komputer Sistem Informasi (Peminatan Data Science) dari Universitas Budi Luhur dengan IPK 3.88/4.00. Memiliki fokus praktis pada siklus pengolahan data end-to-end: ekstraksi data (SQL & Web Scraping), pemodelan Machine Learning (Natural Language Processing & Klasifikasi), serta perancangan dasbor Business Intelligence (Tableau & Looker Studio).",
         location: "Kota Tangerang, Banten, Indonesia",
         email: "khairulraihan617@gmail.com",
         phone: "+62 898-951-8334",
@@ -27,47 +27,54 @@ const portfolioData = {
         }
     },
 
+    roles: [
+        "Data Science & Analytics",
+        "NLP & Machine Learning Specialist",
+        "Business Intelligence (Tableau & SQL)",
+        "Fresh Graduate S.Kom (IPK 3.88)"
+    ],
+
     stats: [
-        { label: "Indeks Prestasi Kumulatif (IPK)", value: "3.88", suffix: "/4.00", icon: "academic" },
-        { label: "Data Records Dianalisis", value: "780", suffix: "K+", icon: "database" },
-        { label: "Akurasi Model Machine Learning", value: "92", suffix: "%", icon: "chart" },
+        { label: "IPK Kelulusan (Magna Cum Laude)", value: "3.88", suffix: "/4.00", icon: "academic" },
+        { label: "Data Records Historis Dianalisis", value: "785", suffix: "K+", icon: "database" },
+        { label: "Akurasi Model NLP Skripsi", value: "92.4", suffix: "%", icon: "chart" },
         { label: "Proyek & Visualisasi Data", value: "10", suffix: "+", icon: "folder" }
     ],
 
     skills: [
         {
-            category: "Programming & Databases",
-            description: "Bahasa pemrograman dan kueri basis data untuk pembersihan data, eksplorasi, dan rekayasa fitur.",
+            category: "Bahasa Pemrograman & Basis Data",
+            description: "Fondasi utama dalam rekayasa fitur, pembersihan data, dan query relasional.",
             items: [
-                { name: "Python", level: 92, icon: "python", tags: ["Pandas", "NumPy", "Scikit-Learn", "NLTK", "Matplotlib", "Seaborn"] },
-                { name: "SQL", level: 88, icon: "sql", tags: ["MySQL", "PostgreSQL", "Data Aggregation", "Subqueries", "Joins"] },
-                { name: "R Language", level: 75, icon: "r", tags: ["Data Science Fundamental", "Statistical Analysis"] }
+                { name: "Python", status: "Utama", tags: ["Pandas", "NumPy", "Scikit-Learn", "NLTK", "Matplotlib", "Seaborn"] },
+                { name: "SQL", status: "Kueri Tingkat Lanjut", tags: ["MySQL", "PostgreSQL", "Aggregations", "Joins & Subqueries"] },
+                { name: "R Language", status: "Fundamental", tags: ["Statistical Analysis", "Data Mining"] }
             ]
         },
         {
-            category: "Data Science & Machine Learning",
-            description: "Pengembangan model prediktif, klasifikasi teks, pemrosesan bahasa alami (NLP), dan clustering.",
+            category: "Machine Learning & Natural Language Processing",
+            description: "Pengembangan pipeline pemrosesan teks dan pemodelan klasifikasi terkomparasi.",
             items: [
-                { name: "Natural Language Processing (NLP)", level: 90, icon: "nlp", tags: ["Text Cleaning", "Tokenization", "InSet Lexicon", "TF-IDF / CountVec"] },
-                { name: "Classification Models", level: 88, icon: "brain", tags: ["Support Vector Machine (SVM)", "Naive Bayes", "KNN"] },
-                { name: "Clustering & Modeling", level: 82, icon: "network", tags: ["K-Means", "Predictive Analytics", "Data Modeling"] }
+                { name: "Natural Language Processing (NLP)", status: "Spesialisasi Skripsi", tags: ["Text Preprocessing", "InSet Lexicon", "Tokenization", "TF-IDF / CountVec"] },
+                { name: "Model Klasifikasi & Prediksi", status: "Penerapan Praktis", tags: ["Support Vector Machine (SVM)", "Multinomial Naive Bayes", "KNN"] },
+                { name: "Clustering & Data Modeling", status: "Eksploratif", tags: ["K-Means Clustering", "Feature Engineering"] }
             ]
         },
         {
-            category: "BI & Data Visualization",
-            description: "Perancangan dasbor interaktif, visualisasi analitis, dan storytelling berbasis data untuk bisnis.",
+            category: "Business Intelligence & Visualisasi Data",
+            description: "Transformasi kumpulan data menjadi dasbor eksekutif dan visual storytelling.",
             items: [
-                { name: "Tableau", level: 90, icon: "tableau", tags: ["Interactive Dashboards", "Calculated Fields", "Trend & Seasonal Analysis"] },
-                { name: "Looker Studio", level: 85, icon: "looker", tags: ["Business Reporting", "KPI Tracking", "Executive Dashboards"] },
-                { name: "Excel Advanced", level: 88, icon: "excel", tags: ["Pivot Tables", "VLOOKUP/XLOOKUP", "Data Cleansing"] }
+                { name: "Tableau", status: "Dasbor Interaktif", tags: ["Calculated Fields", "Trend & Seasonality", "Executive KPI Tracking"] },
+                { name: "Looker Studio", status: "Pelaporan Bisnis", tags: ["Interactive Reporting", "Real-time Metrics"] },
+                { name: "Microsoft Excel Advanced", status: "Analisis Cepat", tags: ["Pivot Tables", "VLOOKUP/XLOOKUP", "Data Cleansing"] }
             ]
         },
         {
-            category: "Tools & Development",
-            description: "Alat bantu kerja, lingkungan pengembangan, kontrol versi, dan desain antarmuka.",
+            category: "Tools Pengembangan & Kolaborasi",
+            description: "Lingkungan kerja terpadu untuk eksperimen, deployment, dan version control.",
             items: [
-                { name: "Development Tools", level: 90, icon: "terminal", tags: ["VS Code", "Jupyter Notebook", "Streamlit", "Git & GitHub"] },
-                { name: "Data Tools & UI/UX", level: 85, icon: "palette", tags: ["RapidMiner", "Figma", "Canva", "CapCut"] }
+                { name: "Development & Version Control", status: "Harian", tags: ["VS Code", "Jupyter Notebook", "Streamlit", "Git & GitHub"] },
+                { name: "Data Science Tools & Design", status: "Pendukung", tags: ["RapidMiner", "Figma", "Canva"] }
             ]
         }
     ],
@@ -76,18 +83,18 @@ const portfolioData = {
         {
             id: "youtube-nlp-sentiment",
             title: "Pemodelan Analisis Sentimen Respons Netizen YouTube",
-            subtitle: "Tugas Akhir / Skripsi (Machine Learning & NLP)",
+            subtitle: "Tugas Akhir / Skripsi — Natural Language Processing & Streamlit",
             category: "nlp",
             categoryName: "Machine Learning & NLP",
             featured: true,
-            badge: "Skripsi / Tugas Akhir",
+            badge: "Tugas Akhir Skripsi",
             image: "assets/images/project-nlp.jpg",
-            overview: "Aplikasi dan riset end-to-end pemodelan Machine Learning untuk klasifikasi sentimen publik pada komentar YouTube berbahasa Indonesia menggunakan komparasi algoritma Support Vector Machine (SVM) dan Naive Bayes.",
+            overview: "Riset komparasi performa algoritma Support Vector Machine (SVM) dan Naive Bayes untuk mengklasifikasikan persepsi publik pada belasan ribu komentar YouTube berbahasa Indonesia.",
             highlights: [
-                "Ekstraksi ribuan data komentar secara real-time via YouTube Data API v3",
-                "Pipeline NLP lengkap: normalisasi kata slang (kamus baku lokal), stemming/tokenization, stopword removal, dan InSet Lexicon",
-                "Komparasi algoritma SVM vs Naive Bayes dengan akurasi model mencapai 92.4%",
-                "Integrasi Web App interaktif berbasis Streamlit dengan visualisasi WordCloud & Confusion Matrix"
+                "Ekstraksi dataset komentar secara langsung menggunakan YouTube Data API v3",
+                "Normalisasi teks komprehensif: pemetaan kata slang (kamus kata baku lokal), stopword removal, dan leksikon InSet",
+                "Akurasi model klasifikasi SVM mencapai 92.4% dan Multinomial Naive Bayes sebesar 91.6%",
+                "Implementasi aplikasi web interaktif berbasis Streamlit lengkap dengan WordCloud dan matriks evaluasi"
             ],
             techStack: ["Python", "Streamlit", "Scikit-Learn", "NLTK", "YouTube Data API", "Pandas", "Matplotlib", "Seaborn"],
             metrics: [
@@ -96,41 +103,41 @@ const portfolioData = {
                 { label: "Akurasi Naive Bayes", val: "91.6%" }
             ],
             details: {
-                problem: "Komentar netizen pada platform video seperti YouTube memiliki volume masif dan struktur bahasa tidak baku (slang, singkatan), sehingga sulit dianalisis secara manual untuk mengukur persepsi publik terhadap konten edukasi dan informasi.",
-                solution: "Membangun sistem klasifikasi teks berbasis Python dengan normalisasi kamus kata baku, ekstraksi leksikon sentimen (InSet), serta melatih model SVM dan Multinomial Naive Bayes. Hasil dikemas dalam aplikasi Streamlit interaktif yang menyajikan WordCloud, matriks evaluasi, dan distribusi sentimen.",
-                impact: "Membantu content creator dan analis media mengidentifikasi respon netizen secara presisi dalam hitungan detik dengan tingkat akurasi di atas 92%."
+                problem: "Bahasa ulasan netizen di media sosial sarat dengan bahasa tidak baku, singkatan, dan slang daerah, menyulitkan pengukuran sentimen publik secara manual pada skala besar.",
+                solution: "Membangun pipeline NLP terpadu di Python dengan kamus normalisasi kata baku lokal, leksikon sentimen InSet, dan perbandingan model SVM vs Naive Bayes. Hasil dikemas dalam aplikasi Streamlit yang responsif.",
+                impact: "Memungkinkan analis media dan kreator konten memetakan persepsi publik terhadap video edukasi dalam hitungan detik dengan tingkat keandalan di atas 92%."
             },
             links: {
                 github: "https://github.com/KhairulRaihan",
-                demo: "#demo-analyzer"
+                demo: "#demo"
             }
         },
         {
             id: "amazon-sales-analytics",
-            title: "Amazon Sales Performance & Seasonal BI Dashboard",
-            subtitle: "Business Intelligence & Revenue Analytics",
+            title: "Analisis Kinerja Penjualan & Tren Musiman Amazon",
+            subtitle: "Business Intelligence & Revenue Forecasting",
             category: "bi",
             categoryName: "Business Intelligence",
             featured: true,
             badge: "BI Dashboard",
             image: "assets/images/project-tableau.jpg",
-            overview: "Eksplorasi dan visualisasi dataset penjualan historis Amazon dengan merancang dasbor eksekutif Tableau yang komprehensif untuk menganalisis tren omzet musiman dan segmentasi konsumen.",
+            overview: "Eksplorasi dataset transaksi Amazon historis untuk memetakan perilaku pembelian pelanggan, pola pendapatan musiman, dan kontribusi kategori produk.",
             highlights: [
-                "Analisis lebih dari 780.000+ catatan transaksi historis penjualan",
-                "Identifikasi pola penjualan musiman (peak season) dan fluktuasi bulanan",
-                "Visualisasi persebaran geografis pembeli (Geographic Heatmap) dan performa kategori produk",
-                "Formulasi rekomendasi strategis untuk optimasi promosi dan manajemen inventaris"
+                "Pengolahan dan pembersihan dataset transaksi skala besar (780.000+ baris data)",
+                "Perancangan dasbor eksekutif Tableau dengan filter dinamis berdasarkan wilayah, periode, dan lini produk",
+                "Identifikasi lonjakan transaksi pada kuartal ketiga (Q3) sebagai dasar strategi alokasi inventaris",
+                "Pemetaan segmentasi geografis pembeli melalui peta panas distribusi penjualan"
             ],
             techStack: ["Tableau", "Python", "Data Cleansing", "Business Analytics", "Excel"],
             metrics: [
                 { label: "Total Transaksi", val: "785K+" },
-                { label: "Kategori Produk", val: "12+" },
+                { label: "Lini Kategori", val: "12+" },
                 { label: "Revenue Scope", val: "$34M+" }
             ],
             details: {
-                problem: "Manajemen bisnis membutuhkan pemahaman mendalam terkait faktor musiman, kategori produk terlaris, dan distribusi pelanggan guna merancang kampanye promosi yang efektif.",
-                solution: "Mengembangkan interactive executive dashboard di Tableau dengan dynamic filters (wilayah, tanggal, kategori). Dasbor menyajikan visualisasi KPI utama, donut chart kategori barang, dan grafik tren bulanan.",
-                impact: "Memberikan transparansi performa bisnis dan mengidentifikasi lonjakan transaksi pada Q3 sehingga alokasi stok dan strategi diskon dapat dioptimalkan."
+                problem: "Manajemen memerlukan visibilitas cepat terhadap fluktuasi pendapatan bulanan dan kategori produk dominan guna mengoptimalkan jadwal promosi.",
+                solution: "Mengembangkan dasbor Tableau terstruktur yang menampilkan metrik pendapatan, tren bulanan, serta perbandingan pangsa pasar antarkategori produk secara visual.",
+                impact: "Membantu pengambilan keputusan berbasis data dalam menentukan alokasi stok produk dan fokus kampanye promosi musiman."
             },
             links: {
                 github: "https://github.com/KhairulRaihan",
@@ -139,30 +146,30 @@ const portfolioData = {
         },
         {
             id: "football-market-value",
-            title: "European Football Market Value Analytics",
-            subtitle: "Web Scraping & Predictive Factor Analysis",
+            title: "Analisis Faktor Valuasi Pasar Pemain Sepak Bola Eropa",
+            subtitle: "Web Scraping & Regresi Multivariabel",
             category: "analytics",
             categoryName: "Data Analytics & Scraping",
             featured: true,
             badge: "Predictive Analytics",
             image: "assets/images/project-football.jpg",
-            overview: "Studi analitis faktor-faktor kunci yang memengaruhi valuasi pasar pemain sepak bola profesional di 3 liga teratas Eropa melalui web scraping dan integrasi dataset Kaggle.",
+            overview: "Studi data kuantitatif mengenai hubungan antara metrik performa (gol, assist, usia) dengan nilai pasar transfer atlet profesional di 3 liga top Eropa.",
             highlights: [
-                "Pengambilan data pemain dan statistik performa (gol, assist, usia, liga) via Web Scraping dengan Python",
-                "Pembersihan data (Data Cleaning) dan imputation data kosong secara sistematis",
-                "Analisis korelasi dan regresi multivariabel untuk mengevaluasi pengaruh usia vs performa",
-                "Visualisasi radar chart perbandingan pemain bintang dan kurva estimasi nilai pasar"
+                "Automasi ekstraksi data statistik pemain dan valuasi pasar melalui Web Scraping dengan Python",
+                "Pembersihan data, penanganan nilai hilang (imputation), dan integrasi dataset Kaggle",
+                "Pemodelan regresi multivariabel untuk mengevaluasi korelasi performa ofensif terhadap estimasi harga",
+                "Visualisasi radar chart komparasi profil pemain kunci"
             ],
             techStack: ["Python", "Pandas", "Scikit-Learn", "BeautifulSoup", "Seaborn", "Kaggle Dataset"],
             metrics: [
-                { label: "R² Korelasi", val: "0.78" },
-                { label: "Liga Dianalisis", val: "Top 3 Eropa" },
-                { label: "Pemain Terdata", val: "1,200+" }
+                { label: "Korelasi R²", val: "0.78" },
+                { label: "Cakupan Liga", val: "Top 3 Eropa" },
+                { label: "Pemain Dianalisis", val: "1,200+" }
             ],
             details: {
-                problem: "Valuasi pasar atlet sering kali dipengaruhi berbagai faktor yang kompleks, mulai dari usia biologis, menit bermain, hingga kontribusi ofensif (gol & assist).",
-                solution: "Menggabungkan web scraping dan data mining untuk membangun dataset terpadu, lalu menerapkan analisis statistik dan pemodelan regresi guna memetakan kurva nilai puncak pemain.",
-                impact: "Menghasilkan wawasan kuantitatif mengenai titik optimal usia atlet (peak performance age 24-28 tahun) dan dampaknya terhadap nilai transfer pasar."
+                problem: "Valuasi pasar atlet kerap menjadi perdebatan karena dipengaruhi oleh gabungan faktor usia, performa individu, dan reputasi liga.",
+                solution: "Menggabungkan teknik web scraping dan analisis regresi untuk membangun model matematis yang memetakan kurva nilai puncak pemain (peak performance curve).",
+                impact: "Memberikan wawasan kuantitatif mengenai rentang usia optimal atlet (24-28 tahun) dan kontribusinya terhadap peningkatan nilai transfer."
             },
             links: {
                 github: "https://github.com/KhairulRaihan",
@@ -177,14 +184,14 @@ const portfolioData = {
             institution: "Universitas Budi Luhur, Jakarta",
             degree: "Sarjana Komputer (S.Kom) - Sistem Informasi",
             concentration: "Peminatan: Data Science",
-            gpa: "3.88 / 4.00 (Dengan Pujian / Magna Cum Laude)",
-            description: "Fokus studi pada analisis data berskala besar, pemodelan statistik, kecerdasan buatan, dan arsitektur basis data relasional.",
+            gpa: "3.88 / 4.00 (Magna Cum Laude)",
+            description: "Kurikulum terfokus pada analitik data tingkat lanjut, rekayasa data, kecerdasan buatan, dan arsitektur basis data relasional.",
             courses: [
                 "Analisis Big Data",
                 "Pemodelan Data & Machine Learning",
                 "Rekayasa Data (Data Engineering)",
                 "Visualisasi Data & Business Intelligence",
-                "Manajemen Basis Data Relasional (RDBMS)"
+                "Manajemen Basis Data Relasional"
             ]
         }
     ],
@@ -194,33 +201,33 @@ const portfolioData = {
             title: "Algorithm Certification",
             issuer: "Universitas Budi Luhur",
             date: "April 2024",
-            badgeColor: "cyan",
+            badgeColor: "blue",
             icon: "award",
-            description: "Sertifikasi komprehensif dalam penguasaan logika pemrograman, efisiensi algoritma, dan struktur data."
+            description: "Penguasaan logika algoritma, kompleksitas komputasi, dan struktur data fundamental."
         },
         {
             title: "Introduction to Data Analytics",
             issuer: "RevoU Tech Academy",
             date: "2024",
-            badgeColor: "indigo",
+            badgeColor: "emerald",
             icon: "chart",
-            description: "Pelatihan intensif metodologi analitik data, exploratory data analysis (EDA), visualisasi, dan pemecahan masalah bisnis."
+            description: "Metodologi analisis data bisnis, exploratory data analysis (EDA), dan visualisasi data praktis."
         },
         {
             title: "Python Fundamental for Data Science",
             issuer: "DQLab Academy",
             date: "Desember 2023",
-            badgeColor: "emerald",
+            badgeColor: "slate",
             icon: "python",
-            description: "Penguasaan dasar bahasa Python, manipulasi struktur data list/dictionary, dan library inti pemrosesan data."
+            description: "Sintaks Python dasar, manipulasi array/dataframe, dan pemrosesan data ilmiah."
         },
         {
             title: "R Fundamental for Data Science",
             issuer: "DQLab Academy",
             date: "Desember 2023",
-            badgeColor: "violet",
+            badgeColor: "slate",
             icon: "r",
-            description: "Dasar komputasi statistik, manipulasi data frame, dan pembuatan plot grafik menggunakan bahasa R."
+            description: "Komputasi statistik, struktur dataframe, dan visualisasi dasar dalam bahasa R."
         }
     ]
 };

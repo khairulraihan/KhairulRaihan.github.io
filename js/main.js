@@ -1,5 +1,5 @@
 /**
- * Main Interactive Application Logic
+ * Main Interactive Application Logic (Human-Crafted & Bespoke)
  * Khairul Raihan Hidayat - Data Science Portfolio
  */
 
@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     renderPersonalInfo(data);
     initTypewriter(data);
-    initParticleCanvas();
     initScrollReveal();
     initStatsCounter();
     renderSkills(data);
@@ -83,7 +82,7 @@ function initNavigation() {
 
     // Scroll Navbar Effect
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
@@ -172,16 +171,16 @@ function initTypewriter(data) {
     if (!element) return;
 
     const roles = (data && data.roles) || [
-        "Data Science Enthusiast",
+        "Data Science & Analytics",
         "NLP & Machine Learning Specialist",
-        "Business Intelligence & BI Analyst",
+        "Business Intelligence (Tableau & SQL)",
         "Fresh Graduate S.Kom (IPK 3.88)"
     ];
 
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typingSpeed = 100;
+    let typingSpeed = 90;
 
     function type() {
         const currentRole = roles[roleIndex];
@@ -189,20 +188,20 @@ function initTypewriter(data) {
         if (isDeleting) {
             element.textContent = currentRole.substring(0, charIndex - 1);
             charIndex--;
-            typingSpeed = 50;
+            typingSpeed = 45;
         } else {
             element.textContent = currentRole.substring(0, charIndex + 1);
             charIndex++;
-            typingSpeed = 110;
+            typingSpeed = 90;
         }
 
         if (!isDeleting && charIndex === currentRole.length) {
-            typingSpeed = 2000; // Pause at end
+            typingSpeed = 2200;
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
-            typingSpeed = 500;
+            typingSpeed = 400;
         }
 
         setTimeout(type, typingSpeed);
@@ -212,85 +211,7 @@ function initTypewriter(data) {
 }
 
 /* ==========================================================================
-   5. PARTICLES / CONSTELLATION BACKGROUND CANVAS
-   ========================================================================== */
-function initParticleCanvas() {
-    const canvas = document.getElementById('bg-canvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    let particles = [];
-    const particleCount = Math.min(Math.floor(window.innerWidth / 20), 45);
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.6;
-            this.vy = (Math.random() - 0.5) * 0.6;
-            this.radius = Math.random() * 2 + 1;
-            this.color = Math.random() > 0.5 ? 'rgba(56, 189, 248, ' : 'rgba(168, 85, 247, ';
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > width) this.vx *= -1;
-            if (this.y < 0 || this.y > height) this.vy *= -1;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = this.color + '0.7)';
-            ctx.fill();
-        }
-    }
-
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < 130) {
-                    ctx.beginPath();
-                    ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 * (1 - dist / 130)})`;
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
-                }
-            }
-        }
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    });
-}
-
-/* ==========================================================================
-   6. SCROLL REVEAL ANIMATIONS
+   5. SCROLL REVEAL ANIMATIONS
    ========================================================================== */
 function initScrollReveal() {
     const observer = new IntersectionObserver(
@@ -301,14 +222,14 @@ function initScrollReveal() {
                 }
             });
         },
-        { threshold: 0.12 }
+        { threshold: 0.1 }
     );
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
 /* ==========================================================================
-   7. ANIMATED STATS COUNTER
+   6. ANIMATED STATS COUNTER
    ========================================================================== */
 function initStatsCounter() {
     const statCards = document.querySelectorAll('.stat-number');
@@ -323,7 +244,7 @@ function initStatsCounter() {
                     if (isNaN(target)) return;
                     const isDecimal = target % 1 !== 0;
                     let count = 0;
-                    const duration = 1800;
+                    const duration = 1600;
                     const increment = target / (duration / 25);
 
                     const timer = setInterval(() => {
@@ -337,46 +258,32 @@ function initStatsCounter() {
                 });
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.4 });
 
     const statsGrid = document.querySelector('.stats-grid');
     if (statsGrid) observer.observe(statsGrid);
 }
 
 /* ==========================================================================
-   8. SKILLS MATRIX RENDER
+   7. SKILLS MATRIX RENDER (Clean Structured Taxonomy)
    ========================================================================== */
 function renderSkills(data = getActiveData()) {
     const container = document.getElementById('skills-container');
     if (!container || !data.skills) return;
 
     container.innerHTML = data.skills.map((cat, idx) => `
-        <div class="skill-category-card reveal reveal-delay-${(idx % 3) + 1}">
-            <div class="skill-cat-header">
-                <div class="skill-cat-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                        <polyline points="2 17 12 22 22 17"></polyline>
-                        <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="skill-cat-title">${cat.category}</h3>
-                    <p class="skill-cat-desc">${cat.description || ''}</p>
-                </div>
-            </div>
-            <div class="skill-items-list">
+        <div class="skill-category-card reveal reveal-delay-${(idx % 2) + 1}">
+            <h3 class="skill-cat-title">${cat.category}</h3>
+            <p class="skill-cat-desc">${cat.description || ''}</p>
+            <div class="skill-rows-list">
                 ${cat.items.map(skill => `
-                    <div class="skill-item">
-                        <div class="skill-item-header">
-                            <span class="skill-item-name">${skill.name}</span>
-                            <span class="skill-item-level">${skill.level}%</span>
+                    <div class="skill-row">
+                        <div class="skill-row-header">
+                            <span class="skill-name">${skill.name}</span>
+                            <span class="skill-status-tag">${skill.status || (skill.level ? `${skill.level}%` : 'Mahir')}</span>
                         </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" style="width: ${skill.level}%"></div>
-                        </div>
-                        <div class="skill-tags">
-                            ${(skill.tags || []).map(tag => `<span class="skill-tag-pill">${tag}</span>`).join('')}
+                        <div class="skill-tag-pills">
+                            ${(skill.tags || []).map(tag => `<span class="skill-pill">${tag}</span>`).join('')}
                         </div>
                     </div>
                 `).join('')}
@@ -386,7 +293,7 @@ function renderSkills(data = getActiveData()) {
 }
 
 /* ==========================================================================
-   9. PROJECTS SHOWCASE RENDER & FILTERING
+   8. PROJECTS SHOWCASE RENDER & FILTERING
    ========================================================================== */
 function renderProjects(filter = 'all', data = getActiveData()) {
     const grid = document.getElementById('projects-grid');
@@ -397,7 +304,7 @@ function renderProjects(filter = 'all', data = getActiveData()) {
         : data.projects.filter(p => p.category === filter);
 
     if (filtered.length === 0) {
-        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">Belum ada proyek dalam kategori ini.</div>`;
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">Belum ada proyek dalam kategori ini.</div>`;
         return;
     }
 
@@ -405,27 +312,27 @@ function renderProjects(filter = 'all', data = getActiveData()) {
         <div class="project-card reveal reveal-delay-${(idx % 3) + 1}" data-category="${proj.category}">
             <div class="project-thumbnail">
                 <img src="${proj.image || 'assets/images/project-nlp.jpg'}" alt="${proj.title}" loading="lazy" />
-                <span class="project-badge">${proj.badge || 'Project'}</span>
+                <span class="project-badge-tag">${proj.badge || 'Studi Kasus'}</span>
             </div>
             <div class="project-body">
-                <span class="project-category-tag">${proj.categoryName || proj.category}</span>
+                <span class="project-domain">${proj.categoryName || proj.category}</span>
                 <h3 class="project-title">${proj.title}</h3>
-                <p class="project-desc">${proj.overview || ''}</p>
+                <p class="project-summary">${proj.overview || ''}</p>
                 
-                <div class="project-metrics-row">
+                <div class="project-metrics-bar">
                     ${(proj.metrics || []).map(m => `
-                        <div class="metric-pill">
-                            <div class="metric-val">${m.val}</div>
-                            <div class="metric-lbl">${m.label}</div>
+                        <div class="metric-cell">
+                            <strong>${m.val}</strong>
+                            <span>${m.label}</span>
                         </div>
                     `).join('')}
                 </div>
 
-                <div class="project-tech-stack">
+                <div class="project-tech-tags">
                     ${(proj.techStack || []).slice(0, 4).map(tech => `
-                        <span class="tech-badge">${tech}</span>
+                        <span class="tech-tag">${tech}</span>
                     `).join('')}
-                    ${(proj.techStack && proj.techStack.length > 4) ? `<span class="tech-badge">+${proj.techStack.length - 4} more</span>` : ''}
+                    ${(proj.techStack && proj.techStack.length > 4) ? `<span class="tech-tag">+${proj.techStack.length - 4}</span>` : ''}
                 </div>
 
                 <div class="project-actions">
@@ -437,11 +344,8 @@ function renderProjects(filter = 'all', data = getActiveData()) {
                         </svg>
                     </button>
                     ${(proj.links && proj.links.github) ? `
-                        <a href="${proj.links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" title="Lihat Repositori GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                            </svg>
-                            Code
+                        <a href="${proj.links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" title="Lihat Repositori">
+                            GitHub
                         </a>
                     ` : ''}
                 </div>
@@ -471,7 +375,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 /* ==========================================================================
-   10. PROJECT DETAIL MODAL
+   9. PROJECT DETAIL MODAL
    ========================================================================== */
 function initProjectModal() {
     const modal = document.getElementById('project-modal');
@@ -502,17 +406,16 @@ function openProjectModal(projectId) {
         <div class="modal-banner">
             <img src="${project.image || 'assets/images/project-nlp.jpg'}" alt="${project.title}" />
         </div>
-        <div class="modal-header-meta">
-            <span class="project-category-tag">${project.categoryName || project.category}</span>
-            <h2 class="modal-title">${project.title}</h2>
-            <p class="modal-subtitle">${project.subtitle || ''}</p>
-        </div>
+        
+        <span class="project-domain">${project.categoryName || project.category}</span>
+        <h2 class="modal-title">${project.title}</h2>
+        <p class="modal-subtitle">${project.subtitle || ''}</p>
 
-        <div class="project-metrics-row" style="margin-bottom: 2rem;">
+        <div class="project-metrics-bar" style="margin-bottom: 1.5rem;">
             ${(project.metrics || []).map(m => `
-                <div class="metric-pill">
-                    <div class="metric-val" style="font-size: 1.25rem;">${m.val}</div>
-                    <div class="metric-lbl">${m.label}</div>
+                <div class="metric-cell">
+                    <strong style="font-size: 1.15rem;">${m.val}</strong>
+                    <span>${m.label}</span>
                 </div>
             `).join('')}
         </div>
@@ -523,12 +426,12 @@ function openProjectModal(projectId) {
         ` : ''}
 
         ${project.details?.solution ? `
-            <h4 class="modal-section-title">Metodologi & Solusi</h4>
+            <h4 class="modal-section-title">Metodologi & Solusi Teknis</h4>
             <p class="modal-text">${project.details.solution}</p>
         ` : ''}
 
         ${(project.highlights && project.highlights.length > 0) ? `
-            <h4 class="modal-section-title">Fitur & Pencapaian Kunci</h4>
+            <h4 class="modal-section-title">Poin Hasil & Pencapaian Kunci</h4>
             <div class="modal-highlights-list">
                 ${project.highlights.map(h => `
                     <div class="modal-highlight-item">
@@ -548,22 +451,18 @@ function openProjectModal(projectId) {
 
         ${(project.techStack && project.techStack.length > 0) ? `
             <h4 class="modal-section-title">Teknologi & Library</h4>
-            <div class="project-tech-stack" style="margin-top: 0.5rem;">
-                ${project.techStack.map(t => `<span class="tech-badge" style="font-size: 0.82rem; padding: 0.3rem 0.8rem;">${t}</span>`).join('')}
+            <div class="project-tech-tags" style="margin-top: 0.5rem;">
+                ${project.techStack.map(t => `<span class="tech-tag" style="font-size: 0.8rem; padding: 0.25rem 0.65rem;">${t}</span>`).join('')}
             </div>
         ` : ''}
 
-        <div class="modal-footer-actions">
+        <div style="display: flex; gap: 0.75rem; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
             ${(project.links && project.links.github) ? `
-                <a href="${project.links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <a href="${project.links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                     Lihat Kode di GitHub
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
                 </a>
             ` : ''}
-            <button class="btn btn-secondary" onclick="closeProjectModal()">Tutup</button>
+            <button class="btn btn-secondary btn-sm" onclick="closeProjectModal()">Tutup</button>
         </div>
     `;
 
@@ -580,7 +479,7 @@ function closeProjectModal() {
 }
 
 /* ==========================================================================
-   11. CERTIFICATIONS RENDER
+   10. CERTIFICATIONS RENDER
    ========================================================================== */
 function renderCertifications(data = getActiveData()) {
     const grid = document.getElementById('certifications-grid');
@@ -588,12 +487,6 @@ function renderCertifications(data = getActiveData()) {
 
     grid.innerHTML = data.certifications.map((cert, idx) => `
         <div class="cert-card reveal reveal-delay-${(idx % 4) + 1}">
-            <div class="cert-icon-box ${cert.badgeColor || 'cyan'}">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="8" r="7"></circle>
-                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                </svg>
-            </div>
             <h3 class="cert-title">${cert.title}</h3>
             <span class="cert-issuer">${cert.issuer}</span>
             <span class="cert-date">${cert.date}</span>
@@ -603,7 +496,7 @@ function renderCertifications(data = getActiveData()) {
 }
 
 /* ==========================================================================
-   12. INTERACTIVE SENTIMENT ANALYZER (LIVE NLP PLAYGROUND)
+   11. INTERACTIVE RESEARCH CONSOLE (NLP SENTIMENT)
    ========================================================================== */
 function initSentimentAnalyzer() {
     const textarea = document.getElementById('analyzer-input');
@@ -620,33 +513,30 @@ function initSentimentAnalyzer() {
 
     if (!textarea || !analyzeBtn) return;
 
-    // Indonesian Sentiment Lexicon Dictionary (Inspired by Skripsi InSet Lexicon)
     const posLexicon = [
         'bagus', 'keren', 'mantap', 'baik', 'hebat', 'setuju', 'terima kasih', 'edukasi', 
         'bantu', 'senang', 'cinta', 'suka', 'puas', 'luar biasa', 'lanjutkan', 'salut', 
         'terbaik', 'puji', 'dukung', 'positif', 'mendidik', 'informatif', 'rapi', 'bermanfaat', 
-        'jelas', 'lengkap', 'memuaskan', 'top', 'rekomendasi', 'profesional', 'mantul'
+        'jelas', 'lengkap', 'memuaskan', 'top', 'rekomendasi', 'profesional', 'daging'
     ];
 
     const negLexicon = [
         'buruk', 'jelek', 'kecewa', 'kurang', 'gagal', 'sulit', 'tidak suka', 'benci', 
         'parah', 'bohong', 'rugi', 'lambat', 'membingungkan', 'menyesal', 'rusak', 'salah', 
-        'marah', 'kacau', 'lelet', 'ribet', 'zonk', 'mengecewakan', 'payah', 'jelek'
+        'marah', 'kacau', 'lelet', 'ribet', 'zonk', 'mengecewakan', 'payah'
     ];
 
     const slangDict = {
         'bgt': 'banget', 'gk': 'tidak', 'ga': 'tidak', 'gak': 'tidak', 'bs': 'bisa', 
-        'tp': 'tapi', 'yg': 'yang', 'dgn': 'dengan', 'utk': 'untuk', 'skrg': 'sekarang', 
-        'rekomended': 'rekomendasi', 'mantaap': 'mantap', 'bguss': 'bagus'
+        'tp': 'tapi', 'yg': 'yang', 'dgn': 'dengan', 'utk': 'untuk', 'skrg': 'sekarang'
     };
 
     function runAnalysis(text) {
         if (!text.trim()) {
-            showToast('Silakan ketik komentar atau pilih contoh di bawah!');
+            showToast('Ketik ulasan atau pilih contoh di atas.');
             return;
         }
 
-        // Clean & Normalize
         let cleaned = text.toLowerCase().replace(/[^a-zA-Z0-9\s]/g, ' ');
         let tokens = cleaned.split(/\s+/).filter(t => t.length > 0);
         let normalizedTokens = tokens.map(t => slangDict[t] || t);
@@ -659,7 +549,6 @@ function initSentimentAnalyzer() {
             if (negLexicon.includes(word)) negScore += 1;
         });
 
-        // Compute probabilities
         let posProb = 0.33, neuProb = 0.34, negProb = 0.33;
 
         if (posScore > negScore) {
@@ -676,12 +565,10 @@ function initSentimentAnalyzer() {
             negProb = 0.15;
         }
 
-        // Normalize sum to 100%
         let pPos = Math.round(posProb * 100);
         let pNeg = Math.round(negProb * 100);
         let pNeu = 100 - (pPos + pNeg);
 
-        // Update UI
         posFill.style.width = pPos + '%';
         posVal.textContent = pPos + '%';
         neuFill.style.width = pNeu + '%';
@@ -704,7 +591,7 @@ function initSentimentAnalyzer() {
             labelEl.classList.add('neutral');
         }
 
-        showToast('Analisis Sentimen Selesai!');
+        showToast('Klasifikasi sentimen selesai.');
     }
 
     analyzeBtn.addEventListener('click', () => runAnalysis(textarea.value));
@@ -718,7 +605,7 @@ function initSentimentAnalyzer() {
 }
 
 /* ==========================================================================
-   13. CONTACT FORM HANDLER
+   12. CONTACT FORM HANDLER
    ========================================================================== */
 function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -730,7 +617,7 @@ function initContactForm() {
         const targetEmail = data.personal?.email || 'khairulraihan617@gmail.com';
         const name = document.getElementById('sender-name').value;
         const email = document.getElementById('sender-email').value;
-        const subject = document.getElementById('sender-subject').value || 'Pesan dari Web Portofolio';
+        const subject = document.getElementById('sender-subject').value || 'Pesan dari Portofolio';
         const message = document.getElementById('sender-message').value;
 
         const mailtoLink = `mailto:${targetEmail}?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent("Halo Khairul Raihan,\n\n" + message + "\n\nDari: " + name + " (" + email + ")")}`;
@@ -742,7 +629,7 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   14. CLIPBOARD & TOAST SYSTEM
+   13. CLIPBOARD & TOAST SYSTEM
    ========================================================================== */
 function initClipboard() {
     const copyEmailBtn = document.getElementById('btn-copy-email');
@@ -751,7 +638,7 @@ function initClipboard() {
             const data = getActiveData();
             const email = data.personal?.email || 'khairulraihan617@gmail.com';
             navigator.clipboard.writeText(email).then(() => {
-                showToast('Email berhasil disalin ke clipboard! 📋');
+                showToast('Email disalin ke clipboard! 📋');
             }).catch(() => {
                 showToast(`Email: ${email}`);
             });
@@ -770,19 +657,13 @@ function showToast(message) {
 
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.innerHTML = `
-        <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-        <span>${message}</span>
-    `;
+    toast.innerHTML = `<span>${message}</span>`;
 
     container.appendChild(toast);
     setTimeout(() => toast.classList.add('show'), 50);
 
     setTimeout(() => {
         toast.classList.remove('show');
-        setTimeout(() => toast.remove(), 400);
-    }, 3500);
+        setTimeout(() => toast.remove(), 350);
+    }, 3000);
 }
