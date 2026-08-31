@@ -1,0 +1,13 @@
+# Temporary Office Files
+~$*
+*.tmp
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# OS Specific
+Thumbs.db
+.DS_Store
