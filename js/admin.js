@@ -1,5 +1,5 @@
 /**
- * Admin CMS Dashboard Logic
+ * Admin CMS Master Dashboard Logic (100% Full Content Management)
  * Khairul Raihan Hidayat - Portfolio Management System
  */
 
@@ -11,11 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initAuth();
     loadData();
     initNavigation();
-    initOverview();
-    initPersonalForm();
-    initProjectsManager();
-    initSkillsManager();
-    initCertificationsManager();
+    renderAllViews();
+    initForms();
     initExportBackup();
 });
 
@@ -29,7 +26,6 @@ function initAuth() {
     const pinError = document.getElementById('pin-error');
     const btnLock = document.getElementById('btn-lock-session');
 
-    // Default PIN: 1234
     if (!localStorage.getItem('adminPin')) {
         localStorage.setItem('adminPin', '1234');
     }
@@ -118,7 +114,7 @@ function loadData() {
         } else if (typeof portfolioData !== 'undefined') {
             currentData = JSON.parse(JSON.stringify(portfolioData));
         } else {
-            currentData = { personal: {}, projects: [], skills: [], certifications: [], education: [] };
+            currentData = {};
         }
     } catch (e) {
         console.error('Error loading data:', e);
@@ -143,16 +139,21 @@ function saveData(notify = true) {
 function updateSyncBadge(synced) {
     const badge = document.getElementById('sync-status-badge');
     if (badge) {
-        badge.innerHTML = `<span class="sync-dot"></span><span>${synced ? 'Tersimpan di Browser' : 'Perubahan Belum Disimpan'}</span>`;
+        badge.innerHTML = `<span class="sync-dot"></span><span>${synced ? 'Tersimpan Live di Browser' : 'Perubahan Belum Disimpan'}</span>`;
     }
 }
 
 function renderAllViews() {
-    initOverview();
-    initPersonalForm();
-    renderProjectsTable();
+    renderOverview();
+    populateHeroForm();
+    populateStatsForm();
+    populateAboutForm();
     renderSkillsManager();
+    renderProjectsTable();
+    populateNlpForm();
     renderCertificationsManager();
+    populateContactForm();
+    populateFooterForm();
     renderExportCode();
 }
 
@@ -196,9 +197,9 @@ function initNavigation() {
 }
 
 /* ==========================================================================
-   4. TAB: OVERVIEW & SUMMARY
+   4. TAB 1: OVERVIEW
    ========================================================================== */
-function initOverview() {
+function renderOverview() {
     const countProj = document.getElementById('ov-count-projects');
     const countSkills = document.getElementById('ov-count-skills');
     const countCerts = document.getElementById('ov-count-certs');
@@ -212,9 +213,8 @@ function initOverview() {
     }
     if (countSkills) countSkills.textContent = totalSkillItems;
     if (countCerts) countCerts.textContent = currentData.certifications?.length || 0;
-    if (ovGpa) ovGpa.textContent = currentData.personal?.gpa || '3.88';
+    if (ovGpa) ovGpa.textContent = currentData.about?.gpa || currentData.personal?.gpa || '3.88';
 
-    // Populate quick recent table
     const tbody = document.getElementById('ov-recent-projects-tbody');
     if (tbody && currentData.projects) {
         tbody.innerHTML = currentData.projects.slice(0, 3).map(p => `
@@ -229,68 +229,46 @@ function initOverview() {
 }
 
 /* ==========================================================================
-   5. TAB: PERSONAL INFO & CONTACT
+   5. TAB 2: HERO & BERANDA
    ========================================================================== */
-function initPersonalForm() {
-    const p = currentData.personal || {};
-    
+function populateHeroForm() {
+    const h = currentData.hero || {};
     const setVal = (id, val) => {
         const el = document.getElementById(id);
         if (el && val !== undefined) el.value = val;
     };
 
-    setVal('p-name', p.name);
-    setVal('p-nickname', p.nickname);
-    setVal('p-role', p.role);
-    setVal('p-tagline', p.tagline);
-    setVal('p-bio', p.bio);
-    setVal('p-gpa', p.gpa);
-    setVal('p-degree', p.degree);
-    setVal('p-university', p.university);
-    setVal('p-gradyear', p.graduationYear);
-    setVal('p-email', p.email);
-    setVal('p-whatsapp', p.whatsapp);
-    setVal('p-location', p.location);
-    setVal('p-github', p.socials?.github);
-    setVal('p-linkedin', p.socials?.linkedin);
+    setVal('h-name', h.name || currentData.personal?.name);
+    setVal('h-status-pill', h.statusPill);
+    setVal('h-bio', h.bio || currentData.personal?.bio);
+    setVal('h-roles', (h.roles || currentData.roles || []).join('\n'));
+    setVal('h-cta-prim-text', h.ctaPrimaryText);
+    setVal('h-cta-prim-link', h.ctaPrimaryLink);
+    setVal('h-cta-sec-text', h.ctaSecondaryText);
+    setVal('h-cta-sec-link', h.ctaSecondaryLink);
+    setVal('h-profile-img', h.profileImage);
+}
 
-    if (currentData.roles && Array.isArray(currentData.roles)) {
-        setVal('p-typewriter-roles', currentData.roles.join('\n'));
-    } else {
-        setVal('p-typewriter-roles', "Data Science Enthusiast\nNLP & Machine Learning Specialist\nBusiness Intelligence & BI Analyst\nFresh Graduate S.Kom (IPK 3.88)");
-    }
-
-    const form = document.getElementById('form-personal-info');
+function initHeroForm() {
+    const form = document.getElementById('form-hero-editor');
     if (form) {
         form.onsubmit = (e) => {
             e.preventDefault();
-            currentData.personal = {
-                ...currentData.personal,
-                name: document.getElementById('p-name').value,
-                nickname: document.getElementById('p-nickname').value,
-                role: document.getElementById('p-role').value,
-                tagline: document.getElementById('p-tagline').value,
-                bio: document.getElementById('p-bio').value,
-                gpa: document.getElementById('p-gpa').value,
-                degree: document.getElementById('p-degree').value,
-                university: document.getElementById('p-university').value,
-                graduationYear: document.getElementById('p-gradyear').value,
-                email: document.getElementById('p-email').value,
-                whatsapp: document.getElementById('p-whatsapp').value,
-                location: document.getElementById('p-location').value,
-                cvPath: currentData.personal?.cvPath || "assets/docs/Khairul_Raihan_Hidayat_CV.docx",
-                socials: {
-                    github: document.getElementById('p-github').value,
-                    linkedin: document.getElementById('p-linkedin').value,
-                    email: `mailto:${document.getElementById('p-email').value}`,
-                    whatsapp: `https://wa.me/${document.getElementById('p-whatsapp').value.replace(/\D/g, '')}`
-                }
-            };
+            const rolesText = document.getElementById('h-roles').value.trim();
+            const roles = rolesText ? rolesText.split('\n').map(r => r.trim()).filter(r => r.length > 0) : [];
 
-            const rolesText = document.getElementById('p-typewriter-roles').value.trim();
-            if (rolesText) {
-                currentData.roles = rolesText.split('\n').map(r => r.trim()).filter(r => r.length > 0);
-            }
+            currentData.hero = {
+                ...currentData.hero,
+                name: document.getElementById('h-name').value,
+                statusPill: document.getElementById('h-status-pill').value,
+                roles: roles,
+                bio: document.getElementById('h-bio').value,
+                ctaPrimaryText: document.getElementById('h-cta-prim-text').value,
+                ctaPrimaryLink: document.getElementById('h-cta-prim-link').value,
+                ctaSecondaryText: document.getElementById('h-cta-sec-text').value,
+                ctaSecondaryLink: document.getElementById('h-cta-sec-link').value,
+                profileImage: document.getElementById('h-profile-img').value || 'assets/images/profile.jpg'
+            };
 
             saveData(true);
         };
@@ -298,33 +276,260 @@ function initPersonalForm() {
 }
 
 /* ==========================================================================
-   6. TAB: PROJECTS MANAGER (CRUD)
+   6. TAB 3: STATS
    ========================================================================== */
-let editingProjectId = null;
+function populateStatsForm() {
+    const stats = currentData.stats || [];
+    const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val !== undefined) el.value = val;
+    };
 
-function initProjectsManager() {
-    const btnAdd = document.getElementById('btn-add-project');
-    if (btnAdd) {
-        btnAdd.addEventListener('click', () => openProjectEditor(null));
-    }
+    stats.forEach((st, idx) => {
+        const num = idx + 1;
+        setVal(`st-${num}-val`, st.value);
+        setVal(`st-${num}-suf`, st.suffix);
+        setVal(`st-${num}-lbl`, st.label);
+    });
+}
 
-    const searchInput = document.getElementById('proj-search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', () => {
-            renderProjectsTable(searchInput.value.trim().toLowerCase());
-        });
-    }
-
-    const form = document.getElementById('form-project-editor');
+function initStatsForm() {
+    const form = document.getElementById('form-stats-editor');
     if (form) {
         form.onsubmit = (e) => {
             e.preventDefault();
-            saveProjectForm();
+            const stats = [];
+            for (let i = 1; i <= 4; i++) {
+                stats.push({
+                    value: document.getElementById(`st-${i}-val`).value.trim(),
+                    suffix: document.getElementById(`st-${i}-suf`).value.trim(),
+                    label: document.getElementById(`st-${i}-lbl`).value.trim()
+                });
+            }
+            currentData.stats = stats;
+            saveData(true);
         };
     }
-
-    renderProjectsTable();
 }
+
+/* ==========================================================================
+   7. TAB 4: ABOUT, EDUCATION & COMPETENCIES
+   ========================================================================== */
+function populateAboutForm() {
+    const a = currentData.about || {};
+    const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val !== undefined) el.value = val;
+    };
+
+    setVal('ab-badge', a.sectionBadge);
+    setVal('ab-title', a.sectionTitle);
+    setVal('ab-desc', a.sectionDesc);
+    setVal('ab-institution', a.institution);
+    setVal('ab-degree', a.degree);
+    setVal('ab-gpa', a.gpa);
+    setVal('ab-period', a.period);
+    setVal('ab-courses', (a.courses || []).join('\n'));
+    setVal('ab-story', a.story);
+
+    const comps = a.competencies || [];
+    for (let i = 1; i <= 4; i++) {
+        const c = comps[i - 1] || {};
+        setVal(`comp-${i}-title`, c.title);
+        setVal(`comp-${i}-desc`, c.desc);
+    }
+}
+
+function initAboutForm() {
+    const form = document.getElementById('form-about-editor');
+    if (form) {
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const coursesText = document.getElementById('ab-courses').value.trim();
+            const courses = coursesText ? coursesText.split('\n').map(c => c.trim()).filter(c => c.length > 0) : [];
+
+            const competencies = [];
+            for (let i = 1; i <= 4; i++) {
+                const title = document.getElementById(`comp-${i}-title`).value.trim();
+                const desc = document.getElementById(`comp-${i}-desc`).value.trim();
+                if (title) competencies.push({ title, desc });
+            }
+
+            currentData.about = {
+                ...currentData.about,
+                sectionBadge: document.getElementById('ab-badge').value,
+                sectionTitle: document.getElementById('ab-title').value,
+                sectionDesc: document.getElementById('ab-desc').value,
+                institution: document.getElementById('ab-institution').value,
+                degree: document.getElementById('ab-degree').value,
+                gpa: document.getElementById('ab-gpa').value,
+                period: document.getElementById('ab-period').value,
+                courses: courses,
+                story: document.getElementById('ab-story').value,
+                competencies: competencies
+            };
+
+            saveData(true);
+        };
+    }
+}
+
+/* ==========================================================================
+   8. TAB 5: SKILLS MATRIX (FULL CRUD)
+   ========================================================================== */
+let editingCategoryIdx = null;
+let targetCatIdxForSkill = null;
+let editingSkillIdx = null;
+
+function renderSkillsManager() {
+    const container = document.getElementById('skills-manager-list');
+    if (!container || !currentData.skills) return;
+
+    container.innerHTML = currentData.skills.map((cat, catIdx) => `
+        <div class="adm-card" style="margin-bottom: 1.5rem;">
+            <div class="adm-card-header">
+                <div>
+                    <h3 class="adm-card-title">${cat.category}</h3>
+                    <p style="font-size: 0.8rem; color: var(--adm-text-dim);">${cat.description || ''}</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" onclick="openCategoryEditor(${catIdx})">Edit Kategori</button>
+                    <button type="button" class="btn-adm btn-adm-primary btn-adm-sm" onclick="openSkillItemEditor(${catIdx}, null)">+ Tambah Skill</button>
+                    <button type="button" class="btn-adm btn-adm-rose btn-adm-sm" onclick="deleteCategory(${catIdx})">Hapus Kategori</button>
+                </div>
+            </div>
+
+            <div>
+                ${(cat.items || []).map((skill, skillIdx) => `
+                    <div style="padding: 0.85rem 0; border-bottom: 1px solid var(--adm-border); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+                        <div>
+                            <strong style="font-size: 0.95rem;">${skill.name}</strong>
+                            <span class="badge-tag" style="margin-left: 0.5rem;">${skill.status || 'Mahir'}</span>
+                            <div style="font-size: 0.78rem; color: var(--adm-text-dim); margin-top: 0.3rem;">
+                                Tags: ${(skill.tags || []).join(', ')}
+                            </div>
+                        </div>
+                        <div class="table-actions">
+                            <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" onclick="openSkillItemEditor(${catIdx}, ${skillIdx})">Edit</button>
+                            <button type="button" class="btn-adm btn-adm-rose btn-adm-sm" onclick="deleteSkillItem(${catIdx}, ${skillIdx})">Hapus</button>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
+
+function openCategoryEditor(catIdx = null) {
+    editingCategoryIdx = catIdx;
+    const title = document.getElementById('modal-cat-title');
+    const nameInput = document.getElementById('cat-name-input');
+    const descInput = document.getElementById('cat-desc-input');
+
+    if (catIdx !== null && currentData.skills[catIdx]) {
+        title.textContent = 'Edit Kategori Keahlian';
+        nameInput.value = currentData.skills[catIdx].category;
+        descInput.value = currentData.skills[catIdx].description || '';
+    } else {
+        title.textContent = 'Tambah Kategori Keahlian Baru';
+        nameInput.value = '';
+        descInput.value = '';
+    }
+
+    openModal('modal-category-editor');
+}
+
+function initCategoryForm() {
+    const form = document.getElementById('form-category-editor');
+    if (form) {
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const name = document.getElementById('cat-name-input').value.trim();
+            const desc = document.getElementById('cat-desc-input').value.trim();
+
+            if (editingCategoryIdx !== null && currentData.skills[editingCategoryIdx]) {
+                currentData.skills[editingCategoryIdx].category = name;
+                currentData.skills[editingCategoryIdx].description = desc;
+            } else {
+                currentData.skills.push({
+                    id: `cat-${Date.now()}`,
+                    category: name,
+                    description: desc,
+                    items: []
+                });
+            }
+
+            saveData(true);
+            closeModal('modal-category-editor');
+        };
+    }
+}
+
+function deleteCategory(catIdx) {
+    if (!confirm('Apakah Anda yakin ingin menghapus seluruh kategori keahlian ini beserta isinya?')) return;
+    currentData.skills.splice(catIdx, 1);
+    saveData(true);
+}
+
+function openSkillItemEditor(catIdx, skillIdx = null) {
+    targetCatIdxForSkill = catIdx;
+    editingSkillIdx = skillIdx;
+    const title = document.getElementById('modal-skill-item-title');
+    const nameInput = document.getElementById('sk-name-input');
+    const statusInput = document.getElementById('sk-status-input');
+    const tagsInput = document.getElementById('sk-tags-input');
+
+    if (skillIdx !== null && currentData.skills[catIdx]?.items[skillIdx]) {
+        title.textContent = 'Edit Skill Item';
+        const s = currentData.skills[catIdx].items[skillIdx];
+        nameInput.value = s.name;
+        statusInput.value = s.status || '';
+        tagsInput.value = (s.tags || []).join(', ');
+    } else {
+        title.textContent = 'Tambah Skill Item Baru';
+        nameInput.value = '';
+        statusInput.value = 'Utama';
+        tagsInput.value = '';
+    }
+
+    openModal('modal-skill-item-editor');
+}
+
+function initSkillItemForm() {
+    const form = document.getElementById('form-skill-item-editor');
+    if (form) {
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const name = document.getElementById('sk-name-input').value.trim();
+            const status = document.getElementById('sk-status-input').value.trim();
+            const tagsText = document.getElementById('sk-tags-input').value.trim();
+            const tags = tagsText ? tagsText.split(',').map(t => t.trim()).filter(t => t.length > 0) : [];
+
+            const skillObj = { name, status, tags };
+
+            if (editingSkillIdx !== null && currentData.skills[targetCatIdxForSkill]?.items[editingSkillIdx]) {
+                currentData.skills[targetCatIdxForSkill].items[editingSkillIdx] = skillObj;
+            } else {
+                if (!currentData.skills[targetCatIdxForSkill].items) currentData.skills[targetCatIdxForSkill].items = [];
+                currentData.skills[targetCatIdxForSkill].items.push(skillObj);
+            }
+
+            saveData(true);
+            closeModal('modal-skill-item-editor');
+        };
+    }
+}
+
+function deleteSkillItem(catIdx, skillIdx) {
+    if (!confirm('Hapus skill ini?')) return;
+    currentData.skills[catIdx].items.splice(skillIdx, 1);
+    saveData(true);
+}
+
+/* ==========================================================================
+   9. TAB 6: PROJECTS (CRUD)
+   ========================================================================== */
+let editingProjectId = null;
 
 function renderProjectsTable(query = '') {
     const tbody = document.getElementById('projects-table-tbody');
@@ -355,14 +560,8 @@ function renderProjectsTable(query = '') {
             </td>
             <td>
                 <div class="table-actions">
-                    <button class="btn-adm btn-adm-secondary btn-adm-sm" onclick="openProjectEditor('${p.id}')">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                        Edit
-                    </button>
-                    <button class="btn-adm btn-adm-rose btn-adm-sm" onclick="deleteProject('${p.id}')">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                        Hapus
-                    </button>
+                    <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" onclick="openProjectEditor('${p.id}')">Edit</button>
+                    <button type="button" class="btn-adm btn-adm-rose btn-adm-sm" onclick="deleteProject('${p.id}')">Hapus</button>
                 </div>
             </td>
         </tr>
@@ -395,7 +594,6 @@ function openProjectEditor(projectId = null) {
         setVal('proj-techstack', (p.techStack || []).join(', '));
         setVal('proj-github', p.links?.github);
 
-        // Metrics
         setVal('proj-m1-val', p.metrics?.[0]?.val);
         setVal('proj-m1-lbl', p.metrics?.[0]?.label);
         setVal('proj-m2-val', p.metrics?.[1]?.val);
@@ -410,63 +608,80 @@ function openProjectEditor(projectId = null) {
     openModal('modal-project-editor');
 }
 
-function saveProjectForm() {
-    const catSelect = document.getElementById('proj-category');
-    const catVal = catSelect.value;
-    const catName = catSelect.options[catSelect.selectedIndex].text;
+function initProjectForm() {
+    const btnAdd = document.getElementById('btn-add-project');
+    if (btnAdd) btnAdd.addEventListener('click', () => openProjectEditor(null));
 
-    const highlightsText = document.getElementById('proj-highlights').value.trim();
-    const highlights = highlightsText ? highlightsText.split('\n').map(h => h.trim()).filter(h => h.length > 0) : [];
-
-    const techText = document.getElementById('proj-techstack').value.trim();
-    const techStack = techText ? techText.split(',').map(t => t.trim()).filter(t => t.length > 0) : [];
-
-    const metrics = [];
-    const m1Val = document.getElementById('proj-m1-val').value.trim();
-    const m1Lbl = document.getElementById('proj-m1-lbl').value.trim();
-    if (m1Val) metrics.push({ val: m1Val, label: m1Lbl || 'Metrik 1' });
-
-    const m2Val = document.getElementById('proj-m2-val').value.trim();
-    const m2Lbl = document.getElementById('proj-m2-lbl').value.trim();
-    if (m2Val) metrics.push({ val: m2Val, label: m2Lbl || 'Metrik 2' });
-
-    const m3Val = document.getElementById('proj-m3-val').value.trim();
-    const m3Lbl = document.getElementById('proj-m3-lbl').value.trim();
-    if (m3Val) metrics.push({ val: m3Val, label: m3Lbl || 'Metrik 3' });
-
-    const projObj = {
-        id: editingProjectId || `project-${Date.now()}`,
-        title: document.getElementById('proj-title').value,
-        subtitle: document.getElementById('proj-subtitle').value,
-        category: catVal,
-        categoryName: catName,
-        featured: true,
-        badge: document.getElementById('proj-badge').value || 'Project',
-        image: document.getElementById('proj-image').value || 'assets/images/project-nlp.jpg',
-        overview: document.getElementById('proj-overview').value,
-        highlights: highlights,
-        techStack: techStack,
-        metrics: metrics,
-        details: {
-            problem: document.getElementById('proj-problem').value,
-            solution: document.getElementById('proj-solution').value,
-            impact: document.getElementById('proj-impact').value
-        },
-        links: {
-            github: document.getElementById('proj-github').value || 'https://github.com/KhairulRaihan',
-            demo: null
-        }
-    };
-
-    if (editingProjectId) {
-        const idx = currentData.projects.findIndex(p => p.id === editingProjectId);
-        if (idx !== -1) currentData.projects[idx] = projObj;
-    } else {
-        currentData.projects.unshift(projObj);
+    const searchInput = document.getElementById('proj-search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            renderProjectsTable(searchInput.value.trim().toLowerCase());
+        });
     }
 
-    saveData(true);
-    closeModal('modal-project-editor');
+    const form = document.getElementById('form-project-editor');
+    if (form) {
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const catSelect = document.getElementById('proj-category');
+            const catVal = catSelect.value;
+            const catName = catSelect.options[catSelect.selectedIndex].text;
+
+            const highlightsText = document.getElementById('proj-highlights').value.trim();
+            const highlights = highlightsText ? highlightsText.split('\n').map(h => h.trim()).filter(h => h.length > 0) : [];
+
+            const techText = document.getElementById('proj-techstack').value.trim();
+            const techStack = techText ? techText.split(',').map(t => t.trim()).filter(t => t.length > 0) : [];
+
+            const metrics = [];
+            const m1Val = document.getElementById('proj-m1-val').value.trim();
+            const m1Lbl = document.getElementById('proj-m1-lbl').value.trim();
+            if (m1Val) metrics.push({ val: m1Val, label: m1Lbl || 'Metrik 1' });
+
+            const m2Val = document.getElementById('proj-m2-val').value.trim();
+            const m2Lbl = document.getElementById('proj-m2-lbl').value.trim();
+            if (m2Val) metrics.push({ val: m2Val, label: m2Lbl || 'Metrik 2' });
+
+            const m3Val = document.getElementById('proj-m3-val').value.trim();
+            const m3Lbl = document.getElementById('proj-m3-lbl').value.trim();
+            if (m3Val) metrics.push({ val: m3Val, label: m3Lbl || 'Metrik 3' });
+
+            const projObj = {
+                id: editingProjectId || `project-${Date.now()}`,
+                title: document.getElementById('proj-title').value,
+                subtitle: document.getElementById('proj-subtitle').value,
+                category: catVal,
+                categoryName: catName,
+                featured: true,
+                badge: document.getElementById('proj-badge').value || 'Studi Kasus',
+                image: document.getElementById('proj-image').value || 'assets/images/project-nlp.jpg',
+                overview: document.getElementById('proj-overview').value,
+                highlights: highlights,
+                techStack: techStack,
+                metrics: metrics,
+                details: {
+                    problem: document.getElementById('proj-problem').value,
+                    solution: document.getElementById('proj-solution').value,
+                    impact: document.getElementById('proj-impact').value
+                },
+                links: {
+                    github: document.getElementById('proj-github').value || 'https://github.com/KhairulRaihan',
+                    demo: null
+                }
+            };
+
+            if (editingProjectId) {
+                const idx = currentData.projects.findIndex(p => p.id === editingProjectId);
+                if (idx !== -1) currentData.projects[idx] = projObj;
+            } else {
+                if (!currentData.projects) currentData.projects = [];
+                currentData.projects.unshift(projObj);
+            }
+
+            saveData(true);
+            closeModal('modal-project-editor');
+        };
+    }
 }
 
 function deleteProject(projectId) {
@@ -476,71 +691,97 @@ function deleteProject(projectId) {
 }
 
 /* ==========================================================================
-   7. TAB: SKILLS MANAGER
+   10. TAB 7: NLP RESEARCH CONSOLE DEMO
    ========================================================================== */
-function initSkillsManager() {
-    renderSkillsManager();
+function populateNlpForm() {
+    const n = currentData.nlpDemo || {};
+    const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val !== undefined) el.value = val;
+    };
+
+    setVal('nlp-badge-input', n.sectionBadge);
+    setVal('nlp-title-input', n.sectionTitle);
+    setVal('nlp-desc-input', n.sectionDesc);
+    setVal('nlp-console-title-input', n.consoleTitle);
+    setVal('nlp-console-subtitle-input', n.consoleSubtitle);
+    setVal('nlp-console-badge-input', n.consoleBadge);
+
+    renderNlpChipsEditor();
 }
 
-function renderSkillsManager() {
-    const container = document.getElementById('skills-manager-list');
-    if (!container || !currentData.skills) return;
+function renderNlpChipsEditor() {
+    const container = document.getElementById('nlp-chips-editor-list');
+    if (!container || !currentData.nlpDemo?.sampleChips) return;
 
-    container.innerHTML = currentData.skills.map((cat, catIdx) => `
-        <div class="adm-card" style="margin-bottom: 1.5rem;">
-            <div class="adm-card-header">
-                <h3 class="adm-card-title">${cat.category}</h3>
-                <span style="font-size: 0.8rem; color: var(--adm-text-dim);">${cat.description || ''}</span>
+    container.innerHTML = currentData.nlpDemo.sampleChips.map((chip, idx) => `
+        <div style="padding: 0.75rem; background: var(--adm-input); border-radius: var(--radius-md); margin-bottom: 0.75rem; border: 1px solid var(--adm-border);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <span style="font-weight: 600; font-size: 0.85rem;">Contoh Ulasan #${idx + 1}</span>
+                <button type="button" class="btn-adm btn-adm-rose btn-adm-sm" onclick="deleteNlpChip(${idx})">Hapus</button>
             </div>
-            <div>
-                ${cat.items.map((skill, skillIdx) => `
-                    <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--adm-border); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
-                        <div style="flex-grow: 1; min-width: 200px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                <strong>${skill.name}</strong>
-                                <span style="color: var(--accent-cyan); font-family: var(--font-mono);">${skill.level}%</span>
-                            </div>
-                            <input type="range" min="0" max="100" value="${skill.level}" style="width: 100%; accent-color: var(--accent-cyan);" onchange="updateSkillLevel(${catIdx}, ${skillIdx}, this.value)" />
-                            <div style="font-size: 0.75rem; color: var(--adm-text-dim); margin-top: 0.2rem;">
-                                Tags: ${(skill.tags || []).join(', ')}
-                            </div>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
+            <input type="text" class="form-input nlp-chip-label" value="${chip.label}" placeholder="Label tombol (e.g. Contoh Positif)" style="margin-bottom: 0.35rem;" />
+            <textarea class="form-textarea nlp-chip-text" rows="2" placeholder="Teks ulasan...">${chip.text}</textarea>
         </div>
     `).join('');
 }
 
-window.updateSkillLevel = function(catIdx, skillIdx, newLevel) {
-    if (currentData.skills?.[catIdx]?.items?.[skillIdx]) {
-        currentData.skills[catIdx].items[skillIdx].level = parseInt(newLevel, 10);
-        saveData(false);
-        renderSkillsManager();
+function deleteNlpChip(idx) {
+    if (currentData.nlpDemo?.sampleChips) {
+        currentData.nlpDemo.sampleChips.splice(idx, 1);
+        renderNlpChipsEditor();
     }
-};
+}
 
-/* ==========================================================================
-   8. TAB: CERTIFICATIONS MANAGER (CRUD)
-   ========================================================================== */
-let editingCertIdx = null;
+function initNlpForm() {
+    const form = document.getElementById('form-nlp-editor');
+    const btnAddChip = document.getElementById('btn-add-nlp-chip');
 
-function initCertificationsManager() {
-    const btnAdd = document.getElementById('btn-add-cert');
-    if (btnAdd) {
-        btnAdd.addEventListener('click', () => openCertEditor(null));
+    if (btnAddChip) {
+        btnAddChip.addEventListener('click', () => {
+            if (!currentData.nlpDemo) currentData.nlpDemo = {};
+            if (!currentData.nlpDemo.sampleChips) currentData.nlpDemo.sampleChips = [];
+            currentData.nlpDemo.sampleChips.push({
+                label: 'Contoh Baru',
+                text: 'Teks ulasan baru untuk diuji di simulator sentimen.'
+            });
+            renderNlpChipsEditor();
+        });
     }
 
-    const form = document.getElementById('form-cert-editor');
     if (form) {
         form.onsubmit = (e) => {
             e.preventDefault();
-            saveCertForm();
+            const chipLabels = document.querySelectorAll('.nlp-chip-label');
+            const chipTexts = document.querySelectorAll('.nlp-chip-text');
+
+            const chips = [];
+            chipLabels.forEach((lblEl, i) => {
+                const label = lblEl.value.trim();
+                const text = chipTexts[i]?.value.trim() || '';
+                if (label && text) chips.push({ label, text });
+            });
+
+            currentData.nlpDemo = {
+                ...currentData.nlpDemo,
+                sectionBadge: document.getElementById('nlp-badge-input').value,
+                sectionTitle: document.getElementById('nlp-title-input').value,
+                sectionDesc: document.getElementById('nlp-desc-input').value,
+                consoleTitle: document.getElementById('nlp-console-title-input').value,
+                consoleSubtitle: document.getElementById('nlp-console-subtitle-input').value,
+                consoleBadge: document.getElementById('nlp-console-badge-input').value,
+                sampleChips: chips
+            };
+
+            saveData(true);
         };
     }
-
-    renderCertificationsManager();
 }
+
+/* ==========================================================================
+   11. TAB 8: CERTIFICATIONS (CRUD)
+   ========================================================================== */
+let editingCertIdx = null;
 
 function renderCertificationsManager() {
     const tbody = document.getElementById('certs-table-tbody');
@@ -551,11 +792,10 @@ function renderCertificationsManager() {
             <td><strong>${cert.title}</strong></td>
             <td><span style="color: var(--accent-cyan); font-weight: 600;">${cert.issuer}</span></td>
             <td>${cert.date}</td>
-            <td><span class="badge-tag" style="text-transform: capitalize;">${cert.badgeColor || 'cyan'}</span></td>
             <td>
                 <div class="table-actions">
-                    <button class="btn-adm btn-adm-secondary btn-adm-sm" onclick="openCertEditor(${idx})">Edit</button>
-                    <button class="btn-adm btn-adm-rose btn-adm-sm" onclick="deleteCert(${idx})">Hapus</button>
+                    <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" onclick="openCertEditor(${idx})">Edit</button>
+                    <button type="button" class="btn-adm btn-adm-rose btn-adm-sm" onclick="deleteCert(${idx})">Hapus</button>
                 </div>
             </td>
         </tr>
@@ -576,7 +816,6 @@ function openCertEditor(idx = null) {
         setVal('cert-title', c.title);
         setVal('cert-issuer', c.issuer);
         setVal('cert-date', c.date);
-        setVal('cert-color', c.badgeColor);
         setVal('cert-desc', c.description);
     } else {
         modalTitle.textContent = 'Tambah Sertifikasi Baru';
@@ -586,24 +825,32 @@ function openCertEditor(idx = null) {
     openModal('modal-cert-editor');
 }
 
-function saveCertForm() {
-    const certObj = {
-        title: document.getElementById('cert-title').value,
-        issuer: document.getElementById('cert-issuer').value,
-        date: document.getElementById('cert-date').value,
-        badgeColor: document.getElementById('cert-color').value,
-        icon: 'award',
-        description: document.getElementById('cert-desc').value
-    };
+function initCertForm() {
+    const btnAdd = document.getElementById('btn-add-cert');
+    if (btnAdd) btnAdd.addEventListener('click', () => openCertEditor(null));
 
-    if (editingCertIdx !== null) {
-        currentData.certifications[editingCertIdx] = certObj;
-    } else {
-        currentData.certifications.push(certObj);
+    const form = document.getElementById('form-cert-editor');
+    if (form) {
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const certObj = {
+                title: document.getElementById('cert-title').value,
+                issuer: document.getElementById('cert-issuer').value,
+                date: document.getElementById('cert-date').value,
+                description: document.getElementById('cert-desc').value
+            };
+
+            if (editingCertIdx !== null) {
+                currentData.certifications[editingCertIdx] = certObj;
+            } else {
+                if (!currentData.certifications) currentData.certifications = [];
+                currentData.certifications.push(certObj);
+            }
+
+            saveData(true);
+            closeModal('modal-cert-editor');
+        };
     }
-
-    saveData(true);
-    closeModal('modal-cert-editor');
 }
 
 function deleteCert(idx) {
@@ -613,19 +860,100 @@ function deleteCert(idx) {
 }
 
 /* ==========================================================================
-   9. TAB: EXPORT, BACKUP & RESET TO FACTORY
+   12. TAB 9: CONTACT & SOCIALS
+   ========================================================================== */
+function populateContactForm() {
+    const c = currentData.contact || {};
+    const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val !== undefined) el.value = val;
+    };
+
+    setVal('ct-badge', c.sectionBadge);
+    setVal('ct-title', c.sectionTitle);
+    setVal('ct-desc', c.sectionDesc);
+    setVal('ct-email', c.email || currentData.personal?.email);
+    setVal('ct-whatsapp', c.whatsapp || currentData.personal?.whatsapp);
+    setVal('ct-location', c.location || currentData.personal?.location);
+    setVal('ct-github', c.github || currentData.personal?.socials?.github);
+    setVal('ct-linkedin', c.linkedin || currentData.personal?.socials?.linkedin);
+    setVal('ct-cvpath', c.cvPath || currentData.personal?.cvPath);
+}
+
+function initContactForm() {
+    const form = document.getElementById('form-contact-editor');
+    if (form) {
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const rawWa = document.getElementById('ct-whatsapp').value;
+            const waNum = rawWa.replace(/\D/g, '');
+
+            currentData.contact = {
+                ...currentData.contact,
+                sectionBadge: document.getElementById('ct-badge').value,
+                sectionTitle: document.getElementById('ct-title').value,
+                sectionDesc: document.getElementById('ct-desc').value,
+                email: document.getElementById('ct-email').value,
+                whatsapp: rawWa,
+                whatsappNum: waNum,
+                location: document.getElementById('ct-location').value,
+                github: document.getElementById('ct-github').value,
+                linkedin: document.getElementById('ct-linkedin').value,
+                linkedinDisplay: document.getElementById('ct-linkedin').value.replace(/^https?:\/\/(www\.)?/, ''),
+                cvPath: document.getElementById('ct-cvpath').value || 'assets/docs/Khairul_Raihan_Hidayat_CV.docx'
+            };
+
+            saveData(true);
+        };
+    }
+}
+
+/* ==========================================================================
+   13. TAB 10: FOOTER & BRANDING
+   ========================================================================== */
+function populateFooterForm() {
+    const f = currentData.footer || {};
+    const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val !== undefined) el.value = val;
+    };
+
+    setVal('ft-title', f.title || currentData.hero?.name || currentData.personal?.name);
+    setVal('ft-subtitle', f.subtitle);
+    setVal('ft-copyright', f.copyright);
+}
+
+function initFooterForm() {
+    const form = document.getElementById('form-footer-editor');
+    if (form) {
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            currentData.footer = {
+                ...currentData.footer,
+                title: document.getElementById('ft-title').value,
+                subtitle: document.getElementById('ft-subtitle').value,
+                copyright: document.getElementById('ft-copyright').value
+            };
+
+            saveData(true);
+        };
+    }
+}
+
+/* ==========================================================================
+   14. TAB 11: EXPORT, BACKUP & RESET
    ========================================================================== */
 function initExportBackup() {
     const btnDownloadJs = document.getElementById('btn-download-datajs');
+    const btnDownloadJsTab = document.getElementById('btn-download-datajs-tab');
     const btnCopyJs = document.getElementById('btn-copy-datajs');
     const btnExportJson = document.getElementById('btn-export-json');
     const btnImportJson = document.getElementById('btn-import-json');
     const fileImportInput = document.getElementById('file-import-json');
     const btnResetDefault = document.getElementById('btn-reset-default');
 
-    if (btnDownloadJs) {
-        btnDownloadJs.addEventListener('click', downloadDataJs);
-    }
+    if (btnDownloadJs) btnDownloadJs.addEventListener('click', downloadDataJs);
+    if (btnDownloadJsTab) btnDownloadJsTab.addEventListener('click', downloadDataJs);
 
     if (btnCopyJs) {
         btnCopyJs.addEventListener('click', () => {
@@ -660,7 +988,7 @@ function initExportBackup() {
             reader.onload = (event) => {
                 try {
                     const parsed = JSON.parse(event.target.result);
-                    if (parsed && parsed.personal && parsed.projects) {
+                    if (parsed && (parsed.hero || parsed.personal) && parsed.projects) {
                         currentData = parsed;
                         saveData(true);
                         showToast('Data berhasil diimpor dari berkas JSON! 🎉');
@@ -677,11 +1005,11 @@ function initExportBackup() {
 
     if (btnResetDefault) {
         btnResetDefault.addEventListener('click', () => {
-            if (!confirm('Kembalikan semua data ke pengaturan awal (default)? Data kustom akan dihapus.')) return;
+            if (!confirm('Kembalikan semua data ke pengaturan awal (default)? Semua modifikasi lokal akan dihapus.')) return;
             localStorage.removeItem('customPortfolioData');
             loadData();
             renderAllViews();
-            showToast('Data telah direset ke setelan awal pabrik! 🔄');
+            showToast('Data telah direset ke setelan awal! 🔄');
         });
     }
 
@@ -689,7 +1017,7 @@ function initExportBackup() {
 }
 
 function generateDataJsCode() {
-    return `/**\n * Portfolio Data Configuration for Khairul Raihan Hidayat\n * Generated automatically from Admin CMS\n */\n\nconst portfolioData = ${JSON.stringify(currentData, null, 4)};\n\nif (typeof module !== 'undefined' && module.exports) {\n    module.exports = portfolioData;\n}\n`;
+    return `/**\n * Master Portfolio Data Configuration for Khairul Raihan Hidayat\n * Generated automatically from Admin CMS\n */\n\nconst portfolioData = ${JSON.stringify(currentData, null, 4)};\n\nif (typeof module !== 'undefined' && module.exports) {\n    module.exports = portfolioData;\n}\n`;
 }
 
 function downloadDataJs() {
@@ -708,12 +1036,28 @@ function renderExportCode() {
     const box = document.getElementById('datajs-code-preview');
     if (box) {
         const code = generateDataJsCode();
-        box.textContent = code.slice(0, 500) + '\n... (tekan Download data.js untuk mengunduh versi lengkap)';
+        box.textContent = code.slice(0, 500) + '\n... (tekan Download data.js untuk mengunduh berkas lengkap)';
     }
 }
 
 /* ==========================================================================
-   10. MODAL & TOAST HELPERS
+   15. INITIALIZE ALL FORMS
+   ========================================================================== */
+function initForms() {
+    initHeroForm();
+    initStatsForm();
+    initAboutForm();
+    initCategoryForm();
+    initSkillItemForm();
+    initProjectForm();
+    initNlpForm();
+    initCertForm();
+    initContactForm();
+    initFooterForm();
+}
+
+/* ==========================================================================
+   16. MODAL & TOAST HELPERS
    ========================================================================== */
 function openModal(id) {
     const el = document.getElementById(id);
@@ -731,7 +1075,6 @@ function closeModal(id) {
     }
 }
 
-// Global modal close clicks
 document.querySelectorAll('.adm-modal-overlay').forEach(modal => {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal(modal.id);
@@ -756,19 +1099,13 @@ function showToast(message) {
 
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.innerHTML = `
-        <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-        <span>${message}</span>
-    `;
+    toast.innerHTML = `<span>${message}</span>`;
 
     container.appendChild(toast);
     setTimeout(() => toast.classList.add('show'), 50);
 
     setTimeout(() => {
         toast.classList.remove('show');
-        setTimeout(() => toast.remove(), 400);
-    }, 3500);
+        setTimeout(() => toast.remove(), 350);
+    }, 3000);
 }

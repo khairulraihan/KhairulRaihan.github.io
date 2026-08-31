@@ -32,7 +32,7 @@
         <div class="container nav-container">
             <a href="#home" class="logo">
                 <div class="logo-badge">KR</div>
-                <span>Khairul Raihan</span>
+                <span id="nav-brand-name">Khairul Raihan</span>
             </a>
 
             <nav class="nav-menu" id="nav-menu">
@@ -89,48 +89,50 @@
                     <div class="hero-text-content reveal">
                         <div class="hero-status-pill">
                             <span class="status-dot"></span>
-                            <span>Fresh Graduate Sistem Informasi &bull; Peminatan Data Science</span>
+                            <span id="hero-status-pill">Fresh Graduate Sistem Informasi • Peminatan Data Science</span>
                         </div>
 
-                        <h1 class="hero-title">Khairul Raihan Hidayat</h1>
+                        <h1 class="hero-title" id="hero-name">Khairul Raihan Hidayat</h1>
 
                         <div class="hero-role-line">
                             <span id="typewriter">Data Science & Analytics</span>
                         </div>
 
-                        <p class="hero-bio">
-                            Lulusan Sarjana Komputer dari Universitas Budi Luhur dengan <strong>IPK 3.88/4.00</strong>. Berfokus pada siklus analitik data komprehensif: pembersihan dan ekstraksi data berskala besar, pemodelan Machine Learning (NLP), serta perancangan dasbor Business Intelligence interaktif di Tableau.
+                        <p class="hero-bio" id="hero-bio">
+                            Lulusan Sarjana Komputer dari Universitas Budi Luhur dengan IPK 3.88/4.00. Berfokus pada siklus analitik data komprehensif: pembersihan dan ekstraksi data berskala besar, pemodelan Machine Learning (NLP), serta perancangan dasbor Business Intelligence interaktif di Tableau.
                         </p>
 
                         <div class="hero-actions">
-                            <a href="#projects" class="btn btn-primary">
-                                <span>Lihat Proyek Pilihan</span>
+                            <a href="#projects" class="btn btn-primary" id="hero-cta-primary">
+                                <span id="hero-cta-primary-text">Lihat Proyek Pilihan</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
                             </a>
-                            <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+                            <a href="#contact" class="btn btn-secondary" id="hero-cta-secondary">
+                                <span id="hero-cta-secondary-text">Hubungi Saya</span>
+                            </a>
                         </div>
 
                         <div class="hero-socials">
-                            <a href="https://github.com/KhairulRaihan" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub" aria-label="GitHub">
+                            <a href="https://github.com/KhairulRaihan" target="_blank" rel="noopener noreferrer" class="social-icon-btn" id="hero-github" title="GitHub" aria-label="GitHub">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                                 </svg>
                             </a>
-                            <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" class="social-icon-btn" id="hero-linkedin" title="LinkedIn" aria-label="LinkedIn">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                 </svg>
                             </a>
-                            <a href="mailto:khairulraihan617@gmail.com" class="social-icon-btn" title="Email" aria-label="Email">
+                            <a href="mailto:khairulraihan617@gmail.com" class="social-icon-btn" id="hero-email" title="Email" aria-label="Email">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
                             </a>
-                            <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp" aria-label="WhatsApp">
+                            <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer" class="social-icon-btn" id="hero-whatsapp" title="WhatsApp" aria-label="WhatsApp">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                                 </svg>
@@ -139,7 +141,7 @@
                     </div>
 
                     <div class="hero-portrait-card reveal reveal-delay-1">
-                        <img src="assets/images/profile.jpg" alt="Khairul Raihan Hidayat" />
+                        <img src="assets/images/profile.jpg" id="hero-profile-img" alt="Khairul Raihan Hidayat" />
                     </div>
                 </div>
             </div>
@@ -148,38 +150,8 @@
         <!-- Stats Row -->
         <section class="stats-section">
             <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item reveal">
-                        <div class="stat-num-wrapper">
-                            <span class="stat-number" data-target="3.88">0</span>
-                            <span class="stat-suffix">/4.00</span>
-                        </div>
-                        <div class="stat-desc">IPK Kelulusan (Magna Cum Laude)</div>
-                    </div>
-
-                    <div class="stat-item reveal reveal-delay-1">
-                        <div class="stat-num-wrapper">
-                            <span class="stat-number" data-target="785">0</span>
-                            <span class="stat-suffix">K+</span>
-                        </div>
-                        <div class="stat-desc">Data Records Historis Dianalisis</div>
-                    </div>
-
-                    <div class="stat-item reveal reveal-delay-2">
-                        <div class="stat-num-wrapper">
-                            <span class="stat-number" data-target="92.4">0</span>
-                            <span class="stat-suffix">%</span>
-                        </div>
-                        <div class="stat-desc">Akurasi Model NLP Skripsi</div>
-                    </div>
-
-                    <div class="stat-item reveal reveal-delay-3">
-                        <div class="stat-num-wrapper">
-                            <span class="stat-number" data-target="10">0</span>
-                            <span class="stat-suffix">+</span>
-                        </div>
-                        <div class="stat-desc">Proyek & Dasbor Visualisasi</div>
-                    </div>
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Rendered dynamically from data.js -->
                 </div>
             </div>
         </section>
@@ -188,57 +160,35 @@
         <section class="section" id="about">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-badge">Profil Akademis & Profesional</span>
-                    <h2 class="section-title">Latar Belakang & Pendekatan Kerja</h2>
-                    <p class="section-desc">Menjembatani analisis statistik murni dengan kebutuhan bisnis nyata melalui rekayasa data yang terstruktur.</p>
+                    <span class="section-badge" id="about-badge">Profil Akademis & Profesional</span>
+                    <h2 class="section-title" id="about-title">Latar Belakang & Pendekatan Kerja</h2>
+                    <p class="section-desc" id="about-desc">Menjembatani analisis statistik murni dengan kebutuhan bisnis nyata melalui rekayasa data yang terstruktur.</p>
                 </div>
 
                 <div class="about-layout">
                     <div class="about-card reveal">
-                        <span class="about-edu-tag">Pendidikan Formal (2022 - 2026)</span>
-                        <h3 class="about-edu-title">Universitas Budi Luhur, Jakarta</h3>
-                        <p class="about-edu-degree">Sarjana Komputer (S.Kom) - Sistem Informasi &bull; Peminatan Data Science</p>
+                        <span class="about-edu-tag">Pendidikan Formal (<span id="about-period">2022 - 2026</span>)</span>
+                        <h3 class="about-edu-title" id="about-institution">Universitas Budi Luhur, Jakarta</h3>
+                        <p class="about-edu-degree" id="about-degree">Sarjana Komputer (S.Kom) - Sistem Informasi • Peminatan Data Science</p>
 
                         <div class="about-gpa-pill">
                             <span>Indeks Prestasi Kumulatif:</span>
-                            <strong>3.88 / 4.00</strong>
+                            <strong id="about-gpa">3.88 / 4.00</strong>
                         </div>
 
                         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600;">Mata Kuliah Utama:</p>
-                        <div class="about-course-chips">
-                            <span class="course-chip">Analisis Big Data</span>
-                            <span class="course-chip">Pemodelan Data & ML</span>
-                            <span class="course-chip">Rekayasa Data (Data Engineering)</span>
-                            <span class="course-chip">Visualisasi Data & BI</span>
-                            <span class="course-chip">Basis Data Relasional</span>
+                        <div class="about-course-chips" id="about-course-chips">
+                            <!-- Rendered dynamically from data.js -->
                         </div>
                     </div>
 
                     <div class="about-story reveal reveal-delay-1">
-                        <p>
-                            Sebagai lulusan Sistem Informasi dengan peminatan Data Science, saya berfokus pada alur kerja data terintegrasi: mulai dari eksplorasi data mentah, pembersihan teks dan normalisasi bahasa, perancangan model prediktif, hingga visualisasi dalam format dasbor eksekutif.
-                        </p>
-                        <p>
-                            Pada penelitian Tugas Akhir, saya merancang sistem klasifikasi analisis sentimen pada belasan ribu komentar YouTube berbahasa Indonesia dengan membandingkan model <strong>Support Vector Machine (SVM)</strong> dan <strong>Multinomial Naive Bayes</strong>, yang menghasilkan akurasi tertinggi sebesar <strong>92.4%</strong>.
-                        </p>
+                        <div id="about-story-container">
+                            <!-- Rendered dynamically from data.js -->
+                        </div>
 
-                        <div class="competency-grid">
-                            <div class="competency-item">
-                                <h4>Machine Learning & NLP</h4>
-                                <p>Normalisasi kata slang, leksikon InSet, komparasi algoritma klasifikasi.</p>
-                            </div>
-                            <div class="competency-item">
-                                <h4>Business Intelligence</h4>
-                                <p>Perancangan dasbor interaktif di Tableau & Looker Studio.</p>
-                            </div>
-                            <div class="competency-item">
-                                <h4>Ekstraksi & SQL</h4>
-                                <p>Web scraping data tabular dan agregasi kueri relasional kompleks.</p>
-                            </div>
-                            <div class="competency-item">
-                                <h4>Business Value Focus</h4>
-                                <p>Menerjemahkan wawasan statistik menjadi rekomendasi praktis.</p>
-                            </div>
+                        <div class="competency-grid" id="about-competencies-grid">
+                            <!-- Rendered dynamically from data.js -->
                         </div>
 
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
@@ -250,7 +200,7 @@
                                 </svg>
                                 <span>Unduh Resume (ATS)</span>
                             </a>
-                            <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="btn-about-whatsapp">
                                 <span>Hubungi via WhatsApp</span>
                             </a>
                         </div>
@@ -300,28 +250,25 @@
         <section class="section" id="demo">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-badge">Research Testing Console</span>
-                    <h2 class="section-title">Pengujian Langsung Model NLP</h2>
-                    <p class="section-desc">Simulator leksikon sentimen untuk menguji klasifikasi opini teks berbahasa Indonesia dengan normalisasi kata tidak baku.</p>
+                    <span class="section-badge" id="nlp-badge">Research Testing Console</span>
+                    <h2 class="section-title" id="nlp-title">Pengujian Langsung Model NLP</h2>
+                    <p class="section-desc" id="nlp-desc">Simulator leksikon sentimen untuk menguji klasifikasi opini teks berbahasa Indonesia dengan normalisasi kata tidak baku.</p>
                 </div>
 
                 <div class="console-card reveal">
                     <div class="console-header">
                         <div class="console-title">
-                            <h3>Sentiment Classifier Console</h3>
-                            <p>Metodologi: Kamus Leksikon InSet & Pembobotan Sentimen</p>
+                            <h3 id="nlp-console-title">Sentiment Classifier Console</h3>
+                            <p id="nlp-console-subtitle">Metodologi: Kamus Leksikon InSet & Pembobotan Sentimen</p>
                         </div>
-                        <span class="console-badge">Bahasa Indonesia</span>
+                        <span class="console-badge" id="nlp-console-badge">Bahasa Indonesia</span>
                     </div>
 
                     <label for="analyzer-input" class="form-label">Masukkan teks komentar untuk dianalisis:</label>
                     <textarea id="analyzer-input" class="console-textarea" placeholder="Contoh: Penjelasan visualisasi data di dashboard ini sangat informatif dan memuaskan!">Penjelasan visualisasi data di dashboard ini sangat informatif dan memuaskan!</textarea>
 
-                    <div class="sample-prompts-row">
-                        <span style="font-size: 0.78rem; color: var(--text-muted);">Pilih contoh uji:</span>
-                        <button type="button" class="sample-chip" data-text="Wah materinya daging banget, analisis datanya rapi dan mudah dipahami!">Contoh Positif (Materi rapi & daging)</button>
-                        <button type="button" class="sample-chip" data-text="Aplikasi sering error, loading lelet bgt dan responnya mengecewakan.">Contoh Negatif (Error, lelet bgt)</button>
-                        <button type="button" class="sample-chip" data-text="Video sudah ditonton sampai selesai, standar saja.">Contoh Netral (Standar saja)</button>
+                    <div class="sample-prompts-row" id="nlp-sample-chips-container">
+                        <!-- Rendered dynamically from data.js -->
                     </div>
 
                     <div style="margin-bottom: 1.25rem;">
@@ -387,9 +334,9 @@
         <section class="section" id="contact">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-badge">Komunikasi & Kontak</span>
-                    <h2 class="section-title">Informasi Kontak & Kolaborasi</h2>
-                    <p class="section-desc">Terbuka untuk peluang karir Data Scientist, Data Analyst, BI Specialist, atau diskusi riset.</p>
+                    <span class="section-badge" id="contact-badge">Komunikasi & Kontak</span>
+                    <h2 class="section-title" id="contact-title">Informasi Kontak & Kolaborasi</h2>
+                    <p class="section-desc" id="contact-desc">Terbuka untuk peluang karir Data Scientist, Data Analyst, BI Specialist, atau diskusi riset.</p>
                 </div>
 
                 <div class="contact-layout">
@@ -403,7 +350,7 @@
                             </div>
                             <div class="contact-info-details">
                                 <h4>Email</h4>
-                                <a href="mailto:khairulraihan617@gmail.com" id="contact-email-text">khairulraihan617@gmail.com</a>
+                                <a href="mailto:khairulraihan617@gmail.com" id="contact-email-link">khairulraihan617@gmail.com</a>
                                 <br>
                                 <button type="button" class="copy-btn" id="btn-copy-email">Salin Email</button>
                             </div>
@@ -417,7 +364,7 @@
                             </div>
                             <div class="contact-info-details">
                                 <h4>WhatsApp</h4>
-                                <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer">+62 898-951-8334</a>
+                                <a href="https://wa.me/628989518334" target="_blank" rel="noopener noreferrer" id="contact-whatsapp-link">+62 898-951-8334</a>
                             </div>
                         </div>
 
@@ -430,7 +377,7 @@
                             </div>
                             <div class="contact-info-details">
                                 <h4>Domisili</h4>
-                                <p>Kota Tangerang, Banten, Indonesia</p>
+                                <p id="contact-location">Kota Tangerang, Banten, Indonesia</p>
                             </div>
                         </div>
 
@@ -442,7 +389,7 @@
                             </div>
                             <div class="contact-info-details">
                                 <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer">linkedin.com/in/khairul-raihan-hidayat</a>
+                                <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" id="contact-linkedin-link">linkedin.com/in/khairul-raihan-hidayat</a>
                             </div>
                         </div>
                     </div>
@@ -503,17 +450,17 @@
         <div class="container">
             <div class="footer-top">
                 <div>
-                    <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.25rem;">Khairul Raihan Hidayat</h3>
-                    <p style="font-size: 0.88rem; color: var(--text-muted);">Sarjana Komputer &bull; Sistem Informasi (Data Science) &bull; Universitas Budi Luhur</p>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.25rem;" id="footer-title">Khairul Raihan Hidayat</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);" id="footer-subtitle">Sarjana Komputer • Sistem Informasi (Data Science) • Universitas Budi Luhur</p>
                 </div>
 
                 <div class="hero-socials">
-                    <a href="https://github.com/KhairulRaihan" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
+                    <a href="https://github.com/KhairulRaihan" target="_blank" rel="noopener noreferrer" class="social-icon-btn" id="footer-github" title="GitHub">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/khairul-raihan-hidayat" target="_blank" rel="noopener noreferrer" class="social-icon-btn" id="footer-linkedin" title="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
@@ -522,7 +469,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Khairul Raihan Hidayat. Hosted with GitHub Pages. &bull; <a href="admin.html" style="color: var(--accent-blue); text-decoration: underline;" title="Buka Admin CMS">Admin Panel</a></p>
+                <p id="footer-copyright">&copy; 2026 Khairul Raihan Hidayat. Hosted with GitHub Pages. &bull; <a href="admin.html" style="color: var(--accent-blue); text-decoration: underline;" title="Buka Admin CMS">Admin Panel</a></p>
                 <a href="#home" style="color: var(--accent-blue); font-weight: 600;">&uarr; Kembali ke Atas</a>
             </div>
         </div>

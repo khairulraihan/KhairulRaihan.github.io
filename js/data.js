@@ -1,48 +1,60 @@
 /**
- * Portfolio Data Configuration for Khairul Raihan Hidayat
- * Data Science & Business Intelligence Specialist
+ * Master Portfolio Data Configuration for Khairul Raihan Hidayat
+ * 100% Fully Editable via Admin CMS
  */
 
 const portfolioData = {
-    personal: {
+    hero: {
+        statusPill: "Fresh Graduate Sistem Informasi • Peminatan Data Science",
         name: "Khairul Raihan Hidayat",
-        nickname: "Raihan",
-        role: "Data Science & BI Specialist",
-        tagline: "Menerjemahkan Data Kompleks Menjadi Keputusan Bisnis Strategis",
-        bio: "Lulusan Sarjana Komputer Sistem Informasi (Peminatan Data Science) dari Universitas Budi Luhur dengan IPK 3.88/4.00. Memiliki fokus praktis pada siklus pengolahan data end-to-end: ekstraksi data (SQL & Web Scraping), pemodelan Machine Learning (Natural Language Processing & Klasifikasi), serta perancangan dasbor Business Intelligence (Tableau & Looker Studio).",
-        location: "Kota Tangerang, Banten, Indonesia",
-        email: "khairulraihan617@gmail.com",
-        phone: "+62 898-951-8334",
-        whatsapp: "628989518334",
-        gpa: "3.88 / 4.00",
-        degree: "Sarjana Komputer (S.Kom) - Sistem Informasi",
-        university: "Universitas Budi Luhur, Jakarta",
-        graduationYear: "2022 - 2026",
-        cvPath: "assets/docs/Khairul_Raihan_Hidayat_CV.docx",
-        socials: {
-            github: "https://github.com/KhairulRaihan",
-            linkedin: "https://www.linkedin.com/in/khairul-raihan-hidayat",
-            email: "mailto:khairulraihan617@gmail.com",
-            whatsapp: "https://wa.me/628989518334"
-        }
+        roles: [
+            "Data Science & Analytics",
+            "NLP & Machine Learning Specialist",
+            "Business Intelligence (Tableau & SQL)",
+            "Fresh Graduate S.Kom (IPK 3.88)"
+        ],
+        bio: "Lulusan Sarjana Komputer dari Universitas Budi Luhur dengan IPK 3.88/4.00. Berfokus pada siklus analitik data komprehensif: pembersihan dan ekstraksi data berskala besar, pemodelan Machine Learning (NLP), serta perancangan dasbor Business Intelligence interaktif di Tableau.",
+        ctaPrimaryText: "Lihat Proyek Pilihan",
+        ctaPrimaryLink: "#projects",
+        ctaSecondaryText: "Hubungi Saya",
+        ctaSecondaryLink: "#contact",
+        profileImage: "assets/images/profile.jpg"
     },
 
-    roles: [
-        "Data Science & Analytics",
-        "NLP & Machine Learning Specialist",
-        "Business Intelligence (Tableau & SQL)",
-        "Fresh Graduate S.Kom (IPK 3.88)"
+    stats: [
+        { value: "3.88", suffix: "/4.00", label: "IPK Kelulusan (Magna Cum Laude)" },
+        { value: "785", suffix: "K+", label: "Data Records Historis Dianalisis" },
+        { value: "92.4", suffix: "%", label: "Akurasi Model NLP Skripsi" },
+        { value: "10", suffix: "+", label: "Proyek & Dasbor Visualisasi" }
     ],
 
-    stats: [
-        { label: "IPK Kelulusan (Magna Cum Laude)", value: "3.88", suffix: "/4.00", icon: "academic" },
-        { label: "Data Records Historis Dianalisis", value: "785", suffix: "K+", icon: "database" },
-        { label: "Akurasi Model NLP Skripsi", value: "92.4", suffix: "%", icon: "chart" },
-        { label: "Proyek & Visualisasi Data", value: "10", suffix: "+", icon: "folder" }
-    ],
+    about: {
+        sectionBadge: "Profil Akademis & Profesional",
+        sectionTitle: "Latar Belakang & Pendekatan Kerja",
+        sectionDesc: "Menjembatani analisis statistik murni dengan kebutuhan bisnis nyata melalui rekayasa data yang terstruktur.",
+        institution: "Universitas Budi Luhur, Jakarta",
+        degree: "Sarjana Komputer (S.Kom) - Sistem Informasi • Peminatan Data Science",
+        period: "2022 - 2026",
+        gpa: "3.88 / 4.00",
+        courses: [
+            "Analisis Big Data",
+            "Pemodelan Data & ML",
+            "Rekayasa Data (Data Engineering)",
+            "Visualisasi Data & BI",
+            "Basis Data Relasional"
+        ],
+        story: "Sebagai lulusan Sistem Informasi dengan peminatan Data Science, saya berfokus pada alur kerja data terintegrasi: mulai dari eksplorasi data mentah, pembersihan teks dan normalisasi bahasa, perancangan model prediktif, hingga visualisasi dalam format dasbor eksekutif.\n\nPada penelitian Tugas Akhir, saya merancang sistem klasifikasi analisis sentimen pada belasan ribu komentar YouTube berbahasa Indonesia dengan membandingkan model Support Vector Machine (SVM) dan Multinomial Naive Bayes, yang menghasilkan akurasi tertinggi sebesar 92.4%.",
+        competencies: [
+            { title: "Machine Learning & NLP", desc: "Normalisasi kata slang, leksikon InSet, komparasi algoritma klasifikasi." },
+            { title: "Business Intelligence", desc: "Perancangan dasbor interaktif di Tableau & Looker Studio." },
+            { title: "Ekstraksi & SQL", desc: "Web scraping data tabular dan agregasi kueri relasional kompleks." },
+            { title: "Business Value Focus", desc: "Menerjemahkan wawasan statistik menjadi rekomendasi praktis." }
+        ]
+    },
 
     skills: [
         {
+            id: "cat-prog-db",
             category: "Bahasa Pemrograman & Basis Data",
             description: "Fondasi utama dalam rekayasa fitur, pembersihan data, dan query relasional.",
             items: [
@@ -52,6 +64,7 @@ const portfolioData = {
             ]
         },
         {
+            id: "cat-ml-nlp",
             category: "Machine Learning & Natural Language Processing",
             description: "Pengembangan pipeline pemrosesan teks dan pemodelan klasifikasi terkomparasi.",
             items: [
@@ -61,6 +74,7 @@ const portfolioData = {
             ]
         },
         {
+            id: "cat-bi-vis",
             category: "Business Intelligence & Visualisasi Data",
             description: "Transformasi kumpulan data menjadi dasbor eksekutif dan visual storytelling.",
             items: [
@@ -70,6 +84,7 @@ const portfolioData = {
             ]
         },
         {
+            id: "cat-tools-dev",
             category: "Tools Pengembangan & Kolaborasi",
             description: "Lingkungan kerja terpadu untuk eksperimen, deployment, dan version control.",
             items: [
@@ -178,58 +193,66 @@ const portfolioData = {
         }
     ],
 
-    education: [
-        {
-            period: "2022 - 2026",
-            institution: "Universitas Budi Luhur, Jakarta",
-            degree: "Sarjana Komputer (S.Kom) - Sistem Informasi",
-            concentration: "Peminatan: Data Science",
-            gpa: "3.88 / 4.00 (Magna Cum Laude)",
-            description: "Kurikulum terfokus pada analitik data tingkat lanjut, rekayasa data, kecerdasan buatan, dan arsitektur basis data relasional.",
-            courses: [
-                "Analisis Big Data",
-                "Pemodelan Data & Machine Learning",
-                "Rekayasa Data (Data Engineering)",
-                "Visualisasi Data & Business Intelligence",
-                "Manajemen Basis Data Relasional"
-            ]
-        }
-    ],
+    nlpDemo: {
+        sectionBadge: "Research Testing Console",
+        sectionTitle: "Pengujian Langsung Model NLP",
+        sectionDesc: "Simulator leksikon sentimen untuk menguji klasifikasi opini teks berbahasa Indonesia dengan normalisasi kata tidak baku.",
+        consoleTitle: "Sentiment Classifier Console",
+        consoleSubtitle: "Metodologi: Kamus Leksikon InSet & Pembobotan Sentimen",
+        consoleBadge: "Bahasa Indonesia",
+        sampleChips: [
+            { label: "Contoh Positif (Materi rapi & daging)", text: "Wah materinya daging banget, analisis datanya rapi dan mudah dipahami!" },
+            { label: "Contoh Negatif (Error, lelet bgt)", text: "Aplikasi sering error, loading lelet bgt dan responnya mengecewakan." },
+            { label: "Contoh Netral (Standar saja)", text: "Video sudah ditonton sampai selesai, standar saja." }
+        ]
+    },
 
     certifications: [
         {
             title: "Algorithm Certification",
             issuer: "Universitas Budi Luhur",
             date: "April 2024",
-            badgeColor: "blue",
-            icon: "award",
             description: "Penguasaan logika algoritma, kompleksitas komputasi, dan struktur data fundamental."
         },
         {
             title: "Introduction to Data Analytics",
             issuer: "RevoU Tech Academy",
             date: "2024",
-            badgeColor: "emerald",
-            icon: "chart",
             description: "Metodologi analisis data bisnis, exploratory data analysis (EDA), dan visualisasi data praktis."
         },
         {
             title: "Python Fundamental for Data Science",
             issuer: "DQLab Academy",
             date: "Desember 2023",
-            badgeColor: "slate",
-            icon: "python",
             description: "Sintaks Python dasar, manipulasi array/dataframe, dan pemrosesan data ilmiah."
         },
         {
             title: "R Fundamental for Data Science",
             issuer: "DQLab Academy",
             date: "Desember 2023",
-            badgeColor: "slate",
-            icon: "r",
             description: "Komputasi statistik, struktur dataframe, dan visualisasi dasar dalam bahasa R."
         }
-    ]
+    ],
+
+    contact: {
+        sectionBadge: "Komunikasi & Kontak",
+        sectionTitle: "Informasi Kontak & Kolaborasi",
+        sectionDesc: "Terbuka untuk peluang karir Data Scientist, Data Analyst, BI Specialist, atau diskusi riset.",
+        email: "khairulraihan617@gmail.com",
+        whatsapp: "+62 898-951-8334",
+        whatsappNum: "628989518334",
+        location: "Kota Tangerang, Banten, Indonesia",
+        linkedin: "https://www.linkedin.com/in/khairul-raihan-hidayat",
+        linkedinDisplay: "linkedin.com/in/khairul-raihan-hidayat",
+        github: "https://github.com/KhairulRaihan",
+        cvPath: "assets/docs/Khairul_Raihan_Hidayat_CV.docx"
+    },
+
+    footer: {
+        title: "Khairul Raihan Hidayat",
+        subtitle: "Sarjana Komputer • Sistem Informasi (Data Science) • Universitas Budi Luhur",
+        copyright: "© 2026 Khairul Raihan Hidayat. Hosted with GitHub Pages."
+    }
 };
 
 if (typeof module !== 'undefined' && module.exports) {

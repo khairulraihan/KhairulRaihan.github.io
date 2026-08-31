@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin CMS Dashboard | Khairul Raihan Hidayat Portfolio</title>
+    <title>Admin CMS Dashboard | Kelola Seluruh Konten Portofolio</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
                 </svg>
             </div>
             <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.35rem;">Admin CMS Portofolio</h2>
-            <p style="font-size: 0.85rem; color: var(--adm-text-muted);">Masukkan PIN Keamanan untuk mengelola konten website</p>
+            <p style="font-size: 0.85rem; color: var(--adm-text-muted);">Masukkan PIN Keamanan untuk mengelola seluruh konten website</p>
 
             <div class="pin-input-group">
                 <input type="password" id="admin-pin-input" class="pin-input" maxlength="10" placeholder="••••" autocomplete="off" />
@@ -47,7 +47,7 @@
             <div style="margin-top: 1.25rem; font-size: 0.75rem; color: var(--adm-text-dim);">
                 <span>Default PIN awal: </span><strong style="color: var(--accent-cyan);">1234</strong>
                 <br>
-                <span>(Dapat Anda ganti di dalam menu pengaturan dashboard)</span>
+                <span>(Dapat Anda ganti kapan saja di menu Ganti PIN)</span>
             </div>
         </div>
     </div>
@@ -61,8 +61,8 @@
             <div class="sidebar-header">
                 <div class="sidebar-logo-badge">KR</div>
                 <div class="sidebar-brand">
-                    <h2>Khairul Raihan</h2>
-                    <span>CMS Portfolio Panel</span>
+                    <h2>Admin CMS</h2>
+                    <span>Kelola 100% Konten</span>
                 </div>
             </div>
 
@@ -77,18 +77,26 @@
                     </svg>
                     <span>Ringkasan Dashboard</span>
                 </a>
-                <a href="#" class="sidebar-link" data-tab="personal">
+                <a href="#" class="sidebar-link" data-tab="hero">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    </svg>
+                    <span>Hero & Beranda</span>
+                </a>
+                <a href="#" class="sidebar-link" data-tab="stats">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <span>Angka Statistik</span>
+                </a>
+                <a href="#" class="sidebar-link" data-tab="about">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
-                    <span>Data Pribadi & Kontak</span>
-                </a>
-                <a href="#" class="sidebar-link" data-tab="projects">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <span>Kelola Proyek Data</span>
+                    <span>Tentang, Kuliah & Pilar</span>
                 </a>
                 <a href="#" class="sidebar-link" data-tab="skills">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -98,12 +106,41 @@
                     </svg>
                     <span>Kelola Keahlian (Skills)</span>
                 </a>
-                <a href="#" class="sidebar-link" data-tab="education">
+                <a href="#" class="sidebar-link" data-tab="projects">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                     </svg>
-                    <span>Pendidikan & Sertifikasi</span>
+                    <span>Kelola Proyek Data</span>
+                </a>
+                <a href="#" class="sidebar-link" data-tab="nlp">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <span>Konsol Riset NLP Demo</span>
+                </a>
+                <a href="#" class="sidebar-link" data-tab="certifications">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="7"></circle>
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                    </svg>
+                    <span>Sertifikasi & Lisensi</span>
+                </a>
+                <a href="#" class="sidebar-link" data-tab="contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>Kontak & Sosial Media</span>
+                </a>
+                <a href="#" class="sidebar-link" data-tab="footer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <span>Footer & Hak Cipta</span>
                 </a>
 
                 <div class="menu-category-title" style="margin-top: 1rem;">Pengaturan & Export</div>
@@ -149,7 +186,7 @@
                     </button>
                     <div class="sync-badge" id="sync-status-badge">
                         <span class="sync-dot"></span>
-                        <span>Tersimpan di Browser</span>
+                        <span>Tersimpan Live di Browser</span>
                     </div>
                 </div>
 
@@ -179,8 +216,8 @@
                 <section class="tab-pane active" id="tab-overview">
                     <div class="page-header">
                         <div class="page-header-title">
-                            <h1>Ringkasan Portofolio</h1>
-                            <p>Pantau data, proyek, dan statistik portofolio Khairul Raihan Hidayat.</p>
+                            <h1>Ringkasan Konten Portofolio</h1>
+                            <p>Semua perubahan yang Anda simpan di menu-menu samping akan langsung aktif seketika di website.</p>
                         </div>
                         <div>
                             <button class="btn-adm btn-adm-primary" onclick="openProjectEditor(null)">
@@ -200,7 +237,7 @@
                             </div>
                             <div class="stat-info">
                                 <h3 id="ov-count-projects">0</h3>
-                                <p>Total Proyek Data</p>
+                                <p>Proyek Aktif</p>
                             </div>
                         </div>
 
@@ -227,7 +264,7 @@
                             </div>
                             <div class="stat-info">
                                 <h3 id="ov-count-certs">0</h3>
-                                <p>Sertifikasi Resmi</p>
+                                <p>Sertifikasi</p>
                             </div>
                         </div>
 
@@ -244,137 +281,317 @@
                         </div>
                     </div>
 
-                    <!-- Recent Projects Card -->
+                    <!-- Quick Navigation Helper -->
                     <div class="adm-card">
                         <div class="adm-card-header">
-                            <h2 class="adm-card-title">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                                <span>Daftar Proyek Unggulan Terkini</span>
-                            </h2>
-                            <a href="#" class="btn-adm btn-adm-secondary btn-adm-sm" onclick="document.querySelector('.sidebar-link[data-tab=\'projects\']').click()">Lihat Semua</a>
+                            <h2 class="adm-card-title">Navigasi Pengeditan Cepat</h2>
                         </div>
-
-                        <div class="adm-table-container">
-                            <table class="adm-table">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 70px;">Visual</th>
-                                        <th>Judul Proyek</th>
-                                        <th>Kategori</th>
-                                        <th>Metrik Kunci</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="ov-recent-projects-tbody">
-                                    <!-- Injected via JavaScript -->
-                                </tbody>
-                            </table>
+                        <div class="grid-3">
+                            <button type="button" class="btn-adm btn-adm-secondary" style="padding: 1rem; justify-content: flex-start;" onclick="document.querySelector('.sidebar-link[data-tab=\'hero\']').click()">
+                                <span>✏️ Edit Hero & Beranda</span>
+                            </button>
+                            <button type="button" class="btn-adm btn-adm-secondary" style="padding: 1rem; justify-content: flex-start;" onclick="document.querySelector('.sidebar-link[data-tab=\'stats\']').click()">
+                                <span>📊 Edit Angka Statistik</span>
+                            </button>
+                            <button type="button" class="btn-adm btn-adm-secondary" style="padding: 1rem; justify-content: flex-start;" onclick="document.querySelector('.sidebar-link[data-tab=\'about\']').click()">
+                                <span>👤 Edit Tentang & Kuliah</span>
+                            </button>
+                            <button type="button" class="btn-adm btn-adm-secondary" style="padding: 1rem; justify-content: flex-start;" onclick="document.querySelector('.sidebar-link[data-tab=\'skills\']').click()">
+                                <span>⚡ Edit Matriks Keahlian</span>
+                            </button>
+                            <button type="button" class="btn-adm btn-adm-secondary" style="padding: 1rem; justify-content: flex-start;" onclick="document.querySelector('.sidebar-link[data-tab=\'projects\']').click()">
+                                <span>📁 Kelola Proyek</span>
+                            </button>
+                            <button type="button" class="btn-adm btn-adm-secondary" style="padding: 1rem; justify-content: flex-start;" onclick="document.querySelector('.sidebar-link[data-tab=\'contact\']').click()">
+                                <span>📬 Edit Kontak & WhatsApp</span>
+                            </button>
                         </div>
                     </div>
                 </section>
 
-                <!-- TAB 2: PERSONAL & CONTACT -->
-                <section class="tab-pane" id="tab-personal">
+                <!-- TAB 2: HERO & BERANDA -->
+                <section class="tab-pane" id="tab-hero">
                     <div class="page-header">
                         <div class="page-header-title">
-                            <h1>Data Pribadi & Kontak</h1>
-                            <p>Perbarui informasi profil, kontak WhatsApp, email, dan headline website.</p>
+                            <h1>Edit Hero & Bagian Beranda</h1>
+                            <p>Ubah nama, status pill, headline ketik dinamis, narasi bio, dan tombol aksi.</p>
                         </div>
                     </div>
 
-                    <form id="form-personal-info">
-                        <div class="grid-2">
-                            <div class="adm-card">
-                                <div class="adm-card-header">
-                                    <h2 class="adm-card-title">Identitas & Akademis</h2>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-name">Nama Lengkap</label>
-                                    <input type="text" id="p-name" class="form-input" required />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-nickname">Nama Panggilan</label>
-                                    <input type="text" id="p-nickname" class="form-input" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-role">Peran Utama (Main Role)</label>
-                                    <input type="text" id="p-role" class="form-input" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-tagline">Tagline Personal</label>
-                                    <input type="text" id="p-tagline" class="form-input" />
-                                </div>
-                                <div class="grid-2">
-                                    <div class="form-group">
-                                        <label class="form-label" for="p-gpa">IPK (GPA)</label>
-                                        <input type="text" id="p-gpa" class="form-input" placeholder="3.88 / 4.00" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="p-gradyear">Periode Kuliah</label>
-                                        <input type="text" id="p-gradyear" class="form-input" placeholder="2022 - 2026" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-degree">Gelar & Program Studi</label>
-                                    <input type="text" id="p-degree" class="form-input" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-university">Universitas</label>
-                                    <input type="text" id="p-university" class="form-input" />
-                                </div>
-                            </div>
-
-                            <div class="adm-card">
-                                <div class="adm-card-header">
-                                    <h2 class="adm-card-title">Kontak & Teks Dinamis</h2>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-email">Alamat Email</label>
-                                    <input type="email" id="p-email" class="form-input" required />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-whatsapp">Nomor WhatsApp (Angka saja, misal: 628989518334)</label>
-                                    <input type="text" id="p-whatsapp" class="form-input" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-location">Lokasi Domisili</label>
-                                    <input type="text" id="p-location" class="form-input" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-github">Link Profil GitHub</label>
-                                    <input type="url" id="p-github" class="form-input" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-linkedin">Link Profil LinkedIn</label>
-                                    <input type="url" id="p-linkedin" class="form-input" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="p-typewriter-roles">Teks Ketik Dinamis Hero (Pisahkan dengan baris baru)</label>
-                                    <textarea id="p-typewriter-roles" class="form-textarea" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
+                    <form id="form-hero-editor">
                         <div class="adm-card">
-                            <div class="form-group">
-                                <label class="form-label" for="p-bio">Ringkasan Profil (Bio Tentang Saya)</label>
-                                <textarea id="p-bio" class="form-textarea" rows="4"></textarea>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="h-name">Nama Lengkap Hero *</label>
+                                    <input type="text" id="h-name" class="form-input" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="h-status-pill">Teks Status Pill (Badge Atas) *</label>
+                                    <input type="text" id="h-status-pill" class="form-input" required />
+                                </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="h-roles">Daftar Peran Teks Ketik Dinamis (Pisahkan dengan baris baru)</label>
+                                <textarea id="h-roles" class="form-textarea" rows="3" placeholder="Data Science & Analytics&#10;NLP & Machine Learning Specialist"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="h-bio">Paragraf Bio Hero *</label>
+                                <textarea id="h-bio" class="form-textarea" rows="3" required></textarea>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="h-cta-prim-text">Teks Tombol Utama</label>
+                                    <input type="text" id="h-cta-prim-text" class="form-input" placeholder="Lihat Proyek Pilihan" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="h-cta-prim-link">Link Tombol Utama</label>
+                                    <input type="text" id="h-cta-prim-link" class="form-input" placeholder="#projects" />
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="h-cta-sec-text">Teks Tombol Sekunder</label>
+                                    <input type="text" id="h-cta-sec-text" class="form-input" placeholder="Hubungi Saya" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="h-cta-sec-link">Link Tombol Sekunder</label>
+                                    <input type="text" id="h-cta-sec-link" class="form-input" placeholder="#contact" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="h-profile-img">Path Foto Profil</label>
+                                <input type="text" id="h-profile-img" class="form-input" placeholder="assets/images/profile.jpg" />
+                            </div>
+
                             <button type="submit" class="btn-adm btn-adm-primary" style="padding: 0.8rem 1.8rem;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
-                                <span>Simpan Perubahan Data Pribadi</span>
+                                <span>Simpan Perubahan Hero</span>
                             </button>
                         </div>
                     </form>
                 </section>
 
-                <!-- TAB 3: PROJECTS MANAGER -->
+                <!-- TAB 3: STATS -->
+                <section class="tab-pane" id="tab-stats">
+                    <div class="page-header">
+                        <div class="page-header-title">
+                            <h1>Edit Angka Statistik</h1>
+                            <p>Ubah 4 nilai metrik pencapaian yang tampil di bawah hero section.</p>
+                        </div>
+                    </div>
+
+                    <form id="form-stats-editor">
+                        <div class="grid-2">
+                            <!-- Stat 1 -->
+                            <div class="adm-card">
+                                <div class="adm-card-header"><h3 class="adm-card-title">Kartu Statistik 1</h3></div>
+                                <div class="grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label" for="st-1-val">Nilai Angka</label>
+                                        <input type="text" id="st-1-val" class="form-input" placeholder="3.88" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="st-1-suf">Simbol Suffix</label>
+                                        <input type="text" id="st-1-suf" class="form-input" placeholder="/4.00" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="st-1-lbl">Label Keterangan</label>
+                                    <input type="text" id="st-1-lbl" class="form-input" required />
+                                </div>
+                            </div>
+
+                            <!-- Stat 2 -->
+                            <div class="adm-card">
+                                <div class="adm-card-header"><h3 class="adm-card-title">Kartu Statistik 2</h3></div>
+                                <div class="grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label" for="st-2-val">Nilai Angka</label>
+                                        <input type="text" id="st-2-val" class="form-input" placeholder="785" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="st-2-suf">Simbol Suffix</label>
+                                        <input type="text" id="st-2-suf" class="form-input" placeholder="K+" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="st-2-lbl">Label Keterangan</label>
+                                    <input type="text" id="st-2-lbl" class="form-input" required />
+                                </div>
+                            </div>
+
+                            <!-- Stat 3 -->
+                            <div class="adm-card">
+                                <div class="adm-card-header"><h3 class="adm-card-title">Kartu Statistik 3</h3></div>
+                                <div class="grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label" for="st-3-val">Nilai Angka</label>
+                                        <input type="text" id="st-3-val" class="form-input" placeholder="92.4" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="st-3-suf">Simbol Suffix</label>
+                                        <input type="text" id="st-3-suf" class="form-input" placeholder="%" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="st-3-lbl">Label Keterangan</label>
+                                    <input type="text" id="st-3-lbl" class="form-input" required />
+                                </div>
+                            </div>
+
+                            <!-- Stat 4 -->
+                            <div class="adm-card">
+                                <div class="adm-card-header"><h3 class="adm-card-title">Kartu Statistik 4</h3></div>
+                                <div class="grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label" for="st-4-val">Nilai Angka</label>
+                                        <input type="text" id="st-4-val" class="form-input" placeholder="10" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="st-4-suf">Simbol Suffix</label>
+                                        <input type="text" id="st-4-suf" class="form-input" placeholder="+" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="st-4-lbl">Label Keterangan</label>
+                                    <input type="text" id="st-4-lbl" class="form-input" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-adm btn-adm-primary" style="padding: 0.8rem 1.8rem;">
+                            <span>Simpan Perubahan Statistik</span>
+                        </button>
+                    </form>
+                </section>
+
+                <!-- TAB 4: ABOUT, EDUCATION & COMPETENCIES -->
+                <section class="tab-pane" id="tab-about">
+                    <div class="page-header">
+                        <div class="page-header-title">
+                            <h1>Edit Tentang Saya, Pendidikan & Kompetensi</h1>
+                            <p>Ubah detail riwayat kampus, IPK, cerita riset, dan 4 pilar fokus utama.</p>
+                        </div>
+                    </div>
+
+                    <form id="form-about-editor">
+                        <div class="adm-card">
+                            <div class="adm-card-header"><h3 class="adm-card-title">Header Section Tentang</h3></div>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="ab-badge">Badge Atas Section</label>
+                                    <input type="text" id="ab-badge" class="form-input" placeholder="Profil Akademis & Profesional" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ab-title">Judul Section *</label>
+                                    <input type="text" id="ab-title" class="form-input" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="ab-desc">Deskripsi Subjudul Section</label>
+                                <input type="text" id="ab-desc" class="form-input" />
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <!-- Education Card Info -->
+                            <div class="adm-card">
+                                <div class="adm-card-header"><h3 class="adm-card-title">Kartu Pendidikan</h3></div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ab-institution">Nama Institusi / Universitas *</label>
+                                    <input type="text" id="ab-institution" class="form-input" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ab-degree">Gelar & Program Studi *</label>
+                                    <input type="text" id="ab-degree" class="form-input" required />
+                                </div>
+                                <div class="grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label" for="ab-gpa">Nilai IPK (GPA)</label>
+                                        <input type="text" id="ab-gpa" class="form-input" placeholder="3.88 / 4.00" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="ab-period">Periode Kuliah</label>
+                                        <input type="text" id="ab-period" class="form-input" placeholder="2022 - 2026" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ab-courses">Daftar Mata Kuliah Utama (Pisahkan dengan baris baru)</label>
+                                    <textarea id="ab-courses" class="form-textarea" rows="4" placeholder="Analisis Big Data&#10;Pemodelan Data & ML&#10;Visualisasi Data & BI"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Narrative Story -->
+                            <div class="adm-card">
+                                <div class="adm-card-header"><h3 class="adm-card-title">Narasi & Cerita Profil</h3></div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ab-story">Paragraf Cerita (Gunakan dua baris baru untuk memisahkan paragraf)</label>
+                                    <textarea id="ab-story" class="form-textarea" rows="9"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 Competencies -->
+                        <div class="adm-card">
+                            <div class="adm-card-header"><h3 class="adm-card-title">4 Pilar Kompetensi Utama</h3></div>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="comp-1-title">Pilar 1 - Judul</label>
+                                    <input type="text" id="comp-1-title" class="form-input" />
+                                    <input type="text" id="comp-1-desc" class="form-input" placeholder="Deskripsi ringkas..." style="margin-top: 0.35rem;" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="comp-2-title">Pilar 2 - Judul</label>
+                                    <input type="text" id="comp-2-title" class="form-input" />
+                                    <input type="text" id="comp-2-desc" class="form-input" placeholder="Deskripsi ringkas..." style="margin-top: 0.35rem;" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="comp-3-title">Pilar 3 - Judul</label>
+                                    <input type="text" id="comp-3-title" class="form-input" />
+                                    <input type="text" id="comp-3-desc" class="form-input" placeholder="Deskripsi ringkas..." style="margin-top: 0.35rem;" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="comp-4-title">Pilar 4 - Judul</label>
+                                    <input type="text" id="comp-4-title" class="form-input" />
+                                    <input type="text" id="comp-4-desc" class="form-input" placeholder="Deskripsi ringkas..." style="margin-top: 0.35rem;" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-adm btn-adm-primary" style="padding: 0.8rem 1.8rem;">
+                            <span>Simpan Perubahan Tentang Saya</span>
+                        </button>
+                    </form>
+                </section>
+
+                <!-- TAB 5: SKILLS MATRIX -->
+                <section class="tab-pane" id="tab-skills">
+                    <div class="page-header">
+                        <div class="page-header-title">
+                            <h1>Kelola Matriks Keahlian (Skills)</h1>
+                            <p>Tambah kategori baru, ubah nama alat, status fokus, dan tag library.</p>
+                        </div>
+                        <button class="btn-adm btn-adm-primary" onclick="openCategoryEditor(null)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            <span>Tambah Kategori Keahlian</span>
+                        </button>
+                    </div>
+
+                    <div id="skills-manager-list">
+                        <!-- Rendered dynamically via JavaScript -->
+                    </div>
+                </section>
+
+                <!-- TAB 6: PROJECTS -->
                 <section class="tab-pane" id="tab-projects">
                     <div class="page-header">
                         <div class="page-header-title">
                             <h1>Kelola Proyek Portofolio</h1>
-                            <p>Tambah, ubah, atau hapus proyek data science, dasbor BI, dan studi kasus.</p>
+                            <p>Tambah, edit metrik, studi kasus, teknologi, dan tautan repositori proyek.</p>
                         </div>
                         <div style="display: flex; gap: 0.75rem;">
                             <input type="text" id="proj-search-input" class="form-input" placeholder="Cari nama proyek..." style="width: 240px;" />
@@ -393,7 +610,7 @@
                                         <th style="width: 70px;">Thumbnail</th>
                                         <th>Judul & Subjudul</th>
                                         <th>Kategori</th>
-                                        <th>Metrik</th>
+                                        <th>Metrik Utama</th>
                                         <th style="width: 140px; text-align: center;">Aksi</th>
                                     </tr>
                                 </thead>
@@ -405,33 +622,78 @@
                     </div>
                 </section>
 
-                <!-- TAB 4: SKILLS MANAGER -->
-                <section class="tab-pane" id="tab-skills">
+                <!-- TAB 7: RESEARCH CONSOLE NLP DEMO -->
+                <section class="tab-pane" id="tab-nlp">
                     <div class="page-header">
                         <div class="page-header-title">
-                            <h1>Kelola Keahlian (Skills Matrix)</h1>
-                            <p>Sesuaikan persentase penguasaan teknologi dan kategori keahlian.</p>
+                            <h1>Edit Konsol Riset NLP Demo</h1>
+                            <p>Ubah judul simulator, teks metodologi, dan kelola tombol contoh ulasan cepat.</p>
                         </div>
                     </div>
 
-                    <div id="skills-manager-list">
-                        <!-- Injected via JavaScript -->
-                    </div>
-                </section>
-
-                <!-- TAB 5: EDUCATION & CERTIFICATIONS -->
-                <section class="tab-pane" id="tab-education">
-                    <div class="page-header">
-                        <div class="page-header-title">
-                            <h1>Kelola Sertifikasi & Pendidikan</h1>
-                            <p>Tambah sertifikat keahlian industri dan atur lisensi pelatihan.</p>
+                    <form id="form-nlp-editor">
+                        <div class="adm-card">
+                            <div class="adm-card-header"><h3 class="adm-card-title">Pengaturan Teks Konsol</h3></div>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="nlp-badge-input">Badge Atas</label>
+                                    <input type="text" id="nlp-badge-input" class="form-input" placeholder="Research Testing Console" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="nlp-title-input">Judul Section *</label>
+                                    <input type="text" id="nlp-title-input" class="form-input" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="nlp-desc-input">Deskripsi Section</label>
+                                <input type="text" id="nlp-desc-input" class="form-input" />
+                            </div>
+                            <div class="grid-3">
+                                <div class="form-group">
+                                    <label class="form-label" for="nlp-console-title-input">Judul Kotak Konsol</label>
+                                    <input type="text" id="nlp-console-title-input" class="form-input" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="nlp-console-subtitle-input">Subjudul Metodologi</label>
+                                    <input type="text" id="nlp-console-subtitle-input" class="form-input" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="nlp-console-badge-input">Badge Bahasa</label>
+                                    <input type="text" id="nlp-console-badge-input" class="form-input" />
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <button class="btn-adm btn-adm-primary" id="btn-add-cert">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                <span>Tambah Sertifikasi</span>
+
+                        <!-- Sample Chips Editor -->
+                        <div class="adm-card">
+                            <div class="adm-card-header">
+                                <h3 class="adm-card-title">Tombol Contoh Ulasan Cepat (Sample Chips)</h3>
+                            </div>
+                            <div id="nlp-chips-editor-list">
+                                <!-- Rendered dynamically -->
+                            </div>
+                            <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" id="btn-add-nlp-chip" style="margin-top: 0.75rem;">
+                                + Tambah Contoh Ulasan
                             </button>
                         </div>
+
+                        <button type="submit" class="btn-adm btn-adm-primary" style="padding: 0.8rem 1.8rem;">
+                            <span>Simpan Perubahan Konsol NLP</span>
+                        </button>
+                    </form>
+                </section>
+
+                <!-- TAB 8: CERTIFICATIONS -->
+                <section class="tab-pane" id="tab-certifications">
+                    <div class="page-header">
+                        <div class="page-header-title">
+                            <h1>Kelola Sertifikasi & Lisensi</h1>
+                            <p>Tambah kredensial resmi, pelatihan industri, dan sertifikat akademis.</p>
+                        </div>
+                        <button class="btn-adm btn-adm-primary" id="btn-add-cert">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            <span>Tambah Sertifikasi</span>
+                        </button>
                     </div>
 
                     <div class="adm-card">
@@ -441,8 +703,7 @@
                                     <tr>
                                         <th>Nama Sertifikasi</th>
                                         <th>Penerbit</th>
-                                        <th>Tanggal / Periode</th>
-                                        <th>Warna Badge</th>
+                                        <th>Tanggal</th>
                                         <th style="width: 140px; text-align: center;">Aksi</th>
                                     </tr>
                                 </thead>
@@ -454,12 +715,111 @@
                     </div>
                 </section>
 
-                <!-- TAB 6: EXPORT & BACKUP -->
+                <!-- TAB 9: CONTACT & SOCIALS -->
+                <section class="tab-pane" id="tab-contact">
+                    <div class="page-header">
+                        <div class="page-header-title">
+                            <h1>Kontak & Tautan Media Sosial</h1>
+                            <p>Ubah alamat email tujuan, nomor WhatsApp, domisili, profil LinkedIn, dan GitHub.</p>
+                        </div>
+                    </div>
+
+                    <form id="form-contact-editor">
+                        <div class="adm-card">
+                            <div class="adm-card-header"><h3 class="adm-card-title">Header Section Kontak</h3></div>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="ct-badge">Badge Atas</label>
+                                    <input type="text" id="ct-badge" class="form-input" placeholder="Komunikasi & Kontak" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ct-title">Judul Section *</label>
+                                    <input type="text" id="ct-title" class="form-input" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="ct-desc">Deskripsi Subjudul Section</label>
+                                <input type="text" id="ct-desc" class="form-input" />
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="adm-card">
+                                <div class="adm-card-header"><h3 class="adm-card-title">Informasi Kontak Langsung</h3></div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ct-email">Alamat Email *</label>
+                                    <input type="email" id="ct-email" class="form-input" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ct-whatsapp">Nomor WhatsApp Tampilan (e.g. +62 898-951-8334)</label>
+                                    <input type="text" id="ct-whatsapp" class="form-input" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ct-location">Lokasi Domisili</label>
+                                    <input type="text" id="ct-location" class="form-input" placeholder="Kota Tangerang, Banten, Indonesia" />
+                                </div>
+                            </div>
+
+                            <div class="adm-card">
+                                <div class="adm-card-header"><h3 class="adm-card-title">Media Sosial & Berkas CV</h3></div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ct-github">URL Profil GitHub</label>
+                                    <input type="url" id="ct-github" class="form-input" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ct-linkedin">URL Profil LinkedIn</label>
+                                    <input type="url" id="ct-linkedin" class="form-input" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="ct-cvpath">Path Berkas Resume / CV</label>
+                                    <input type="text" id="ct-cvpath" class="form-input" placeholder="assets/docs/Khairul_Raihan_Hidayat_CV.docx" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-adm btn-adm-primary" style="padding: 0.8rem 1.8rem;">
+                            <span>Simpan Perubahan Kontak</span>
+                        </button>
+                    </form>
+                </section>
+
+                <!-- TAB 10: FOOTER & COPYRIGHT -->
+                <section class="tab-pane" id="tab-footer">
+                    <div class="page-header">
+                        <div class="page-header-title">
+                            <h1>Edit Footer & Hak Cipta</h1>
+                            <p>Sesuaikan nama brand, gelar subtitle, dan teks hak cipta di bagian bawah halaman.</p>
+                        </div>
+                    </div>
+
+                    <form id="form-footer-editor">
+                        <div class="adm-card">
+                            <div class="form-group">
+                                <label class="form-label" for="ft-title">Judul Footer (Nama Anda) *</label>
+                                <input type="text" id="ft-title" class="form-input" required />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="ft-subtitle">Subtitle Gelar & Kampus</label>
+                                <input type="text" id="ft-subtitle" class="form-input" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="ft-copyright">Teks Hak Cipta (Copyright)</label>
+                                <input type="text" id="ft-copyright" class="form-input" />
+                            </div>
+
+                            <button type="submit" class="btn-adm btn-adm-primary" style="padding: 0.8rem 1.8rem;">
+                                <span>Simpan Perubahan Footer</span>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- TAB 11: EXPORT & BACKUP -->
                 <section class="tab-pane" id="tab-export">
                     <div class="page-header">
                         <div class="page-header-title">
                             <h1>Ekspor ke GitHub & Backup Data</h1>
-                            <p>Simpan perubahan permanen ke repositori GitHub Pages atau cadangkan ke file JSON.</p>
+                            <p>Unduh berkas <code>data.js</code> hasil editan untuk diperbarui di GitHub Pages.</p>
                         </div>
                     </div>
 
@@ -482,7 +842,7 @@
                         </ol>
 
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <button class="btn-adm btn-adm-primary" id="btn-download-datajs" style="padding: 0.8rem 1.6rem;">
+                            <button class="btn-adm btn-adm-primary" id="btn-download-datajs-tab" style="padding: 0.8rem 1.6rem;">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                                 <span>Download data.js Baru</span>
                             </button>
@@ -569,7 +929,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="proj-badge">Badge Label</label>
-                            <input type="text" id="proj-badge" class="form-input" placeholder="Skripsi / BI Dashboard" />
+                            <input type="text" id="proj-badge" class="form-input" placeholder="Tugas Akhir Skripsi / BI Dashboard" />
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="proj-image">Path Gambar / URL Thumbnail</label>
@@ -590,7 +950,7 @@
                             <input type="text" id="proj-m1-lbl" class="form-input" placeholder="Label 1 (e.g. Akurasi SVM)" style="margin-top: 0.3rem;" />
                         </div>
                         <div>
-                            <input type="text" id="proj-m2-val" class="form-input" placeholder="Nilai 2 (e.g. 12.5K+)" />
+                            <input type="text" id="proj-m2-val" class="form-input" placeholder="Nilai 2 (e.g. 12,500+)" />
                             <input type="text" id="proj-m2-lbl" class="form-input" placeholder="Label 2 (e.g. Komentar)" style="margin-top: 0.3rem;" />
                         </div>
                         <div>
@@ -616,13 +976,13 @@
 
                     <div class="form-group">
                         <label class="form-label" for="proj-highlights">Poin Hasil & Fitur Kunci (Pisahkan dengan baris baru)</label>
-                        <textarea id="proj-highlights" class="form-textarea" rows="3" placeholder="Fitur 1&#10;Fitur 2&#10;Fitur 3"></textarea>
+                        <textarea id="proj-highlights" class="form-textarea" rows="3" placeholder="Poin 1&#10;Poin 2&#10;Poin 3"></textarea>
                     </div>
 
                     <div class="grid-2">
                         <div class="form-group">
                             <label class="form-label" for="proj-techstack">Tech Stack (Pisahkan dengan koma)</label>
-                            <input type="text" id="proj-techstack" class="form-input" placeholder="Python, Scikit-Learn, Streamlit, Pandas" />
+                            <input type="text" id="proj-techstack" class="form-input" placeholder="Python, Streamlit, Scikit-Learn, Pandas" />
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="proj-github">Link GitHub Repo</label>
@@ -633,6 +993,66 @@
                 <div class="adm-modal-footer">
                     <button type="button" class="btn-adm btn-adm-secondary" onclick="closeModal('modal-project-editor')">Batal</button>
                     <button type="submit" class="btn-adm btn-adm-primary">Simpan Proyek</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         MODAL: CATEGORY EDITOR
+         ==================================================================== -->
+    <div class="adm-modal-overlay" id="modal-category-editor">
+        <div class="adm-modal-content" style="max-width: 500px;">
+            <div class="adm-modal-header">
+                <h3 id="modal-cat-title">Tambah Kategori Keahlian</h3>
+                <button type="button" class="adm-modal-close" onclick="closeModal('modal-category-editor')">&times;</button>
+            </div>
+            <form id="form-category-editor">
+                <div class="adm-modal-body">
+                    <div class="form-group">
+                        <label class="form-label" for="cat-name-input">Nama Kategori *</label>
+                        <input type="text" id="cat-name-input" class="form-input" placeholder="e.g. Cloud & Big Data" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cat-desc-input">Deskripsi Singkat</label>
+                        <input type="text" id="cat-desc-input" class="form-input" placeholder="e.g. Pengelolaan infrastruktur data dan komputasi awan." />
+                    </div>
+                </div>
+                <div class="adm-modal-footer">
+                    <button type="button" class="btn-adm btn-adm-secondary" onclick="closeModal('modal-category-editor')">Batal</button>
+                    <button type="submit" class="btn-adm btn-adm-primary">Simpan Kategori</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         MODAL: SKILL ITEM EDITOR
+         ==================================================================== -->
+    <div class="adm-modal-overlay" id="modal-skill-item-editor">
+        <div class="adm-modal-content" style="max-width: 500px;">
+            <div class="adm-modal-header">
+                <h3 id="modal-skill-item-title">Tambah Skill Item</h3>
+                <button type="button" class="adm-modal-close" onclick="closeModal('modal-skill-item-editor')">&times;</button>
+            </div>
+            <form id="form-skill-item-editor">
+                <div class="adm-modal-body">
+                    <div class="form-group">
+                        <label class="form-label" for="sk-name-input">Nama Teknologi / Bahasa *</label>
+                        <input type="text" id="sk-name-input" class="form-input" placeholder="e.g. Python" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="sk-status-input">Label Status / Fokus</label>
+                        <input type="text" id="sk-status-input" class="form-input" placeholder="e.g. Utama / Spesialisasi" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="sk-tags-input">Tags Library / Topik (Pisahkan dengan koma)</label>
+                        <input type="text" id="sk-tags-input" class="form-input" placeholder="Pandas, NumPy, Scikit-Learn" />
+                    </div>
+                </div>
+                <div class="adm-modal-footer">
+                    <button type="button" class="btn-adm btn-adm-secondary" onclick="closeModal('modal-skill-item-editor')">Batal</button>
+                    <button type="submit" class="btn-adm btn-adm-primary">Simpan Skill</button>
                 </div>
             </form>
         </div>
@@ -662,15 +1082,6 @@
                             <label class="form-label" for="cert-date">Tanggal / Tahun *</label>
                             <input type="text" id="cert-date" class="form-input" placeholder="April 2024" required />
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="cert-color">Warna Ikon Badge</label>
-                        <select id="cert-color" class="form-select">
-                            <option value="cyan">Cyan</option>
-                            <option value="indigo">Indigo</option>
-                            <option value="emerald">Emerald Green</option>
-                            <option value="violet">Violet Purple</option>
-                        </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="cert-desc">Deskripsi Singkat Sertifikasi</label>
@@ -713,7 +1124,7 @@
         </div>
     </div>
 
-    <!-- Toast Notification Container -->
+    <!-- Toast Container -->
     <div class="toast-container" id="toast-container"></div>
 
     <!-- Scripts -->

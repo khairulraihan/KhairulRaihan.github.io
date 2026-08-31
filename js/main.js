@@ -1,5 +1,5 @@
 /**
- * Main Interactive Application Logic (Human-Crafted & Bespoke)
+ * Main Interactive Application Logic (100% Dynamic Content Rendering)
  * Khairul Raihan Hidayat - Data Science Portfolio
  */
 
@@ -9,7 +9,7 @@ function getActiveData() {
         const custom = localStorage.getItem('customPortfolioData');
         if (custom) {
             const parsed = JSON.parse(custom);
-            if (parsed && parsed.personal && parsed.projects) {
+            if (parsed && (parsed.hero || parsed.personal) && parsed.projects) {
                 return parsed;
             }
         }
@@ -23,18 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = getActiveData();
     initTheme();
     initNavigation();
-    renderPersonalInfo(data);
+    renderAllDynamicContent(data);
     initTypewriter(data);
     initScrollReveal();
     initStatsCounter();
-    renderSkills(data);
-    renderProjects('all', data);
-    renderCertifications(data);
     initProjectModal();
-    initSentimentAnalyzer();
+    initSentimentAnalyzer(data);
     initContactForm();
     initClipboard();
 });
+
+function renderAllDynamicContent(data = getActiveData()) {
+    renderHero(data);
+    renderStats(data);
+    renderAbout(data);
+    renderSkills(data);
+    renderProjects('all', data);
+    renderNlpDemo(data);
+    renderCertifications(data);
+    renderContact(data);
+    renderFooter(data);
+}
 
 /* ==========================================================================
    1. THEME TOGGLE (DARK / LIGHT)
@@ -80,7 +89,6 @@ function initNavigation() {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Scroll Navbar Effect
     window.addEventListener('scroll', () => {
         if (window.scrollY > 40) {
             navbar.classList.add('scrolled');
@@ -90,7 +98,6 @@ function initNavigation() {
         highlightActiveSection();
     });
 
-    // Mobile Hamburger
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('open');
@@ -124,150 +131,126 @@ function highlightActiveSection() {
 }
 
 /* ==========================================================================
-   3. PERSONAL INFO & DYNAMIC METRICS SYNC
+   3. HERO SECTION RENDER
    ========================================================================== */
-function renderPersonalInfo(data) {
-    if (!data || !data.personal) return;
-    const p = data.personal;
+function renderHero(data) {
+    const h = data.hero || {};
+    const c = data.contact || {};
 
-    // Update CV Buttons
-    const cvButtons = document.querySelectorAll('#btn-nav-cv, #btn-about-cv');
-    cvButtons.forEach(btn => {
-        if (p.cvPath) btn.setAttribute('href', p.cvPath);
-    });
+    const setText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val) el.textContent = val;
+    };
 
-    // Update WhatsApp links
-    if (p.whatsapp) {
-        const waLinks = document.querySelectorAll('a[href*="wa.me"]');
-        waLinks.forEach(link => {
-            link.setAttribute('href', `https://wa.me/${p.whatsapp.replace(/\D/g, '')}`);
-        });
-    }
+    setText('hero-status-pill', h.statusPill);
+    setText('hero-name', h.name || data.personal?.name);
+    setText('hero-bio', h.bio || data.personal?.bio);
+    setText('hero-cta-primary-text', h.ctaPrimaryText);
+    setText('hero-cta-secondary-text', h.ctaSecondaryText);
 
-    // Update Email links
-    if (p.email) {
-        const mailLinks = document.querySelectorAll('a[href^="mailto:"]');
-        mailLinks.forEach(link => link.setAttribute('href', `mailto:${p.email}`));
-        const mailText = document.getElementById('contact-email-text');
-        if (mailText) mailText.textContent = p.email;
-    }
+    const ctaPrim = document.getElementById('hero-cta-primary');
+    if (ctaPrim && h.ctaPrimaryLink) ctaPrim.setAttribute('href', h.ctaPrimaryLink);
 
-    // Update Stats if available in data
-    if (data.stats && Array.isArray(data.stats) && data.stats.length >= 4) {
-        const statEls = document.querySelectorAll('.stat-number');
-        data.stats.forEach((st, idx) => {
-            if (statEls[idx]) {
-                statEls[idx].setAttribute('data-target', st.value);
-            }
-        });
-    }
+    const ctaSec = document.getElementById('hero-cta-secondary');
+    if (ctaSec && h.ctaSecondaryLink) ctaSec.setAttribute('href', h.ctaSecondaryLink);
+
+    const profileImg = document.getElementById('hero-profile-img');
+    if (profileImg && h.profileImage) profileImg.setAttribute('src', h.profileImage);
+
+    // Navigation CV
+    const navCv = document.getElementById('btn-nav-cv');
+    const cvPath = c.cvPath || data.personal?.cvPath || 'assets/docs/Khairul_Raihan_Hidayat_CV.docx';
+    if (navCv) navCv.setAttribute('href', cvPath);
+
+    // Hero Socials
+    const setLink = (id, url) => {
+        const el = document.getElementById(id);
+        if (el && url) el.setAttribute('href', url);
+    };
+
+    setLink('hero-github', c.github || data.personal?.socials?.github);
+    setLink('hero-linkedin', c.linkedin || data.personal?.socials?.linkedin);
+    setLink('hero-email', `mailto:${c.email || data.personal?.email}`);
+    
+    const waNum = (c.whatsappNum || c.whatsapp || data.personal?.whatsapp || '628989518334').replace(/\D/g, '');
+    setLink('hero-whatsapp', `https://wa.me/${waNum}`);
 }
 
 /* ==========================================================================
-   4. TYPEWRITER EFFECT
+   4. STATS SECTION RENDER
    ========================================================================== */
-function initTypewriter(data) {
-    const element = document.getElementById('typewriter');
-    if (!element) return;
+function renderStats(data) {
+    const container = document.getElementById('stats-grid');
+    if (!container || !data.stats || !Array.isArray(data.stats)) return;
 
-    const roles = (data && data.roles) || [
-        "Data Science & Analytics",
-        "NLP & Machine Learning Specialist",
-        "Business Intelligence (Tableau & SQL)",
-        "Fresh Graduate S.Kom (IPK 3.88)"
-    ];
+    container.innerHTML = data.stats.map((st, idx) => `
+        <div class="stat-item reveal reveal-delay-${(idx % 4) + 1}">
+            <div class="stat-num-wrapper">
+                <span class="stat-number" data-target="${st.value}">0</span>
+                <span class="stat-suffix">${st.suffix || ''}</span>
+            </div>
+            <div class="stat-desc">${st.label}</div>
+        </div>
+    `).join('');
+}
 
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 90;
+/* ==========================================================================
+   5. ABOUT & EDUCATION SECTION RENDER
+   ========================================================================== */
+function renderAbout(data) {
+    const a = data.about || {};
+    const c = data.contact || {};
 
-    function type() {
-        const currentRole = roles[roleIndex];
+    const setText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val) el.textContent = val;
+    };
 
-        if (isDeleting) {
-            element.textContent = currentRole.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 45;
-        } else {
-            element.textContent = currentRole.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 90;
-        }
+    setText('about-badge', a.sectionBadge);
+    setText('about-title', a.sectionTitle);
+    setText('about-desc', a.sectionDesc);
+    setText('about-period', a.period);
+    setText('about-institution', a.institution);
+    setText('about-degree', a.degree);
+    setText('about-gpa', a.gpa);
 
-        if (!isDeleting && charIndex === currentRole.length) {
-            typingSpeed = 2200;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            typingSpeed = 400;
-        }
-
-        setTimeout(type, typingSpeed);
+    // Course chips
+    const courseContainer = document.getElementById('about-course-chips');
+    if (courseContainer && a.courses) {
+        courseContainer.innerHTML = a.courses.map(course => `<span class="course-chip">${course}</span>`).join('');
     }
 
-    type();
+    // Story paragraphs
+    const storyContainer = document.getElementById('about-story-container');
+    if (storyContainer && a.story) {
+        const paragraphs = a.story.split('\n\n');
+        storyContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+    }
+
+    // Competencies
+    const compContainer = document.getElementById('about-competencies-grid');
+    if (compContainer && a.competencies) {
+        compContainer.innerHTML = a.competencies.map(comp => `
+            <div class="competency-item">
+                <h4>${comp.title}</h4>
+                <p>${comp.desc}</p>
+            </div>
+        `).join('');
+    }
+
+    // About CTA Buttons
+    const aboutCv = document.getElementById('btn-about-cv');
+    if (aboutCv) aboutCv.setAttribute('href', c.cvPath || data.personal?.cvPath || 'assets/docs/Khairul_Raihan_Hidayat_CV.docx');
+
+    const aboutWa = document.getElementById('btn-about-whatsapp');
+    const waNum = (c.whatsappNum || c.whatsapp || data.personal?.whatsapp || '628989518334').replace(/\D/g, '');
+    if (aboutWa) aboutWa.setAttribute('href', `https://wa.me/${waNum}`);
 }
 
 /* ==========================================================================
-   5. SCROLL REVEAL ANIMATIONS
+   6. SKILLS MATRIX RENDER
    ========================================================================== */
-function initScrollReveal() {
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        },
-        { threshold: 0.1 }
-    );
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
-
-/* ==========================================================================
-   6. ANIMATED STATS COUNTER
-   ========================================================================== */
-function initStatsCounter() {
-    const statCards = document.querySelectorAll('.stat-number');
-    let counted = false;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !counted) {
-                counted = true;
-                statCards.forEach(card => {
-                    const target = parseFloat(card.getAttribute('data-target'));
-                    if (isNaN(target)) return;
-                    const isDecimal = target % 1 !== 0;
-                    let count = 0;
-                    const duration = 1600;
-                    const increment = target / (duration / 25);
-
-                    const timer = setInterval(() => {
-                        count += increment;
-                        if (count >= target) {
-                            count = target;
-                            clearInterval(timer);
-                        }
-                        card.textContent = isDecimal ? count.toFixed(2) : Math.floor(count);
-                    }, 25);
-                });
-            }
-        });
-    }, { threshold: 0.4 });
-
-    const statsGrid = document.querySelector('.stats-grid');
-    if (statsGrid) observer.observe(statsGrid);
-}
-
-/* ==========================================================================
-   7. SKILLS MATRIX RENDER (Clean Structured Taxonomy)
-   ========================================================================== */
-function renderSkills(data = getActiveData()) {
+function renderSkills(data) {
     const container = document.getElementById('skills-container');
     if (!container || !data.skills) return;
 
@@ -293,7 +276,7 @@ function renderSkills(data = getActiveData()) {
 }
 
 /* ==========================================================================
-   8. PROJECTS SHOWCASE RENDER & FILTERING
+   7. PROJECTS SHOWCASE RENDER & FILTERING
    ========================================================================== */
 function renderProjects(filter = 'all', data = getActiveData()) {
     const grid = document.getElementById('projects-grid');
@@ -375,7 +358,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 /* ==========================================================================
-   9. PROJECT DETAIL MODAL
+   8. PROJECT DETAIL MODAL
    ========================================================================== */
 function initProjectModal() {
     const modal = document.getElementById('project-modal');
@@ -479,9 +462,38 @@ function closeProjectModal() {
 }
 
 /* ==========================================================================
+   9. RESEARCH CONSOLE / NLP DEMO SECTION RENDER
+   ========================================================================== */
+function renderNlpDemo(data) {
+    const n = data.nlpDemo || {};
+
+    const setText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val) el.textContent = val;
+    };
+
+    setText('nlp-badge', n.sectionBadge);
+    setText('nlp-title', n.sectionTitle);
+    setText('nlp-desc', n.sectionDesc);
+    setText('nlp-console-title', n.consoleTitle);
+    setText('nlp-console-subtitle', n.consoleSubtitle);
+    setText('nlp-console-badge', n.consoleBadge);
+
+    const chipsContainer = document.getElementById('nlp-sample-chips-container');
+    if (chipsContainer && n.sampleChips) {
+        chipsContainer.innerHTML = `
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Pilih contoh uji:</span>
+            ${n.sampleChips.map(c => `
+                <button type="button" class="sample-chip" data-text="${c.text}">${c.label}</button>
+            `).join('')}
+        `;
+    }
+}
+
+/* ==========================================================================
    10. CERTIFICATIONS RENDER
    ========================================================================== */
-function renderCertifications(data = getActiveData()) {
+function renderCertifications(data) {
     const grid = document.getElementById('certifications-grid');
     if (!grid || !data.certifications) return;
 
@@ -496,12 +508,161 @@ function renderCertifications(data = getActiveData()) {
 }
 
 /* ==========================================================================
-   11. INTERACTIVE RESEARCH CONSOLE (NLP SENTIMENT)
+   11. CONTACT SECTION RENDER
    ========================================================================== */
-function initSentimentAnalyzer() {
+function renderContact(data) {
+    const c = data.contact || {};
+
+    const setText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val) el.textContent = val;
+    };
+
+    setText('contact-badge', c.sectionBadge);
+    setText('contact-title', c.sectionTitle);
+    setText('contact-desc', c.sectionDesc);
+    setText('contact-location', c.location);
+
+    const mailLink = document.getElementById('contact-email-link');
+    if (mailLink && c.email) {
+        mailLink.textContent = c.email;
+        mailLink.setAttribute('href', `mailto:${c.email}`);
+    }
+
+    const waLink = document.getElementById('contact-whatsapp-link');
+    if (waLink && c.whatsapp) {
+        waLink.textContent = c.whatsapp;
+        const waNum = (c.whatsappNum || c.whatsapp).replace(/\D/g, '');
+        waLink.setAttribute('href', `https://wa.me/${waNum}`);
+    }
+
+    const linkedinLink = document.getElementById('contact-linkedin-link');
+    if (linkedinLink && c.linkedin) {
+        linkedinLink.textContent = c.linkedinDisplay || c.linkedin;
+        linkedinLink.setAttribute('href', c.linkedin);
+    }
+}
+
+/* ==========================================================================
+   12. FOOTER RENDER
+   ========================================================================== */
+function renderFooter(data) {
+    const f = data.footer || {};
+    const c = data.contact || {};
+
+    const setText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val) el.textContent = val;
+    };
+
+    setText('footer-title', f.title || data.hero?.name || data.personal?.name);
+    setText('footer-subtitle', f.subtitle);
+
+    const footCopy = document.getElementById('footer-copyright');
+    if (footCopy && f.copyright) {
+        footCopy.innerHTML = `${f.copyright} &bull; <a href="admin.html" style="color: var(--accent-blue); text-decoration: underline;" title="Buka Admin CMS">Admin Panel</a>`;
+    }
+
+    const footGit = document.getElementById('footer-github');
+    if (footGit && (c.github || data.personal?.socials?.github)) {
+        footGit.setAttribute('href', c.github || data.personal?.socials?.github);
+    }
+
+    const footIn = document.getElementById('footer-linkedin');
+    if (footIn && (c.linkedin || data.personal?.socials?.linkedin)) {
+        footIn.setAttribute('href', c.linkedin || data.personal?.socials?.linkedin);
+    }
+}
+
+/* ==========================================================================
+   13. TYPEWRITER EFFECT
+   ========================================================================== */
+function initTypewriter(data) {
+    const element = document.getElementById('typewriter');
+    if (!element) return;
+
+    const roles = data.hero?.roles || data.roles || [
+        "Data Science & Analytics",
+        "NLP & Machine Learning Specialist",
+        "Business Intelligence (Tableau & SQL)",
+        "Fresh Graduate S.Kom (IPK 3.88)"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 90;
+
+    function type() {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            element.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 45;
+        } else {
+            element.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 90;
+        }
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            typingSpeed = 2200;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typingSpeed = 400;
+        }
+
+        setTimeout(type, typingSpeed);
+    }
+
+    type();
+}
+
+/* ==========================================================================
+   14. ANIMATED STATS COUNTER
+   ========================================================================== */
+function initStatsCounter() {
+    const statCards = document.querySelectorAll('.stat-number');
+    let counted = false;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !counted) {
+                counted = true;
+                statCards.forEach(card => {
+                    const target = parseFloat(card.getAttribute('data-target'));
+                    if (isNaN(target)) return;
+                    const isDecimal = target % 1 !== 0;
+                    let count = 0;
+                    const duration = 1600;
+                    const increment = target / (duration / 25);
+
+                    const timer = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            count = target;
+                            clearInterval(timer);
+                        }
+                        card.textContent = isDecimal ? count.toFixed(2) : Math.floor(count);
+                    }, 25);
+                });
+            }
+        });
+    }, { threshold: 0.4 });
+
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) observer.observe(statsGrid);
+}
+
+/* ==========================================================================
+   15. INTERACTIVE RESEARCH CONSOLE (NLP SENTIMENT)
+   ========================================================================== */
+function initSentimentAnalyzer(data) {
     const textarea = document.getElementById('analyzer-input');
     const analyzeBtn = document.getElementById('btn-analyze-text');
-    const chips = document.querySelectorAll('.sample-chip');
     const emojiEl = document.getElementById('sentiment-emoji');
     const labelEl = document.getElementById('sentiment-label');
     const posFill = document.getElementById('prob-pos-fill');
@@ -596,16 +757,21 @@ function initSentimentAnalyzer() {
 
     analyzeBtn.addEventListener('click', () => runAnalysis(textarea.value));
 
-    chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            textarea.value = chip.getAttribute('data-text');
-            runAnalysis(textarea.value);
+    // Dynamic delegation for sample chips
+    const chipsContainer = document.getElementById('nlp-sample-chips-container');
+    if (chipsContainer) {
+        chipsContainer.addEventListener('click', (e) => {
+            const chip = e.target.closest('.sample-chip');
+            if (chip) {
+                textarea.value = chip.getAttribute('data-text');
+                runAnalysis(textarea.value);
+            }
         });
-    });
+    }
 }
 
 /* ==========================================================================
-   12. CONTACT FORM HANDLER
+   16. CONTACT FORM HANDLER
    ========================================================================== */
 function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -614,7 +780,7 @@ function initContactForm() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const data = getActiveData();
-        const targetEmail = data.personal?.email || 'khairulraihan617@gmail.com';
+        const targetEmail = data.contact?.email || data.personal?.email || 'khairulraihan617@gmail.com';
         const name = document.getElementById('sender-name').value;
         const email = document.getElementById('sender-email').value;
         const subject = document.getElementById('sender-subject').value || 'Pesan dari Portofolio';
@@ -629,14 +795,14 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   13. CLIPBOARD & TOAST SYSTEM
+   17. CLIPBOARD & TOAST SYSTEM
    ========================================================================== */
 function initClipboard() {
     const copyEmailBtn = document.getElementById('btn-copy-email');
     if (copyEmailBtn) {
         copyEmailBtn.addEventListener('click', () => {
             const data = getActiveData();
-            const email = data.personal?.email || 'khairulraihan617@gmail.com';
+            const email = data.contact?.email || data.personal?.email || 'khairulraihan617@gmail.com';
             navigator.clipboard.writeText(email).then(() => {
                 showToast('Email disalin ke clipboard! 📋');
             }).catch(() => {
@@ -644,6 +810,21 @@ function initClipboard() {
             });
         });
     }
+}
+
+function initScrollReveal() {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
 function showToast(message) {
