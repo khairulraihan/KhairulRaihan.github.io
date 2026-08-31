@@ -1,6 +1,6 @@
 /**
  * Master Portfolio Data Configuration for Khairul Raihan Hidayat
- * 100% Fully Editable via Admin CMS
+ * 100% Fully Editable via Admin CMS & GitHub Pages Compatible
  */
 
 const portfolioData = {
@@ -19,6 +19,29 @@ const portfolioData = {
         ctaSecondaryText: "Hubungi Saya",
         ctaSecondaryLink: "#contact",
         profileImage: "assets/images/profile.jpg"
+    },
+
+    personal: {
+        name: "Khairul Raihan Hidayat",
+        nickname: "Raihan",
+        role: "Data Science & BI Analyst",
+        tagline: "Translating Complex Data into Strategic Business Decisions",
+        bio: "Fresh Graduate Sistem Informasi (Peminatan Data Science) dari Universitas Budi Luhur dengan IPK 3.88/4.00. Berpengalaman dalam pemodelan Machine Learning (NLP, Klasifikasi, Clustering), ekstraksi data (Web Scraping & SQL), serta perancangan dasbor Business Intelligence interaktif (Tableau & Looker Studio).",
+        location: "Kota Tangerang, Banten, Indonesia",
+        email: "khairulraihan617@gmail.com",
+        phone: "+62 898-951-8334",
+        whatsapp: "628989518334",
+        gpa: "3.88 / 4.00",
+        degree: "Sarjana Komputer (S.Kom) - Sistem Informasi",
+        university: "Universitas Budi Luhur, Jakarta",
+        graduationYear: "2022 - 2026",
+        cvPath: "assets/docs/Khairul_Raihan_Hidayat_CV.docx",
+        socials: {
+            github: "https://github.com/KhairulRaihan",
+            linkedin: "https://www.linkedin.com/in/khairul-raihan-hidayat",
+            email: "mailto:khairulraihan617@gmail.com",
+            whatsapp: "https://wa.me/628989518334"
+        }
     },
 
     stats: [
