@@ -432,8 +432,8 @@ const portfolioData = {
         "location": "Kota Tangerang, Banten, Indonesia",
         "linkedin": "https://www.linkedin.com/in/khairul-raihan-hidayat-0a4b62334/",
         "linkedinDisplay": "linkedin.com/in/khairul-raihan-hidayat-0a4b62334/",
-        "github": "https://github.com/KhairulRaihan",
-        "cvPath": "assets/docs/CV Khairul Raihan Hidayat.pdf"
+        "github": "https://github.com/khairulraihan/KhairulRaihan.github.io",
+        "cvPath": "assets/docs/CV Khairul Raihan Hidayat"
     },
     "footer": {
         "title": "Khairul Raihan Hidayat",
