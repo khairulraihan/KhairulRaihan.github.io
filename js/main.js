@@ -3,46 +3,66 @@
  * Khairul Raihan Hidayat - Data Science Portfolio
  */
 
-// Helper to get active data (supports real-time updates from Admin CMS)
+// Helper to get active data with bulletproof fallback & deep merge
 function getActiveData() {
+    let base = typeof portfolioData !== 'undefined' ? JSON.parse(JSON.stringify(portfolioData)) : {};
     try {
         const custom = localStorage.getItem('customPortfolioData');
         if (custom) {
             const parsed = JSON.parse(custom);
-            if (parsed && (parsed.hero || parsed.personal) && parsed.projects) {
-                let modified = false;
-                if (parsed.contact && (!parsed.contact.cvPath || (!parsed.contact.cvPath.endsWith('.pdf') && !parsed.contact.cvPath.endsWith('.docx')))) {
-                    parsed.contact.cvPath = 'assets/docs/Khairul_Raihan_Hidayat_CV.pdf';
-                    modified = true;
+            if (parsed && typeof parsed === 'object') {
+                base = {
+                    ...base,
+                    ...parsed,
+                    hero: { ...(base.hero || {}), ...(parsed.hero || {}) },
+                    about: { ...(base.about || {}), ...(parsed.about || {}) },
+                    contact: { ...(base.contact || {}), ...(parsed.contact || {}) },
+                    footer: { ...(base.footer || {}), ...(parsed.footer || {}) },
+                    nlpDemo: { ...(base.nlpDemo || {}), ...(parsed.nlpDemo || {}) },
+                    skills: (parsed.skills && Array.isArray(parsed.skills) && parsed.skills.length > 0) ? parsed.skills : (base.skills || []),
+                    projects: (parsed.projects && Array.isArray(parsed.projects) && parsed.projects.length > 0) ? parsed.projects : (base.projects || []),
+                    certifications: (parsed.certifications && Array.isArray(parsed.certifications) && parsed.certifications.length > 0) ? parsed.certifications : (base.certifications || []),
+                    stats: (parsed.stats && Array.isArray(parsed.stats) && parsed.stats.length > 0) ? parsed.stats : (base.stats || [])
+                };
+
+                // Auto-heal CV path
+                if (base.contact && (!base.contact.cvPath || (!base.contact.cvPath.endsWith('.pdf') && !base.contact.cvPath.endsWith('.docx')))) {
+                    base.contact.cvPath = 'assets/docs/Khairul_Raihan_Hidayat_CV.pdf';
                 }
-                if (parsed.personal && (!parsed.personal.cvPath || (!parsed.personal.cvPath.endsWith('.pdf') && !parsed.personal.cvPath.endsWith('.docx')))) {
-                    parsed.personal.cvPath = 'assets/docs/Khairul_Raihan_Hidayat_CV.pdf';
-                    modified = true;
-                }
-                if (modified) {
-                    localStorage.setItem('customPortfolioData', JSON.stringify(parsed));
-                }
-                return parsed;
             }
         }
     } catch (e) {
-        console.warn('Error reading custom data from localStorage, fallback to data.js:', e);
+        console.warn('Error reading custom data from localStorage, using base data:', e);
     }
-    return typeof portfolioData !== 'undefined' ? portfolioData : {};
+    return base;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const data = getActiveData();
-    initTheme();
-    initNavigation();
-    renderAllDynamicContent(data);
-    initTypewriter(data);
-    initScrollReveal();
-    initStatsCounter();
-    initProjectModal();
-    initSentimentAnalyzer(data);
-    initContactForm();
-    initClipboard();
+    try {
+        const data = getActiveData();
+        initTheme();
+        initNavigation();
+        renderAllDynamicContent(data);
+        initTypewriter(data);
+        initScrollReveal();
+        initStatsCounter();
+        initProjectModal();
+        initSentimentAnalyzer(data);
+        initContactForm();
+        initClipboard();
+    } catch (err) {
+        console.error('Initialization error:', err);
+    } finally {
+        // Guarantee visibility: always activate in-viewport reveal elements immediately
+        setTimeout(() => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('active');
+                }
+            });
+        }, 50);
+    }
 });
 
 function renderAllDynamicContent(data = getActiveData()) {
