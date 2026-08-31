@@ -157,10 +157,23 @@ function renderHero(data) {
     const profileImg = document.getElementById('hero-profile-img');
     if (profileImg && h.profileImage) profileImg.setAttribute('src', h.profileImage);
 
+function sanitizeCvPath(path) {
+    if (!path) return 'assets/docs/Khairul_Raihan_Hidayat_CV.pdf';
+    let clean = path.trim();
+    if (!clean.endsWith('.pdf') && !clean.endsWith('.docx')) {
+        clean = `${clean}.pdf`;
+    }
+    return clean;
+}
+
     // Navigation CV
     const navCv = document.getElementById('btn-nav-cv');
-    const cvPath = c.cvPath || data.personal?.cvPath || 'assets/docs/Khairul_Raihan_Hidayat_CV.docx';
-    if (navCv) navCv.setAttribute('href', cvPath);
+    const rawCvPath = c.cvPath || data.personal?.cvPath || 'assets/docs/Khairul_Raihan_Hidayat_CV.pdf';
+    const cvPath = sanitizeCvPath(rawCvPath);
+    if (navCv) {
+        navCv.setAttribute('href', cvPath);
+        navCv.setAttribute('download', 'Khairul_Raihan_Hidayat_CV.pdf');
+    }
 
     // Hero Socials
     const setLink = (id, url) => {
@@ -240,7 +253,12 @@ function renderAbout(data) {
 
     // About CTA Buttons
     const aboutCv = document.getElementById('btn-about-cv');
-    if (aboutCv) aboutCv.setAttribute('href', c.cvPath || data.personal?.cvPath || 'assets/docs/Khairul_Raihan_Hidayat_CV.docx');
+    const rawAboutCv = c.cvPath || data.personal?.cvPath || 'assets/docs/Khairul_Raihan_Hidayat_CV.pdf';
+    const aboutCvPath = sanitizeCvPath(rawAboutCv);
+    if (aboutCv) {
+        aboutCv.setAttribute('href', aboutCvPath);
+        aboutCv.setAttribute('download', 'Khairul_Raihan_Hidayat_CV.pdf');
+    }
 
     const aboutWa = document.getElementById('btn-about-whatsapp');
     const waNum = (c.whatsappNum || c.whatsapp || data.personal?.whatsapp || '628989518334').replace(/\D/g, '');
