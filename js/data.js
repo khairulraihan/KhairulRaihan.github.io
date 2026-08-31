@@ -260,16 +260,16 @@ const portfolioData = {
             ],
             "metrics": [
                 {
-                    "label": "Akurasi SVM",
-                    "val": "92.4%"
+                    "val": "92.4%",
+                    "label": "Akurasi SVM"
                 },
                 {
-                    "label": "Dataset Komentar",
-                    "val": "12,500+"
+                    "val": "12,500+",
+                    "label": "Dataset Komentar"
                 },
                 {
-                    "label": "Akurasi Naive Bayes",
-                    "val": "91.6%"
+                    "val": "91.6%",
+                    "label": "Akurasi Naive Bayes"
                 }
             ],
             "details": {
@@ -278,8 +278,8 @@ const portfolioData = {
                 "impact": "Memungkinkan analis media dan kreator konten memetakan persepsi publik terhadap video edukasi dalam hitungan detik dengan tingkat keandalan di atas 92%."
             },
             "links": {
-                "github": "https://github.com/KhairulRaihan",
-                "demo": "#demo"
+                "github": "https://github.com/khairulraihan/KhairulRaihan.github.io/tree/main/Project%20Skripsi",
+                "demo": null
             }
         },
         {
@@ -432,7 +432,7 @@ const portfolioData = {
         "location": "Kota Tangerang, Banten, Indonesia",
         "linkedin": "https://www.linkedin.com/in/khairul-raihan-hidayat-0a4b62334/",
         "linkedinDisplay": "linkedin.com/in/khairul-raihan-hidayat-0a4b62334/",
-        "github": "https://github.com/KhairulRaihan",
+        "github": "https://github.com/khairulraihan/KhairulRaihan.github.io",
         "cvPath": "assets/docs/Khairul_Raihan_Hidayat_CV.pdf"
     },
     "footer": {
