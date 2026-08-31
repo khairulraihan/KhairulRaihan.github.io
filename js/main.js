@@ -3,16 +3,34 @@
  * Khairul Raihan Hidayat - Data Science Portfolio
  */
 
+// Helper to get active data (supports real-time updates from Admin CMS)
+function getActiveData() {
+    try {
+        const custom = localStorage.getItem('customPortfolioData');
+        if (custom) {
+            const parsed = JSON.parse(custom);
+            if (parsed && parsed.personal && parsed.projects) {
+                return parsed;
+            }
+        }
+    } catch (e) {
+        console.warn('Error reading custom data from localStorage, fallback to data.js:', e);
+    }
+    return typeof portfolioData !== 'undefined' ? portfolioData : {};
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    const data = getActiveData();
     initTheme();
     initNavigation();
-    initTypewriter();
+    renderPersonalInfo(data);
+    initTypewriter(data);
     initParticleCanvas();
     initScrollReveal();
     initStatsCounter();
-    renderSkills();
-    renderProjects();
-    renderCertifications();
+    renderSkills(data);
+    renderProjects('all', data);
+    renderCertifications(data);
     initProjectModal();
     initSentimentAnalyzer();
     initContactForm();
@@ -107,13 +125,53 @@ function highlightActiveSection() {
 }
 
 /* ==========================================================================
-   3. TYPEWRITER EFFECT
+   3. PERSONAL INFO & DYNAMIC METRICS SYNC
    ========================================================================== */
-function initTypewriter() {
+function renderPersonalInfo(data) {
+    if (!data || !data.personal) return;
+    const p = data.personal;
+
+    // Update CV Buttons
+    const cvButtons = document.querySelectorAll('#btn-nav-cv, #btn-about-cv');
+    cvButtons.forEach(btn => {
+        if (p.cvPath) btn.setAttribute('href', p.cvPath);
+    });
+
+    // Update WhatsApp links
+    if (p.whatsapp) {
+        const waLinks = document.querySelectorAll('a[href*="wa.me"]');
+        waLinks.forEach(link => {
+            link.setAttribute('href', `https://wa.me/${p.whatsapp.replace(/\D/g, '')}`);
+        });
+    }
+
+    // Update Email links
+    if (p.email) {
+        const mailLinks = document.querySelectorAll('a[href^="mailto:"]');
+        mailLinks.forEach(link => link.setAttribute('href', `mailto:${p.email}`));
+        const mailText = document.getElementById('contact-email-text');
+        if (mailText) mailText.textContent = p.email;
+    }
+
+    // Update Stats if available in data
+    if (data.stats && Array.isArray(data.stats) && data.stats.length >= 4) {
+        const statEls = document.querySelectorAll('.stat-number');
+        data.stats.forEach((st, idx) => {
+            if (statEls[idx]) {
+                statEls[idx].setAttribute('data-target', st.value);
+            }
+        });
+    }
+}
+
+/* ==========================================================================
+   4. TYPEWRITER EFFECT
+   ========================================================================== */
+function initTypewriter(data) {
     const element = document.getElementById('typewriter');
     if (!element) return;
 
-    const roles = [
+    const roles = (data && data.roles) || [
         "Data Science Enthusiast",
         "NLP & Machine Learning Specialist",
         "Business Intelligence & BI Analyst",
@@ -154,7 +212,7 @@ function initTypewriter() {
 }
 
 /* ==========================================================================
-   4. PARTICLES / CONSTELLATION BACKGROUND CANVAS
+   5. PARTICLES / CONSTELLATION BACKGROUND CANVAS
    ========================================================================== */
 function initParticleCanvas() {
     const canvas = document.getElementById('bg-canvas');
@@ -232,7 +290,7 @@ function initParticleCanvas() {
 }
 
 /* ==========================================================================
-   5. SCROLL REVEAL ANIMATIONS
+   6. SCROLL REVEAL ANIMATIONS
    ========================================================================== */
 function initScrollReveal() {
     const observer = new IntersectionObserver(
@@ -250,7 +308,7 @@ function initScrollReveal() {
 }
 
 /* ==========================================================================
-   6. ANIMATED STATS COUNTER
+   7. ANIMATED STATS COUNTER
    ========================================================================== */
 function initStatsCounter() {
     const statCards = document.querySelectorAll('.stat-number');
@@ -262,6 +320,7 @@ function initStatsCounter() {
                 counted = true;
                 statCards.forEach(card => {
                     const target = parseFloat(card.getAttribute('data-target'));
+                    if (isNaN(target)) return;
                     const isDecimal = target % 1 !== 0;
                     let count = 0;
                     const duration = 1800;
@@ -285,13 +344,13 @@ function initStatsCounter() {
 }
 
 /* ==========================================================================
-   7. SKILLS MATRIX RENDER
+   8. SKILLS MATRIX RENDER
    ========================================================================== */
-function renderSkills() {
+function renderSkills(data = getActiveData()) {
     const container = document.getElementById('skills-container');
-    if (!container || !portfolioData.skills) return;
+    if (!container || !data.skills) return;
 
-    container.innerHTML = portfolioData.skills.map((cat, idx) => `
+    container.innerHTML = data.skills.map((cat, idx) => `
         <div class="skill-category-card reveal reveal-delay-${(idx % 3) + 1}">
             <div class="skill-cat-header">
                 <div class="skill-cat-icon">
@@ -303,7 +362,7 @@ function renderSkills() {
                 </div>
                 <div>
                     <h3 class="skill-cat-title">${cat.category}</h3>
-                    <p class="skill-cat-desc">${cat.description}</p>
+                    <p class="skill-cat-desc">${cat.description || ''}</p>
                 </div>
             </div>
             <div class="skill-items-list">
@@ -317,7 +376,7 @@ function renderSkills() {
                             <div class="skill-progress-fill" style="width: ${skill.level}%"></div>
                         </div>
                         <div class="skill-tags">
-                            ${skill.tags.map(tag => `<span class="skill-tag-pill">${tag}</span>`).join('')}
+                            ${(skill.tags || []).map(tag => `<span class="skill-tag-pill">${tag}</span>`).join('')}
                         </div>
                     </div>
                 `).join('')}
@@ -327,29 +386,34 @@ function renderSkills() {
 }
 
 /* ==========================================================================
-   8. PROJECTS SHOWCASE RENDER & FILTERING
+   9. PROJECTS SHOWCASE RENDER & FILTERING
    ========================================================================== */
-function renderProjects(filter = 'all') {
+function renderProjects(filter = 'all', data = getActiveData()) {
     const grid = document.getElementById('projects-grid');
-    if (!grid || !portfolioData.projects) return;
+    if (!grid || !data.projects) return;
 
     const filtered = filter === 'all' 
-        ? portfolioData.projects 
-        : portfolioData.projects.filter(p => p.category === filter);
+        ? data.projects 
+        : data.projects.filter(p => p.category === filter);
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">Belum ada proyek dalam kategori ini.</div>`;
+        return;
+    }
 
     grid.innerHTML = filtered.map((proj, idx) => `
         <div class="project-card reveal reveal-delay-${(idx % 3) + 1}" data-category="${proj.category}">
             <div class="project-thumbnail">
-                <img src="${proj.image}" alt="${proj.title}" loading="lazy" />
-                <span class="project-badge">${proj.badge}</span>
+                <img src="${proj.image || 'assets/images/project-nlp.jpg'}" alt="${proj.title}" loading="lazy" />
+                <span class="project-badge">${proj.badge || 'Project'}</span>
             </div>
             <div class="project-body">
-                <span class="project-category-tag">${proj.categoryName}</span>
+                <span class="project-category-tag">${proj.categoryName || proj.category}</span>
                 <h3 class="project-title">${proj.title}</h3>
-                <p class="project-desc">${proj.overview}</p>
+                <p class="project-desc">${proj.overview || ''}</p>
                 
                 <div class="project-metrics-row">
-                    ${proj.metrics.map(m => `
+                    ${(proj.metrics || []).map(m => `
                         <div class="metric-pill">
                             <div class="metric-val">${m.val}</div>
                             <div class="metric-lbl">${m.label}</div>
@@ -358,10 +422,10 @@ function renderProjects(filter = 'all') {
                 </div>
 
                 <div class="project-tech-stack">
-                    ${proj.techStack.slice(0, 4).map(tech => `
+                    ${(proj.techStack || []).slice(0, 4).map(tech => `
                         <span class="tech-badge">${tech}</span>
                     `).join('')}
-                    ${proj.techStack.length > 4 ? `<span class="tech-badge">+${proj.techStack.length - 4} more</span>` : ''}
+                    ${(proj.techStack && proj.techStack.length > 4) ? `<span class="tech-badge">+${proj.techStack.length - 4} more</span>` : ''}
                 </div>
 
                 <div class="project-actions">
@@ -372,7 +436,7 @@ function renderProjects(filter = 'all') {
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </button>
-                    ${proj.links.github ? `
+                    ${(proj.links && proj.links.github) ? `
                         <a href="${proj.links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" title="Lihat Repositori GitHub">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -402,12 +466,12 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.getAttribute('data-filter');
-        renderProjects(filter);
+        renderProjects(filter, getActiveData());
     });
 });
 
 /* ==========================================================================
-   9. PROJECT DETAIL MODAL
+   10. PROJECT DETAIL MODAL
    ========================================================================== */
 function initProjectModal() {
     const modal = document.getElementById('project-modal');
@@ -429,22 +493,23 @@ function initProjectModal() {
 function openProjectModal(projectId) {
     const modal = document.getElementById('project-modal');
     const body = document.getElementById('modal-dynamic-body');
-    const project = portfolioData.projects.find(p => p.id === projectId);
+    const data = getActiveData();
+    const project = (data.projects || []).find(p => p.id === projectId);
 
     if (!modal || !body || !project) return;
 
     body.innerHTML = `
         <div class="modal-banner">
-            <img src="${project.image}" alt="${project.title}" />
+            <img src="${project.image || 'assets/images/project-nlp.jpg'}" alt="${project.title}" />
         </div>
         <div class="modal-header-meta">
-            <span class="project-category-tag">${project.categoryName}</span>
+            <span class="project-category-tag">${project.categoryName || project.category}</span>
             <h2 class="modal-title">${project.title}</h2>
-            <p class="modal-subtitle">${project.subtitle}</p>
+            <p class="modal-subtitle">${project.subtitle || ''}</p>
         </div>
 
         <div class="project-metrics-row" style="margin-bottom: 2rem;">
-            ${project.metrics.map(m => `
+            ${(project.metrics || []).map(m => `
                 <div class="metric-pill">
                     <div class="metric-val" style="font-size: 1.25rem;">${m.val}</div>
                     <div class="metric-lbl">${m.label}</div>
@@ -452,34 +517,44 @@ function openProjectModal(projectId) {
             `).join('')}
         </div>
 
-        <h4 class="modal-section-title">Latar Belakang & Masalah</h4>
-        <p class="modal-text">${project.details.problem}</p>
+        ${project.details?.problem ? `
+            <h4 class="modal-section-title">Latar Belakang & Masalah</h4>
+            <p class="modal-text">${project.details.problem}</p>
+        ` : ''}
 
-        <h4 class="modal-section-title">Metodologi & Solusi</h4>
-        <p class="modal-text">${project.details.solution}</p>
+        ${project.details?.solution ? `
+            <h4 class="modal-section-title">Metodologi & Solusi</h4>
+            <p class="modal-text">${project.details.solution}</p>
+        ` : ''}
 
-        <h4 class="modal-section-title">Fitur & Pencapaian Kunci</h4>
-        <div class="modal-highlights-list">
-            ${project.highlights.map(h => `
-                <div class="modal-highlight-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>${h}</span>
-                </div>
-            `).join('')}
-        </div>
+        ${(project.highlights && project.highlights.length > 0) ? `
+            <h4 class="modal-section-title">Fitur & Pencapaian Kunci</h4>
+            <div class="modal-highlights-list">
+                ${project.highlights.map(h => `
+                    <div class="modal-highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>${h}</span>
+                    </div>
+                `).join('')}
+            </div>
+        ` : ''}
 
-        <h4 class="modal-section-title">Dampak & Manfaat Bisnis</h4>
-        <p class="modal-text">${project.details.impact}</p>
+        ${project.details?.impact ? `
+            <h4 class="modal-section-title">Dampak & Manfaat Bisnis</h4>
+            <p class="modal-text">${project.details.impact}</p>
+        ` : ''}
 
-        <h4 class="modal-section-title">Teknologi & Library</h4>
-        <div class="project-tech-stack" style="margin-top: 0.5rem;">
-            ${project.techStack.map(t => `<span class="tech-badge" style="font-size: 0.82rem; padding: 0.3rem 0.8rem;">${t}</span>`).join('')}
-        </div>
+        ${(project.techStack && project.techStack.length > 0) ? `
+            <h4 class="modal-section-title">Teknologi & Library</h4>
+            <div class="project-tech-stack" style="margin-top: 0.5rem;">
+                ${project.techStack.map(t => `<span class="tech-badge" style="font-size: 0.82rem; padding: 0.3rem 0.8rem;">${t}</span>`).join('')}
+            </div>
+        ` : ''}
 
         <div class="modal-footer-actions">
-            ${project.links.github ? `
+            ${(project.links && project.links.github) ? `
                 <a href="${project.links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     Lihat Kode di GitHub
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -505,15 +580,15 @@ function closeProjectModal() {
 }
 
 /* ==========================================================================
-   10. CERTIFICATIONS RENDER
+   11. CERTIFICATIONS RENDER
    ========================================================================== */
-function renderCertifications() {
+function renderCertifications(data = getActiveData()) {
     const grid = document.getElementById('certifications-grid');
-    if (!grid || !portfolioData.certifications) return;
+    if (!grid || !data.certifications) return;
 
-    grid.innerHTML = portfolioData.certifications.map((cert, idx) => `
+    grid.innerHTML = data.certifications.map((cert, idx) => `
         <div class="cert-card reveal reveal-delay-${(idx % 4) + 1}">
-            <div class="cert-icon-box ${cert.badgeColor}">
+            <div class="cert-icon-box ${cert.badgeColor || 'cyan'}">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="8" r="7"></circle>
                     <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
@@ -528,7 +603,7 @@ function renderCertifications() {
 }
 
 /* ==========================================================================
-   11. INTERACTIVE SENTIMENT ANALYZER (LIVE NLP PLAYGROUND)
+   12. INTERACTIVE SENTIMENT ANALYZER (LIVE NLP PLAYGROUND)
    ========================================================================== */
 function initSentimentAnalyzer() {
     const textarea = document.getElementById('analyzer-input');
@@ -574,7 +649,6 @@ function initSentimentAnalyzer() {
         // Clean & Normalize
         let cleaned = text.toLowerCase().replace(/[^a-zA-Z0-9\s]/g, ' ');
         let tokens = cleaned.split(/\s+/).filter(t => t.length > 0);
-        
         let normalizedTokens = tokens.map(t => slangDict[t] || t);
 
         let posScore = 0;
@@ -586,7 +660,6 @@ function initSentimentAnalyzer() {
         });
 
         // Compute probabilities
-        let totalWords = normalizedTokens.length;
         let posProb = 0.33, neuProb = 0.34, negProb = 0.33;
 
         if (posScore > negScore) {
@@ -645,7 +718,7 @@ function initSentimentAnalyzer() {
 }
 
 /* ==========================================================================
-   12. CONTACT FORM HANDLER
+   13. CONTACT FORM HANDLER
    ========================================================================== */
 function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -653,13 +726,14 @@ function initContactForm() {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+        const data = getActiveData();
+        const targetEmail = data.personal?.email || 'khairulraihan617@gmail.com';
         const name = document.getElementById('sender-name').value;
         const email = document.getElementById('sender-email').value;
         const subject = document.getElementById('sender-subject').value || 'Pesan dari Web Portofolio';
         const message = document.getElementById('sender-message').value;
 
-        // Build mailto link
-        const mailtoLink = `mailto:khairulraihan617@gmail.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent("Halo Khairul Raihan,\n\n" + message + "\n\nDari: " + name + " (" + email + ")")}`;
+        const mailtoLink = `mailto:${targetEmail}?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent("Halo Khairul Raihan,\n\n" + message + "\n\nDari: " + name + " (" + email + ")")}`;
         
         window.location.href = mailtoLink;
         showToast('Membuka aplikasi email...');
@@ -668,17 +742,18 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   13. CLIPBOARD & TOAST SYSTEM
+   14. CLIPBOARD & TOAST SYSTEM
    ========================================================================== */
 function initClipboard() {
     const copyEmailBtn = document.getElementById('btn-copy-email');
     if (copyEmailBtn) {
         copyEmailBtn.addEventListener('click', () => {
-            const email = 'khairulraihan617@gmail.com';
+            const data = getActiveData();
+            const email = data.personal?.email || 'khairulraihan617@gmail.com';
             navigator.clipboard.writeText(email).then(() => {
                 showToast('Email berhasil disalin ke clipboard! 📋');
             }).catch(() => {
-                showToast('Email: khairulraihan617@gmail.com');
+                showToast(`Email: ${email}`);
             });
         });
     }

@@ -8,6 +8,13 @@ Website ini **100% kompatibel dan siap di-deploy langsung ke GitHub Pages** tanp
 
 ## 🌟 Fitur Utama
 
+- **Web Admin CMS Terintegrasi (`admin.html`)**:
+  - **Proteksi PIN Keamanan**: Dilindungi PIN (Default PIN: `1234`, dapat diganti).
+  - **Kelola Profil & Kontak**: Ubah Nama, Tagline, Bio, IPK, WhatsApp, LinkedIn, GitHub, dan teks dinamis typewriter.
+  - **Kelola Proyek Penuh (CRUD)**: Tambah proyek baru, edit metrik akurasi, ubah gambar, teknologi, poin-poin hasil, atau hapus proyek.
+  - **Kelola Keahlian & Sertifikasi**: Slider tingkat kemahiran interaktif dan manajemen sertifikat.
+  - **One-Click GitHub Export**: Tombol **"Download data.js"** dan **"Salin Kode data.js"** untuk update instan ke GitHub Pages.
+  - **Backup & Restore JSON**: Simpan cadangan data portofolio kapan saja.
 - **Desain & Estetika Premium**:
   - *Modern Dark Theme* (default) dengan aksen neon cyan & violet, serta opsi beralih ke *Clean Light Mode*.
   - Latar belakang partikel konstelasi dinamis (*HTML5 Canvas*).
@@ -22,8 +29,6 @@ Website ini **100% kompatibel dan siap di-deploy langsung ke GitHub Pages** tanp
   - **Interactive NLP Playground**: Simulator sentimen interaktif langsung di browser untuk menguji teks ulasan berbahasa Indonesia.
   - **Sertifikasi**: Kredensial dari Budi Luhur, RevoU, dan DQLab.
   - **Kontak & Download CV**: Direct WhatsApp, Salin Email instan (*Toast notification*), dan tombol unduh file resume ATS.
-- **Konfigurasi Data Mudah**:
-  - Seluruh data proyek, keahlian, dan sertifikasi tersimpan rapi di `js/data.js` sehingga Anda dapat menambah atau mengubah data kapan saja tanpa perlu merombak file HTML.
 
 ---
 
