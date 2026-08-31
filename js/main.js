@@ -560,7 +560,7 @@ function renderFooter(data) {
 
     const footCopy = document.getElementById('footer-copyright');
     if (footCopy && f.copyright) {
-        footCopy.innerHTML = `${f.copyright} &bull; <a href="admin.html" style="color: var(--accent-blue); text-decoration: underline;" title="Buka Admin CMS">Admin Panel</a>`;
+        footCopy.innerHTML = f.copyright;
     }
 
     const footGit = document.getElementById('footer-github');

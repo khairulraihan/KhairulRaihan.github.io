@@ -11,3 +11,8 @@ __pycache__/
 # OS Specific
 Thumbs.db
 .DS_Store
+
+# Local Private Admin CMS (Private only, never pushed to GitHub)
+admin.html
+css/admin.css
+js/admin.js

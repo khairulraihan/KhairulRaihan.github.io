@@ -274,7 +274,7 @@ const portfolioData = {
     footer: {
         title: "Khairul Raihan Hidayat",
         subtitle: "Sarjana Komputer • Sistem Informasi (Data Science) • Universitas Budi Luhur",
-        copyright: "© 2026 Khairul Raihan Hidayat. Hosted with GitHub Pages."
+        copyright: "© 2026 Khairul Raihan Hidayat. All rights reserved."
     }
 };
 
