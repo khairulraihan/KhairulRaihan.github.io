@@ -281,13 +281,14 @@ const portfolioData = {
             "subtitle": "Tugas Akhir / Skripsi — Machine Learning & Natural Language Processing",
             "category": "ml-nlp",
             "categoryName": "Machine Learning & NLP",
+            "featured": true,
             "badge": "Tugas Akhir Skripsi",
             "image": "assets/images/project-nlp.jpg",
             "overview": "Riset komparasi performa algoritma Support Vector Machine (SVM) dan Naive Bayes untuk mengklasifikasikan persepsi publik pada belasan ribu komentar YouTube berbahasa Indonesia menggunakan ekstraksi YouTube Data API v3 dan kamus leksikon InSet.",
             "highlights": [
                 "Ekstraksi dataset komentar publik YouTube secara langsung melalui YouTube Data API v3",
                 "Normalisasi teks komprehensif: pemetaan kata slang daerah (kamus kata baku lokal), stopword removal, dan leksikon InSet",
-                "Akurasi model klasifikasi SVM mencapai 92.4% mengungguli Multinomial Naive Bayes (91.6%)",
+                "Akurasi model klasifikasi SVM mencapai 88.4% mengungguli Multinomial Naive Bayes (81%)",
                 "Implementasi aplikasi web interaktif menggunakan Streamlit untuk visualisasi sentimen dan pengujian teks langsung"
             ],
             "techStack": [
@@ -301,26 +302,26 @@ const portfolioData = {
             ],
             "metrics": [
                 {
-                    "val": "92.4%",
+                    "val": "88.4%",
                     "label": "Akurasi SVM"
                 },
                 {
-                    "val": "12,500+",
+                    "val": "7000+",
                     "label": "Dataset Komentar"
                 },
                 {
-                    "val": "91.6%",
+                    "val": "81%",
                     "label": "Akurasi Naive Bayes"
                 }
             ],
             "details": {
                 "problem": "Bahasa ulasan netizen di media sosial sarat dengan bahasa tidak baku, singkatan, dan slang daerah, menyulitkan pengukuran sentimen publik secara manual pada skala besar.",
                 "solution": "Membangun pipeline NLP terpadu di Python dengan kamus normalisasi kata baku lokal, leksikon sentimen InSet, dan perbandingan model SVM vs Naive Bayes. Hasil dikemas dalam aplikasi Streamlit yang responsif.",
-                "impact": "Memungkinkan analis media dan kreator konten memetakan persepsi publik terhadap video edukasi dalam hitungan detik dengan tingkat keandalan di atas 92%."
+                "impact": "Memungkinkan analis media dan kreator konten memetakan persepsi publik terhadap kanal youtube  Ferry Irwandi "
             },
             "links": {
                 "github": "https://github.com/KhairulRaihan/KhairulRaihan.github.io/tree/main/Project%20Skripsi",
-                "demo": "#demo"
+                "demo": null
             }
         },
         {
@@ -328,7 +329,8 @@ const portfolioData = {
             "title": "Human Resources (HR) Analytics Dashboard",
             "subtitle": "Tableau Business Intelligence — Workforce Demographics, Retention & Income Analytics",
             "category": "bi-tableau",
-            "categoryName": "Business Intelligence & BI",
+            "categoryName": "Business Intelligence & Tableau",
+            "featured": true,
             "badge": "Tableau BI Project",
             "image": "assets/images/project-hr-analytics.png",
             "overview": "Membangun dasbor analitik SDM interaktif dua halaman (HR Overview & Employee Directory) di Tableau menggunakan dataset komprehensif 8.950 karyawan untuk memantau retensi tenaga kerja, demografi, serta distribusi pendapatan.",
@@ -371,13 +373,13 @@ const portfolioData = {
         },
         {
             "id": "agentic-ai-workflow",
-            "title": "Double Coverage Campaign Auto-Clipper & Content Specialist",
-            "subtitle": "Agentic AI (Antigravity) & Automated 9:16 Vertical Video Processing",
+            "title": "Freelance AI Content Workflow & Analytics Specialist",
+            "subtitle": "Agentic AI (Antigravity) & Automated Short-form Video Optimization",
             "category": "ai-agentic",
             "categoryName": "Agentic AI & Automasi",
-            "badge": "Agentic AI Production Dashboard",
-            "image": "assets/images/project-ai-automation.png",
-            "overview": "Membangun sistem automasi alur kerja Agentic AI (Double Coverage Campaign Auto-Clipper) menggunakan Antigravity dan Python untuk mengkurasi 'golden moments' video podcast berdurasi panjang, menganalisis hook 3 detik pembuka, serta merender batch video vertikal 9:16 secara otomatis.",
+            "badge": "Agentic AI Case Study",
+            "image": "assets/images/project-football.jpg",
+            "overview": "Mengembangkan alur kerja berbasis Agentic AI menggunakan Antigravity untuk mengidentifikasi momen-momen potensial (high-retention hooks) dari video panjang secara otomatis guna memenuhi target campaign Content Reward.",
             "highlights": [
                 "Mengorkestrasikan Agentic AI (Antigravity) untuk kurasi hook dengan potensi retensi tinggi secara instan",
                 "Mengekstraksi dan menyusun klip pendek teroptimasi (Shorts) di CapCut dengan dynamic captions, visual pacing, dan framing 9:16",
