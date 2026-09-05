@@ -1,20 +1,14 @@
 /**
  * Master Portfolio Data Configuration for Khairul Raihan Hidayat
- * Generated automatically from Admin CMS
+ * 100% Synced with Latest CV & Personal Projects (Project Skripsi, Tableu, Agentic AI)
  */
 
 const portfolioData = {
     "hero": {
-        "statusPill": "Fresh Graduate Sistem Informasi • Peminatan Data Science",
+        "statusPill": "Fresh Graduate Sistem Informasi • Data Science (IPK 3.88)",
         "name": "Khairul Raihan Hidayat",
-        "roles": [
-            "Data Science & Analytics",
-            "NLP & Machine Learning Specialist",
-            "Business Intelligence (Tableau & SQL)",
-            "Fresh Graduate S.Kom (IPK 3.88)"
-        ],
-        "bio": "Lulusan Sarjana Komputer dari Universitas Budi Luhur dengan IPK 3.88/4.00. Berfokus pada siklus analitik data komprehensif: pembersihan dan ekstraksi data berskala besar, pemodelan Machine Learning (NLP), serta perancangan dasbor Business Intelligence interaktif di Tableau.",
-        "ctaPrimaryText": "Lihat Proyek Pilihan",
+        "bio": "Fresh Graduate Sistem Informasi peminatan Data Science (IPK 3.88/4.00) dari Universitas Budi Luhur dengan keahlian praktis dalam analisis data, pemodelan Machine Learning (NLP), dan perancangan dasbor interaktif menggunakan Python, Tableau, serta Looker Studio. Memiliki antusiasme tinggi dalam implementasi Agentic AI (Antigravity) untuk membangun automasi alur kerja analitis yang efisien.",
+        "ctaPrimaryText": "Lihat Proyek Unggulan",
         "ctaPrimaryLink": "#projects",
         "ctaSecondaryText": "Hubungi Saya",
         "ctaSecondaryLink": "#contact",
@@ -23,210 +17,196 @@ const portfolioData = {
     "personal": {
         "name": "Khairul Raihan Hidayat",
         "nickname": "Raihan",
-        "role": "Data Science & BI Analyst",
+        "role": "Data Science & BI Specialist",
         "tagline": "Translating Complex Data into Strategic Business Decisions",
-        "bio": "Fresh Graduate Sistem Informasi (Peminatan Data Science) dari Universitas Budi Luhur dengan IPK 3.88/4.00. Berpengalaman dalam pemodelan Machine Learning (NLP, Klasifikasi, Clustering), ekstraksi data (Web Scraping & SQL), serta perancangan dasbor Business Intelligence interaktif (Tableau & Looker Studio).",
+        "bio": "Fresh Graduate Sistem Informasi peminatan Data Science dari Universitas Budi Luhur dengan IPK 3.88/4.00. Berpengalaman dalam pengolahan siklus data end-to-end: ekstraksi data (SQL & Web Scraping), pemodelan Machine Learning (NLP, Klasifikasi, Clustering K-Means), perancangan dasbor Business Intelligence interaktif (Tableau & Looker Studio), serta automasi workflow analitis berbasis Agentic AI (Antigravity).",
         "location": "Kota Tangerang, Banten, Indonesia",
         "email": "khairulraihan617@gmail.com",
-        "phone": "+62 898-951-8334",
+        "phone": "+62 898-9518-334",
         "whatsapp": "628989518334",
         "gpa": "3.88 / 4.00",
         "degree": "Sarjana Komputer (S.Kom) - Sistem Informasi",
         "university": "Universitas Budi Luhur, Jakarta",
         "graduationYear": "2022 - 2026",
-        "cvPath": "assets/docs/Khairul_Raihan_Hidayat_CV.docx",
+        "cvPath": "assets/docs/Khairul_Raihan_Hidayat_CV.pdf",
         "socials": {
             "github": "https://github.com/KhairulRaihan",
-            "linkedin": "https://www.linkedin.com/in/khairul-raihan-hidayat",
-            "email": "mailto:khairulraihan617@gmail.com",
-            "whatsapp": "https://wa.me/628989518334"
+            "linkedin": "https://www.linkedin.com/in/khairul-raihan-hidayat-0a4b62334/"
         }
     },
     "stats": [
         {
-            "value": "3.88",
-            "suffix": "/4.00",
-            "label": "IPK Kelulusan (Magna Cum Laude)"
+            "val": "3.88",
+            "label": "IPK Kelulusan (Skala 4.00)",
+            "sub": "Universitas Budi Luhur • Magna Cum Laude"
         },
         {
-            "value": "10",
-            "suffix": "K+",
-            "label": "Data Records Historis Dianalisis"
+            "val": "92.4%",
+            "label": "Akurasi Model SVM",
+            "sub": "Tugas Akhir / Skripsi Analisis Sentimen NLP"
         },
         {
-            "value": "92.4",
-            "suffix": "%",
-            "label": "Akurasi Model NLP Skripsi"
+            "val": "8,950+",
+            "label": "Data Karyawan Dianalisis",
+            "sub": "Tableau HR Analytics & Retention Dashboard"
         },
         {
-            "value": "10",
-            "suffix": "+",
-            "label": "Proyek & Dasbor Visualisasi"
+            "val": "~70%",
+            "label": "Efisiensi Kurasi Waktu",
+            "sub": "Agentic AI Workflow Automation"
         }
     ],
     "about": {
         "sectionBadge": "Profil Akademis & Profesional",
         "sectionTitle": "Latar Belakang & Pendekatan Kerja",
-        "sectionDesc": "Menjembatani analisis statistik murni dengan kebutuhan bisnis nyata melalui rekayasa data yang terstruktur.",
+        "sectionDesc": "Menjembatani analisis statistik komputasional dengan kebutuhan bisnis nyata melalui rekayasa data yang terstruktur dan automasi AI.",
         "institution": "Universitas Budi Luhur, Jakarta",
-        "degree": "Sarjana Komputer (S.Kom) - Sistem Informasi • Peminatan Data Science",
+        "degree": "Sarjana Sistem Informasi • Konsentrasi Data Science",
         "period": "2022 - 2026",
         "gpa": "3.88 / 4.00",
         "courses": [
-            "Analisis Big Data",
-            "Pemodelan Data & ML",
-            "Rekayasa Data (Data Engineering)",
-            "Visualisasi Data & BI",
-            "Basis Data Relasional"
+            "Analisis Data",
+            "Data Modeling",
+            "Clustering (K-Means)",
+            "Klasifikasi Teks",
+            "Natural Language Processing (NLP)",
+            "Business Intelligence",
+            "Basis Data & SQL",
+            "Logika & Algoritma"
         ],
-        "story": "Sebagai lulusan Sistem Informasi dengan peminatan Data Science, saya berfokus pada alur kerja data terintegrasi: mulai dari eksplorasi data mentah, pembersihan teks dan normalisasi bahasa, perancangan model prediktif, hingga visualisasi dalam format dasbor eksekutif.\n\nPada penelitian Tugas Akhir, saya merancang sistem klasifikasi analisis sentimen pada belasan ribu komentar YouTube berbahasa Indonesia dengan membandingkan model Support Vector Machine (SVM) dan Multinomial Naive Bayes, yang menghasilkan akurasi tertinggi sebesar 92.4%.",
+        "story": "Saya merupakan lulusan Sarjana Sistem Informasi peminatan Data Science dari Universitas Budi Luhur dengan predikat Magna Cum Laude (IPK 3.88/4.00). Selama masa studi, saya mendedikasikan fokus pada pemodelan statistik, eksplorasi data relasional, pemrosesan bahasa alami (NLP), serta visualisasi metrik bisnis yang komprehensif.\n\nDalam Tugas Akhir Skripsi, saya merancang pipeline NLP terpadu untuk menganalisis sentimen respons netizen pada video YouTube berbahasa Indonesia menggunakan komparasi Support Vector Machine (SVM) dan Naive Bayes, menghasilkan model dengan akurasi 92.4% yang diintegrasikan ke aplikasi Streamlit interaktif.\n\nSelain data science murni, saya memiliki keahlian mendalam dalam Business Intelligence menggunakan Tableau—membangun dasbor analitik SDM interaktif dua halaman (HR Overview & Employee Directory) yang menganalisis 8.950 data tenaga kerja, melacak KPI retensi, dan memetakan demografi gaji. Saya juga aktif mengeksplorasi implementasi Agentic AI (Antigravity) untuk mengautomasi alur kerja analitis dan memangkas waktu operasional hingga 70%.",
         "competencies": [
             {
-                "title": "Machine Learning & NLP",
-                "desc": "Normalisasi kata slang, leksikon InSet, komparasi algoritma klasifikasi."
+                "title": "Data Science & Machine Learning",
+                "desc": "Pembersihan data tidak terstruktur, tokenization, ekstraksi fitur teks, pemodelan komparatif SVM vs Naive Bayes, serta algoritma clustering K-Means."
             },
             {
-                "title": "Business Intelligence",
-                "desc": "Perancangan dasbor interaktif di Tableau & Looker Studio."
+                "title": "Business Intelligence & Tableau",
+                "desc": "Perancangan dasbor multi-halaman di Tableau dan Looker Studio dengan calculated fields kompleks, filter dinamis, visualisasi peta wilayah, serta matriks KPI."
             },
             {
-                "title": "Ekstraksi & SQL",
-                "desc": "Web scraping data tabular dan agregasi kueri relasional kompleks."
+                "title": "Agentic AI & Workflow Automation",
+                "desc": "Penerapan orchestrasi Agentic AI (Antigravity) untuk automasi alur kerja analitis, identifikasi hook video panjang otomatis, dan kurasi konten cerdas."
             },
             {
-                "title": "Business Value Focus",
-                "desc": "Menerjemahkan wawasan statistik menjadi rekomendasi praktis."
+                "title": "Database Querying & Advanced Analytics",
+                "desc": "Eksplorasi data relasional dengan SQL, analisis tingkat lanjut di Microsoft Excel (Pivot Tables, XLOOKUP, Data Cleaning), serta komputasi ilmiah Python."
             }
         ]
     },
     "skills": [
         {
-            "id": "cat-prog-db",
-            "category": "Bahasa Pemrograman & Basis Data",
-            "description": "Fondasi utama dalam rekayasa fitur, pembersihan data, dan query relasional.",
+            "category": "Pemrograman & Basis Data",
+            "description": "Bahasa pemrograman inti dan manajemen kueri data relasional untuk analisis dan pemodelan.",
             "items": [
                 {
-                    "name": "Python",
-                    "status": ".",
-                    "tags": [
-                        "Pandas",
-                        "NumPy",
-                        "Scikit-Learn",
-                        "NLTK",
-                        "Matplotlib",
-                        "Seaborn"
-                    ]
+                    "name": "Python (Pandas, NumPy, Scikit-Learn, NLTK)",
+                    "status": "Mahir",
+                    "tags": ["Data Manipulation", "Machine Learning", "NLP Pipeline", "EDA"]
                 },
                 {
-                    "name": "SQL",
-                    "status": ".",
-                    "tags": [
-                        "MySQL",
-                        "Aggregations",
-                        "Joins & Subqueries"
-                    ]
+                    "name": "SQL & Relational Database Management",
+                    "status": "Kompeten",
+                    "tags": ["Data Extraction", "Complex Joins", "Aggregations", "Filtering"]
                 }
             ]
         },
         {
-            "id": "cat-ml-nlp",
-            "category": "Machine Learning & Natural Language Processing",
-            "description": "Pengembangan pipeline pemrosesan teks dan pemodelan klasifikasi terkomparasi.",
+            "category": "Visualisasi Data & Business Intelligence",
+            "description": "Pengembangan dasbor interaktif untuk pelaporan eksekutif dan pemantauan metrik kinerja.",
+            "items": [
+                {
+                    "name": "Tableau Desktop / Tableau Public",
+                    "status": "Mahir",
+                    "tags": ["Calculated Fields", "Multi-Page Dashboard", "Interactive KPI", "Geographic Mapping"]
+                },
+                {
+                    "name": "Google Looker Studio",
+                    "status": "Kompeten",
+                    "tags": ["Real-time Reporting", "Business KPI", "Executive Metrics"]
+                },
+                {
+                    "name": "Microsoft Excel Lanjutan",
+                    "status": "Mahir",
+                    "tags": ["Pivot Tables & Charts", "XLOOKUP", "Data Cleaning", "Formula Modeling"]
+                }
+            ]
+        },
+        {
+            "category": "Data Science, Machine Learning & NLP",
+            "description": "Metodologi pemodelan prediktif, pemrosesan bahasa alami, dan segmentasi data.",
             "items": [
                 {
                     "name": "Natural Language Processing (NLP)",
-                    "status": "Analisis Sentiment",
-                    "tags": [
-                        "Text Preprocessing",
-                        "InSet Lexicon",
-                        "Tokenization",
-                        "TF-IDF / CountVec"
-                    ]
+                    "status": "Mahir",
+                    "tags": ["Tokenization", "Kamus Leksikon InSet", "Stopwords Removal", "Slang Normalization"]
                 },
                 {
-                    "name": "Model Klasifikasi & Prediksi",
-                    "status": "Penerapan Praktis",
-                    "tags": [
-                        "Support Vector Machine (SVM)",
-                        "Multinomial Naive Bayes",
-                        "KNN"
-                    ]
+                    "name": "Supervised Learning (SVM & Naive Bayes)",
+                    "status": "Mahir",
+                    "tags": ["Text Classification", "TF-IDF / CountVector", "Accuracy Evaluation", "Confusion Matrix"]
                 },
                 {
-                    "name": "Clustering & Data Modeling",
-                    "status": "Eksploratif",
-                    "tags": [
-                        "K-Means Clustering",
-                        "Feature Engineering"
-                    ]
+                    "name": "Unsupervised Learning (Clustering K-Means)",
+                    "status": "Kompeten",
+                    "tags": ["Data Modeling", "Pattern Recognition", "Cluster Profiling"]
+                },
+                {
+                    "name": "RapidMiner & Exploratory Analytics",
+                    "status": "Kompeten",
+                    "tags": ["Visual Workflow", "Data Modeling", "Statistical Validation"]
                 }
             ]
         },
         {
-            "id": "cat-bi-vis",
-            "category": "Business Intelligence & Visualisasi Data",
-            "description": "Transformasi kumpulan data menjadi dasbor eksekutif dan visual storytelling.",
+            "category": "Agentic AI, Perangkat Lunak & Desain",
+            "description": "Alur kerja otomasi cerdas modern, lingkungan pengembangan, dan desain presentasi.",
             "items": [
                 {
-                    "name": "Tableau",
-                    "status": "Dasbor Interaktif",
-                    "tags": [
-                        "Calculated Fields",
-                        "Trend & Seasonality",
-                        "Executive KPI Tracking"
-                    ]
+                    "name": "Antigravity (Agentic AI Automation)",
+                    "status": "Lanjut",
+                    "tags": ["Autonomous Workflows", "Task Orchestration", "Content Hook Curation", "AI Efficiency"]
                 },
                 {
-                    "name": "Looker Studio",
-                    "status": "Pelaporan Bisnis",
-                    "tags": [
-                        "Interactive Reporting",
-                        "Real-time Metrics"
-                    ]
+                    "name": "VS Code & Git / GitHub",
+                    "status": "Mahir",
+                    "tags": ["Version Control", "Repository Management", "Clean Code Architecture"]
                 },
                 {
-                    "name": "Microsoft Excel Advanced",
-                    "status": "Analisis",
-                    "tags": [
-                        "Pivot Tables",
-                        "XLOOKUP",
-                        "Data Cleansing"
-                    ]
+                    "name": "Desain UI/UX & Presentasi (Figma & Canva)",
+                    "status": "Kompeten",
+                    "tags": ["UI Mockup", "Executive Decks", "Data Infographics"]
+                },
+                {
+                    "name": "CapCut Video Production & Optimization",
+                    "status": "Mahir",
+                    "tags": ["9:16 Shorts Framing", "Dynamic Captions", "Visual Pacing", "Audience Retention"]
                 }
             ]
         },
         {
-            "id": "cat-tools-dev",
-            "category": "Tools Pengembangan & Kolaborasi",
-            "description": "Lingkungan kerja terpadu untuk eksperimen, deployment, dan version control.",
+            "category": "Soft Skills & Karakter Kerja",
+            "description": "Keterampilan interpersonal dan manajemen pemecahan masalah.",
             "items": [
                 {
-                    "name": "Development & Version Control",
-                    "status": "Harian",
-                    "tags": [
-                        "Antigravity",
-                        "VS Code",
-                        "Jupyter Notebook",
-                        "Streamlit",
-                        "Git & GitHub"
-                    ]
+                    "name": "Critical Thinking & Problem Solving",
+                    "status": "Inti",
+                    "tags": ["Analisis Akar Masalah", "Logika Solutif", "Pendekatan Terstruktur"]
                 },
                 {
-                    "name": "Data Science Tools & Design",
-                    "status": "Pendukung",
-                    "tags": [
-                        "RapidMiner",
-                        "Figma",
-                        "Canva"
-                    ]
+                    "name": "Analytical Skills & Multitasking",
+                    "status": "Inti",
+                    "tags": ["Sintesis Data Kompleks", "Manajemen Prioritas Proyek"]
                 },
                 {
-                    "name": "BI Tools",
-                    "status": "Utama",
-                    "tags": [
-                        "Tableau",
-                        "LOOKER"
-                    ]
+                    "name": "Communication & Negotiation",
+                    "status": "Inti",
+                    "tags": ["Penyampaian Insight Bisnis", "Diskusi Kolaboratif"]
+                },
+                {
+                    "name": "Teamwork & Time Management",
+                    "status": "Inti",
+                    "tags": ["Kolaborasi Tim Efektif", "Tepat Waktu & Adaptif"]
                 }
             ]
         }
@@ -234,29 +214,27 @@ const portfolioData = {
     "projects": [
         {
             "id": "youtube-nlp-sentiment",
-            "title": "Pemodelan Analisis Sentimen Respons Netizen YouTube",
-            "subtitle": "Tugas Akhir / Skripsi — Natural Language Processing & Streamlit",
-            "category": "nlp",
+            "title": "Analisis Sentimen Respons Netizen pada Komentar YouTube",
+            "subtitle": "Tugas Akhir / Skripsi — Machine Learning & Natural Language Processing",
+            "category": "ml-nlp",
             "categoryName": "Machine Learning & NLP",
-            "featured": true,
             "badge": "Tugas Akhir Skripsi",
             "image": "assets/images/project-nlp.jpg",
-            "overview": "Riset komparasi performa algoritma Support Vector Machine (SVM) dan Naive Bayes untuk mengklasifikasikan persepsi publik pada belasan ribu komentar YouTube berbahasa Indonesia.",
+            "overview": "Riset komparasi performa algoritma Support Vector Machine (SVM) dan Naive Bayes untuk mengklasifikasikan persepsi publik pada belasan ribu komentar YouTube berbahasa Indonesia menggunakan ekstraksi YouTube Data API v3 dan kamus leksikon InSet.",
             "highlights": [
-                "Ekstraksi dataset komentar secara langsung menggunakan YouTube Data API v3",
-                "Normalisasi teks komprehensif: pemetaan kata slang (kamus kata baku lokal), stopword removal, dan leksikon InSet",
-                "Akurasi model klasifikasi SVM mencapai 92.4% dan Multinomial Naive Bayes sebesar 91.6%",
-                "Implementasi aplikasi web interaktif berbasis Streamlit lengkap dengan WordCloud dan matriks evaluasi"
+                "Ekstraksi dataset komentar publik YouTube secara langsung melalui YouTube Data API v3",
+                "Normalisasi teks komprehensif: pemetaan kata slang daerah (kamus kata baku lokal), stopword removal, dan leksikon InSet",
+                "Akurasi model klasifikasi SVM mencapai 92.4% mengungguli Multinomial Naive Bayes (91.6%)",
+                "Implementasi aplikasi web interaktif menggunakan Streamlit untuk visualisasi sentimen dan pengujian teks langsung"
             ],
             "techStack": [
                 "Python",
                 "Streamlit",
                 "Scikit-Learn",
                 "NLTK",
-                "YouTube Data API",
-                "Pandas",
-                "Matplotlib",
-                "Seaborn"
+                "SVM (SVC)",
+                "Naive Bayes",
+                "YouTube Data API v3"
             ],
             "metrics": [
                 {
@@ -278,121 +256,169 @@ const portfolioData = {
                 "impact": "Memungkinkan analis media dan kreator konten memetakan persepsi publik terhadap video edukasi dalam hitungan detik dengan tingkat keandalan di atas 92%."
             },
             "links": {
-                "github": "https://github.com/khairulraihan/KhairulRaihan.github.io/tree/main/Project%20Skripsi",
-                "demo": null
+                "github": "https://github.com/KhairulRaihan/KhairulRaihan.github.io/tree/main/Project%20Skripsi",
+                "demo": "#demo"
             }
         },
         {
-            "id": "amazon-sales-analytics",
-            "title": "Analisis Kinerja Penjualan & Tren Musiman Amazon",
-            "subtitle": "Business Intelligence & Revenue Forecasting",
-            "category": "bi",
-            "categoryName": "Business Intelligence",
-            "featured": true,
-            "badge": "BI Dashboard",
-            "image": "assets/images/project-tableau.jpg",
-            "overview": "Eksplorasi dataset transaksi Amazon historis untuk memetakan perilaku pembelian pelanggan, pola pendapatan musiman, dan kontribusi kategori produk.",
+            "id": "tableau-hr-analytics",
+            "title": "Human Resources (HR) Analytics Dashboard",
+            "subtitle": "Tableau Business Intelligence — Workforce Demographics, Retention & Income Analytics",
+            "category": "bi-tableau",
+            "categoryName": "Business Intelligence & BI",
+            "badge": "Tableau BI Project",
+            "image": "assets/images/project-hr-analytics.png",
+            "overview": "Membangun dasbor analitik SDM interaktif dua halaman (HR Overview & Employee Directory) di Tableau menggunakan dataset komprehensif 8.950 karyawan untuk memantau retensi tenaga kerja, demografi, serta distribusi pendapatan.",
             "highlights": [
-                "Pengolahan dan pembersihan dataset transaksi skala besar (780.000+ baris data)",
-                "Perancangan dasbor eksekutif Tableau dengan filter dinamis berdasarkan wilayah, periode, dan lini produk",
-                "Identifikasi lonjakan transaksi pada kuartal ketiga (Q3) sebagai dasar strategi alokasi inventaris",
-                "Pemetaan segmentasi geografis pembeli melalui peta panas distribusi penjualan"
+                "Mengembangkan berbagai Calculated Fields untuk melacak KPI utama tenaga kerja (total headcount, retensi aktif vs terminasi, rasio demografi)",
+                "Menganalisis 8.950 catatan karyawan dengan rasio retensi 89.2% (7.984 aktif vs 966 terminasi)",
+                "Merancang pemetaan geografis sebaran karyawan per wilayah (state map) serta proporsi aktif vs terminasi di 7 departemen",
+                "Menyajikan analisis korelasi tingkat pendidikan, usia, jabatan kerja, dan rentang kompensasi gaji"
             ],
             "techStack": [
-                "Tableau",
-                "Python",
-                "Data Cleansing",
-                "Business Analytics",
-                "Excel"
+                "Tableau Desktop",
+                "Calculated Fields",
+                "HR Analytics",
+                "Data Modeling",
+                "Excel / CSV"
             ],
             "metrics": [
                 {
-                    "val": "12+",
-                    "label": "Lini Kategori"
+                    "val": "8,950",
+                    "label": "Total Karyawan"
                 },
                 {
-                    "val": "$34M+",
-                    "label": "Revenue Scope"
+                    "val": "89.2%",
+                    "label": "Retensi Tenaga Kerja"
+                },
+                {
+                    "val": "7",
+                    "label": "Departemen Utama"
                 }
             ],
             "details": {
-                "problem": "Manajemen memerlukan visibilitas cepat terhadap fluktuasi pendapatan bulanan dan kategori produk dominan guna mengoptimalkan jadwal promosi.",
-                "solution": "Mengembangkan dasbor Tableau terstruktur yang menampilkan metrik pendapatan, tren bulanan, serta perbandingan pangsa pasar antarkategori produk secara visual.",
-                "impact": "Membantu pengambilan keputusan berbasis data dalam menentukan alokasi stok produk dan fokus kampanye promosi musiman."
+                "problem": "Manajemen SDM kesulitan memantau retensi tenaga kerja, ketimpangan kompensasi per departemen, serta sebaran demografi karyawan di berbagai wilayah tanpa dasbor sentral yang interaktif.",
+                "solution": "Merancang dasbor Tableau dua halaman terintegrasi (HR Overview & Employee Directory) dengan Calculated Fields dinamis, filter lintas dimensi, peta sebaran negara bagian, serta scatter plot korelasi usia dan gaji.",
+                "impact": "Memfasilitasi jajaran eksekutif HR dalam mengidentifikasi departemen dengan tingkat terminasi tertinggi (Operations & Sales) serta merumuskan kebijakan retensi talenta secara presisi."
             },
             "links": {
-                "github": "https://github.com/KhairulRaihan",
+                "github": "https://github.com/KhairulRaihan/KhairulRaihan.github.io/tree/main/Tableu",
                 "demo": null
             }
         },
         {
-            "id": "football-market-value",
-            "title": "Analisis Faktor Valuasi Pasar Pemain Sepak Bola Eropa",
-            "subtitle": "Web Scraping & Regresi Multivariabel",
-            "category": "analytics",
-            "categoryName": "Data Analytics & Scraping",
-            "featured": true,
-            "badge": "Predictive Analytics",
+            "id": "agentic-ai-workflow",
+            "title": "Freelance AI Content Workflow & Analytics Specialist",
+            "subtitle": "Agentic AI (Antigravity) & Automated Short-form Video Optimization",
+            "category": "ai-agentic",
+            "categoryName": "Agentic AI & Automasi",
+            "badge": "Agentic AI Case Study",
             "image": "assets/images/project-football.jpg",
-            "overview": "Studi data kuantitatif mengenai hubungan antara metrik performa (gol, assist, usia) dengan nilai pasar transfer atlet profesional di 3 liga top Eropa.",
+            "overview": "Mengembangkan alur kerja berbasis Agentic AI menggunakan Antigravity untuk mengidentifikasi momen-momen potensial (high-retention hooks) dari video panjang secara otomatis guna memenuhi target campaign Content Reward.",
             "highlights": [
-                "Automasi ekstraksi data statistik pemain dan valuasi pasar melalui Web Scraping dengan Python",
-                "Pembersihan data, penanganan nilai hilang (imputation), dan integrasi dataset Kaggle",
-                "Pemodelan regresi multivariabel untuk mengevaluasi korelasi performa ofensif terhadap estimasi harga",
-                "Visualisasi radar chart komparasi profil pemain kunci"
+                "Mengorkestrasikan Agentic AI (Antigravity) untuk kurasi hook dengan potensi retensi tinggi secara instan",
+                "Mengekstraksi dan menyusun klip pendek teroptimasi (Shorts) di CapCut dengan dynamic captions, visual pacing, dan framing 9:16",
+                "Mengelola strategi publikasi dan optimalisasi metadata YouTube untuk mendongkrak jangkauan algoritma",
+                "Memangkas waktu kurasi konten manual hingga ~70% melalui otomatisasi alur kerja AI"
             ],
             "techStack": [
-                "Python",
-                "Pandas",
-                "Scikit-Learn",
-                "BeautifulSoup",
-                "Seaborn",
-                "Kaggle Dataset"
+                "Antigravity",
+                "Agentic AI",
+                "YouTube Analytics",
+                "CapCut",
+                "Prompt Engineering",
+                "Audience Retention"
             ],
             "metrics": [
                 {
-                    "val": "0.78",
-                    "label": "Korelasi R²"
+                    "val": "~70%",
+                    "label": "Efisiensi Waktu Kurasi"
                 },
                 {
-                    "val": "Top 3 Eropa",
-                    "label": "Cakupan Liga"
+                    "val": "9:16",
+                    "label": "Shorts Framing Rasio"
                 },
                 {
-                    "val": "1,200+",
-                    "label": "Pemain Dianalisis"
+                    "val": "100%",
+                    "label": "Automasi Hook Detection"
                 }
             ],
             "details": {
-                "problem": "Valuasi pasar atlet kerap menjadi perdebatan karena dipengaruhi oleh gabungan faktor usia, performa individu, dan reputasi liga.",
-                "solution": "Menggabungkan teknik web scraping dan analisis regresi untuk membangun model matematis yang memetakan kurva nilai puncak pemain (peak performance curve).",
-                "impact": "Memberikan wawasan kuantitatif mengenai rentang usia optimal atlet (24-28 tahun) dan kontribusinya terhadap peningkatan nilai transfer."
+                "problem": "Pencarian momen penting dan hook menarik dari video panjang memakan waktu berjam-jam secara manual, menghambat kecepatan produksi dan skalabilitas kampanye konten.",
+                "solution": "Membangun alur kerja otonom menggunakan Antigravity yang menganalisis skrip serta transkrip video untuk mendeteksi punchline berdaya tarik tinggi, lalu diproduksi menjadi video pendek teroptimasi (framing 9:16) di CapCut.",
+                "impact": "Memangkas ~70% waktu kerja kurasi manual dan meningkatkan volume publikasi konten berkualitas tinggi per pekan dengan performa algoritma yang konsisten."
             },
             "links": {
                 "github": "https://github.com/KhairulRaihan",
+                "demo": null
+            }
+        },
+        {
+            "id": "amazon-sales-bi",
+            "title": "Amazon Sales & Revenue Performance Dashboard",
+            "subtitle": "Business Intelligence & Commercial Analytics di Tableau",
+            "category": "bi-tableau",
+            "categoryName": "Business Intelligence & BI",
+            "badge": "Tableau BI Project",
+            "image": "assets/images/project-tableau.jpg",
+            "overview": "Analisis data transaksi penjualan regional Amazon untuk memetakan margin laba, prioritas pesanan pengiriman, dan performa komersial multi-saluran (Online vs Offline).",
+            "highlights": [
+                "Pembersihan dan validasi data transaksi penjualan regional skala besar",
+                "Visualisasi agregat margin laba, efisiensi waktu kirim (ship days), dan volume unit per kategori barang",
+                "Komparasi efektivitas saluran penjualan Online vs Offline di berbagai benua",
+                "Pembuatan KPI cards dan filter interaktif untuk keputusan strategi stok dan logistik"
+            ],
+            "techStack": [
+                "Tableau Desktop",
+                "SQL",
+                "Data Cleansing",
+                "KPI Modeling",
+                "Commercial Analytics"
+            ],
+            "metrics": [
+                {
+                    "val": "15+",
+                    "label": "Metrik Bisnis & KPI"
+                },
+                {
+                    "val": "Global",
+                    "label": "Cakupan Wilayah Pasar"
+                },
+                {
+                    "val": "Multi-Channel",
+                    "label": "Online & Offline Sales"
+                }
+            ],
+            "details": {
+                "problem": "Data transaksi penjualan global yang terpisah memerlukan agregasi metrik yang intuitif agar manajemen dapat menilai profitabilitas per wilayah secara cepat.",
+                "solution": "Merancang dasbor analitik komersial di Tableau yang menyajikan total revenue, profit margin, dan waktu kirim secara interaktif.",
+                "impact": "Membantu tim bisnis memprioritaskan kategori produk dengan margin keuntungan tertinggi serta mengoptimalkan rute logistik penjualan."
+            },
+            "links": {
+                "github": "https://github.com/KhairulRaihan/KhairulRaihan.github.io/tree/main/Tableu",
                 "demo": null
             }
         }
     ],
     "nlpDemo": {
         "sectionBadge": "Research Testing Console",
-        "sectionTitle": "Pengujian Langsung Model NLP",
-        "sectionDesc": "Simulator leksikon sentimen untuk menguji klasifikasi opini teks berbahasa Indonesia dengan normalisasi kata tidak baku.",
+        "sectionTitle": "Simulasi Model Analisis Sentimen Teks",
+        "sectionDesc": "Simulator leksikon sentimen untuk menguji klasifikasi opini teks berbahasa Indonesia dengan normalisasi kata tidak baku sesuai riset Tugas Akhir.",
         "consoleTitle": "Sentiment Classifier Console",
-        "consoleSubtitle": "Metodologi: Kamus Leksikon InSet & Pembobotan Sentimen",
+        "consoleSubtitle": "Metodologi: Kamus Leksikon InSet & Normalisasi Kata Slang Lokal",
         "consoleBadge": "Bahasa Indonesia",
         "sampleChips": [
             {
-                "label": "Contoh Positif (Materi rapi & daging)",
-                "text": "Wah materinya daging banget, analisis datanya rapi dan mudah dipahami!"
+                "label": "Contoh Positif (Materi rapi & edukatif)",
+                "text": "Wah materinya daging banget, analisis datanya sangat rapi dan mudah dipahami!"
             },
             {
-                "label": "Contoh Negatif (Error, lelet bgt)",
+                "label": "Contoh Negatif (Error & lelet bgt)",
                 "text": "Aplikasi sering error, loading lelet bgt dan responnya mengecewakan."
             },
             {
                 "label": "Contoh Netral (Standar saja)",
-                "text": "Video sudah ditonton sampai selesai, standar saja."
+                "text": "Video sudah ditonton sampai selesai, standar saja pembahasannya."
             }
         ]
     },
@@ -422,22 +448,32 @@ const portfolioData = {
             "description": "Komputasi statistik, struktur dataframe, dan visualisasi dasar dalam bahasa R."
         }
     ],
+    "languages": [
+        {
+            "language": "Bahasa Indonesia",
+            "level": "Native / Penutur Asli"
+        },
+        {
+            "language": "Bahasa Inggris",
+            "level": "Conversational & Technical Reading (Fasih Percakapan & Literatur Teknis)"
+        }
+    ],
     "contact": {
-        "sectionBadge": "Komunikasi & Kontak",
+        "sectionBadge": "Komunikasi & Kolaborasi",
         "sectionTitle": "Informasi Kontak & Kolaborasi",
-        "sectionDesc": "Terbuka untuk peluang karir Data Scientist, Data Analyst, BI Specialist, atau diskusi riset.",
+        "sectionDesc": "Terbuka untuk peluang karir Data Scientist, Data Analyst, BI Specialist, atau diskusi riset Agentic AI.",
         "email": "khairulraihan617@gmail.com",
-        "whatsapp": "+62 898-951-8334",
+        "whatsapp": "+62 898-9518-334",
         "whatsappNum": "628989518334",
         "location": "Kota Tangerang, Banten, Indonesia",
         "linkedin": "https://www.linkedin.com/in/khairul-raihan-hidayat-0a4b62334/",
         "linkedinDisplay": "linkedin.com/in/khairul-raihan-hidayat-0a4b62334/",
-        "github": "https://github.com/khairulraihan/KhairulRaihan.github.io",
+        "github": "https://github.com/KhairulRaihan",
         "cvPath": "assets/docs/Khairul_Raihan_Hidayat_CV.pdf"
     },
     "footer": {
         "title": "Khairul Raihan Hidayat",
-        "subtitle": "Sarjana Komputer • Sistem Informasi (Data Science) • Universitas Budi Luhur",
+        "subtitle": "Sarjana Sistem Informasi • Data Science (IPK 3.88) • Universitas Budi Luhur",
         "copyright": "© 2026 Khairul Raihan Hidayat. All rights reserved."
     }
 };

@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initTypewriter(data);
         initScrollReveal();
         initStatsCounter();
+        initProjectFilters();
         initProjectModal();
         initSentimentAnalyzer(data);
         initContactForm();
@@ -398,14 +399,16 @@ function renderProjects(filter = 'all', data = getActiveData()) {
 }
 
 // Setup project filter tabs
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        renderProjects(filter, getActiveData());
+function initProjectFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.getAttribute('data-filter');
+            renderProjects(filter, getActiveData());
+        });
     });
-});
+}
 
 /* ==========================================================================
    8. PROJECT DETAIL MODAL
