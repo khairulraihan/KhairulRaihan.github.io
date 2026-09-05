@@ -571,101 +571,74 @@ def build_polished_presentation():
         add_p(tf_ins, f"• {pt}", font_size=8.5, color=TEXT_MAIN, space_after=Pt(3))
 
     # =========================================================================
-    # SLIDE 7: PROJECT 3 - AGENTIC AI VIDEO & AUTOMATION PIPELINE (POLISHED)
+    # SLIDE 7: PROJECT 3 - AGENTIC AI VIDEO & AUTOMATION PIPELINE (WITH REAL DASHBOARD)
     # =========================================================================
     slide7 = prs.slides.add_slide(blank_layout)
     set_background(slide7, BG_LIGHT)
-    add_header(slide7, "PROJECT 03: AGENTIC AI AUTOMATION", "Autonomous Multi-Agent AI Video Pipeline", "Orkestrasi agen otonom dengan Google Antigravity untuk kurasi & rendering video pendek berkecepatan tinggi.")
+    add_header(slide7, "PROJECT 03: AGENTIC AI AUTOMATION", "Double Coverage Auto-Clipper: Multi-Agent Video Pipeline", "Sistem otomasi alur kerja cerdas untuk kurasi momen viral dan batch rendering video vertikal 9:16.")
 
-    # Top Metrics Banner (3 Cards)
-    metric_cols = [
-        ("~70%", "REDUKSI TURNAROUND", "Penyusutan waktu dari transkrip mentah ke video siap tayang."),
-        ("3x", "VOLUME PRODUKSI", "Peningkatan output klip pendek harian multi-platform."),
-        ("100%", "KONSISTENSI BRANDING", "Automated subtitling, aspect ratio 9:16, and b-roll placement.")
+    # Left Column: Embed Real AI Automation Dashboard Screenshot
+    left_ai_card = add_card(slide7, Inches(0.8), Inches(1.85), Inches(6.8), Inches(5.15), BG_CARD, BORDER_SUBTLE, radius=0.02)
+    ai_img = os.path.abspath("assets/images/project-ai-automation.png")
+    if os.path.exists(ai_img):
+        slide7.shapes.add_picture(ai_img, Inches(0.95), Inches(2.0), Inches(6.5), Inches(4.45))
+        tb_ai_cap = slide7.shapes.add_textbox(Inches(0.95), Inches(6.52), Inches(6.5), Inches(0.38))
+        tf_cap = tb_ai_cap.text_frame
+        tf_cap.margin_left = tf_cap.margin_top = 0
+        add_p(tf_cap, "Production Dashboard: Double Coverage Campaign Auto-Clipper (9:16 Vertical Processing & Hook Scoring).", font_size=8.5, italic=True, color=TEXT_MUTED)
+
+    # Right Column: Metrics & Architecture Storytelling
+    right_ai_card = add_card(slide7, Inches(7.8), Inches(1.85), Inches(4.7), Inches(5.15), BG_CARD, BORDER_SUBTLE, radius=0.02)
+    
+    # 3 Metric KPI Cards inside right card
+    ai_kpis = [
+        ("~70%", "REDUKSI TURNAROUND", "Penyusutan waktu dari transkrip mentah ke video"),
+        ("10/10", "VIRAL HOOK SCORING", "Deteksi psikologis emosi, shock & virality rating"),
+        ("100%", "9:16 BATCH RENDERING", "Watermark auto-applied, dynamic subtitles & BGM")
     ]
-    for idx, (m_val, m_t, m_d) in enumerate(metric_cols):
-        m_left = Inches(0.8 + idx * 4.0)
-        m_card = add_card(slide7, m_left, Inches(1.85), Inches(3.7), Inches(0.95), BG_CARD, BORDER_SUBTLE, radius=0.03)
-        tb_m = slide7.shapes.add_textbox(m_left + Inches(0.15), Inches(1.92), Inches(3.4), Inches(0.8))
-        tf_m = tb_m.text_frame
-        tf_m.word_wrap = True
-        tf_m.margin_left = tf_m.margin_top = 0
+    for idx, (val, title, sub) in enumerate(ai_kpis):
+        k_top = Inches(2.0 + idx * 0.95)
+        k_card = add_card(slide7, Inches(8.0), k_top, Inches(4.3), Inches(0.82), PILL_BG_BLUE, BORDER_ACCENT, radius=0.04)
+        tb_k = slide7.shapes.add_textbox(Inches(8.15), k_top + Inches(0.08), Inches(4.0), Inches(0.68))
+        tf_k = tb_k.text_frame
+        tf_k.margin_left = tf_k.margin_top = 0
         
-        p_v = tf_m.paragraphs[0]
-        p_v.text = f"{m_val} "
-        p_v.font.name = FONT_FAMILY
-        p_v.font.size = Pt(17)
-        p_v.font.bold = True
-        p_v.font.color.rgb = BLUE_ACCENT
-        for r_v in p_v.runs:
-            r_v.font.name = FONT_FAMILY
-            r_v.font.size = Pt(17)
-            r_v.font.bold = True
-            r_v.font.color.rgb = BLUE_ACCENT
+        p_val = tf_k.paragraphs[0]
+        p_val.text = f"{val}  "
+        p_val.font.name = FONT_FAMILY
+        p_val.font.size = Pt(16)
+        p_val.font.bold = True
+        p_val.font.color.rgb = NAVY_PRIMARY
+        for r_k in p_val.runs:
+            r_k.font.name = FONT_FAMILY
+            r_k.font.size = Pt(16)
+            r_k.font.bold = True
+            r_k.font.color.rgb = NAVY_PRIMARY
 
-        r_t = p_v.add_run()
-        r_t.text = f" {m_t}"
+        r_t = p_val.add_run()
+        r_t.text = f"— {title}"
         r_t.font.name = FONT_FAMILY
         r_t.font.size = Pt(9.5)
         r_t.font.bold = True
-        r_t.font.color.rgb = NAVY_PRIMARY
+        r_t.font.color.rgb = BLUE_ACCENT
         
-        add_p(tf_m, m_d, font_size=8, color=TEXT_MUTED)
+        add_p(tf_k, sub, font_size=8.5, color=TEXT_MUTED)
 
-    # 3 Multi-Agent Workflow Pillars
-    workflow_agents = [
-        {
-            "tier": "AGEN 01: INGESTION & HOOK ANALYZER",
-            "role": "Content Intelligence & Selection",
-            "mission": "Mengekstrak transkrip audio podcast berdurasi panjang dengan timestamp presisi. Menganalisis densitas emosi, keyword virality, dan mengidentifikasi potensi 'golden moments' 30-60 detik.",
-            "inputs": "Audio/Video Podcast Mentah + Metadata",
-            "outputs": "Timestamped Golden Segments & Hook Score",
-            "tech": "Python, Speech-to-Text API, Semantic Scoring"
-        },
-        {
-            "tier": "AGEN 02: ADAPTATION & SCRIPT SYNTHESIS",
-            "role": "Narrative Structuring & Pacing",
-            "mission": "Mengolah transkrip mentah menjadi format vertical short-form (9:16). Menambahkan formula hook 3 detik pembuka, teks ringkas berdaya pikat tinggi, serta instruksi transisi visual.",
-            "inputs": "Golden Segments Transcripts",
-            "outputs": "9:16 Structured Script + B-Roll Prompts",
-            "tech": "Google Antigravity Multi-agent, Prompting"
-        },
-        {
-            "tier": "AGEN 03: PROGRAMMATIC VIDEO ASSEMBLER",
-            "role": "Automated Editing Execution",
-            "mission": "Mengeksekusi otomasi editing melalui script CapCut & FFmpeg. Menghasilkan automated dynamic subtitles, visual sound effects, auto-framing pembicara, dan ekspor batch resolusi tinggi.",
-            "inputs": "Structured Script + Timeline Directives",
-            "outputs": "Final 1080x1920 MP4 Ready-to-Publish",
-            "tech": "FFmpeg Engine, CapCut API / Scripting"
-        }
+    # Insights Text Box below KPIs
+    tb_ai_ins = slide7.shapes.add_textbox(Inches(8.0), Inches(5.0), Inches(4.3), Inches(1.9))
+    tf_ins = tb_ai_ins.text_frame
+    tf_ins.word_wrap = True
+    tf_ins.margin_left = tf_ins.margin_top = 0
+
+    add_p(tf_ins, "FITUR & ARSITEKTUR MULTI-AGEN:", font_size=10, bold=True, color=NAVY_PRIMARY, space_after=Pt(3))
+
+    ai_features = [
+        "Curated Viral Moments: Deteksi otomatis hook 3 detik pembuka, segmentasi timestamp akurat, dan scoring virality 10/10.",
+        "Programmatic 9:16 Center Fill: Rendering batch otomatis via script CapCut & engine FFmpeg dengan auto-framing pembicara.",
+        "Whop Content Rewards Ready: Dilengkapi 30-min tracker checklist, pemilihan BGM ambient viral, dan vault klip siap publish."
     ]
-
-    for idx, ag in enumerate(workflow_agents):
-        a_left = Inches(0.8 + idx * 4.0)
-        a_top = Inches(2.95)
-        a_w = Inches(3.7)
-        a_h = Inches(4.05)
-
-        card = add_card(slide7, a_left, a_top, a_w, a_h, BG_CARD, BORDER_SUBTLE, radius=0.02)
-        
-        strip = slide7.shapes.add_shape(MSO_SHAPE.RECTANGLE, a_left, a_top, a_w, Inches(0.08))
-        strip.fill.solid()
-        strip.fill.fore_color.rgb = BLUE_ACCENT if idx == 1 else (CYAN_ACCENT if idx == 0 else NAVY_PRIMARY)
-        strip.line.fill.background()
-
-        tb = slide7.shapes.add_textbox(a_left + Inches(0.2), a_top + Inches(0.18), a_w - Inches(0.4), a_h - Inches(0.3))
-        tf = tb.text_frame
-        tf.word_wrap = True
-        tf.margin_left = tf.margin_top = 0
-
-        add_p(tf, ag["tier"], font_size=9, bold=True, color=BLUE_ACCENT, space_after=Pt(1))
-        add_p(tf, ag["role"], font_size=12, bold=True, color=NAVY_PRIMARY, space_after=Pt(4))
-        add_p(tf, ag["mission"], font_size=8.5, color=TEXT_MAIN, space_after=Pt(8))
-
-        # Mini card for I/O inside
-        add_p(tf, f"▸ Input: {ag['inputs']}", font_size=8, bold=True, color=NAVY_ACCENT, space_after=Pt(2))
-        add_p(tf, f"▸ Output: {ag['outputs']}", font_size=8, bold=True, color=EMERALD_TEXT, space_after=Pt(8))
-        add_p(tf, f"Stack: {ag['tech']}", font_size=8, italic=True, color=TEXT_MUTED)
+    for ft in ai_features:
+        add_p(tf_ins, f"• {ft}", font_size=8.5, color=TEXT_MAIN, space_after=Pt(3))
 
     # =========================================================================
     # SLIDE 8: PROJECT 4 - AMAZON SALES & PROFITABILITY DASHBOARD (POLISHED)

@@ -371,13 +371,13 @@ const portfolioData = {
         },
         {
             "id": "agentic-ai-workflow",
-            "title": "Freelance AI Content Workflow & Analytics Specialist",
-            "subtitle": "Agentic AI (Antigravity) & Automated Short-form Video Optimization",
+            "title": "Double Coverage Campaign Auto-Clipper & Content Specialist",
+            "subtitle": "Agentic AI (Antigravity) & Automated 9:16 Vertical Video Processing",
             "category": "ai-agentic",
             "categoryName": "Agentic AI & Automasi",
-            "badge": "Agentic AI Case Study",
-            "image": "assets/images/project-football.jpg",
-            "overview": "Mengembangkan alur kerja berbasis Agentic AI menggunakan Antigravity untuk mengidentifikasi momen-momen potensial (high-retention hooks) dari video panjang secara otomatis guna memenuhi target campaign Content Reward.",
+            "badge": "Agentic AI Production Dashboard",
+            "image": "assets/images/project-ai-automation.png",
+            "overview": "Membangun sistem automasi alur kerja Agentic AI (Double Coverage Campaign Auto-Clipper) menggunakan Antigravity dan Python untuk mengkurasi 'golden moments' video podcast berdurasi panjang, menganalisis hook 3 detik pembuka, serta merender batch video vertikal 9:16 secara otomatis.",
             "highlights": [
                 "Mengorkestrasikan Agentic AI (Antigravity) untuk kurasi hook dengan potensi retensi tinggi secara instan",
                 "Mengekstraksi dan menyusun klip pendek teroptimasi (Shorts) di CapCut dengan dynamic captions, visual pacing, dan framing 9:16",
