@@ -327,22 +327,23 @@ const portfolioData = {
         {
             "id": "tableau-hr-analytics",
             "title": "Human Resources (HR) Analytics Dashboard",
-            "subtitle": "Tableau Business Intelligence — Workforce Demographics, Retention & Income Analytics",
+            "subtitle": "Tableau BI & Figma UI — Dual-Dashboard Architecture (Summary & Employee Records)",
             "category": "bi-tableau",
             "categoryName": "Business Intelligence & Tableau",
             "featured": true,
-            "badge": "Tableau BI Project",
+            "badge": "Tableau End-to-End BI",
             "image": "assets/images/project-hr-analytics.png",
-            "overview": "Membangun dasbor analitik SDM interaktif dua halaman (HR Overview & Employee Directory) di Tableau menggunakan dataset komprehensif 8.950 karyawan untuk memantau retensi tenaga kerja, demografi, serta distribusi pendapatan.",
+            "overview": "Membangun dasbor analitik SDM interaktif dua perspektif (Executive Summary & Granular Employee Records) di Tableau dengan perancangan UI di Figma berdasarkan metodologi profesional end-to-end (Data With Baraa) untuk menganalisis 8.950 data karyawan.",
             "highlights": [
-                "Mengembangkan berbagai Calculated Fields untuk melacak KPI utama tenaga kerja (total headcount, retensi aktif vs terminasi, rasio demografi)",
-                "Menganalisis 8.950 catatan karyawan dengan rasio retensi 89.2% (7.984 aktif vs 966 terminasi)",
-                "Merancang pemetaan geografis sebaran karyawan per wilayah (state map) serta proporsi aktif vs terminasi di 7 departemen",
-                "Menyajikan analisis korelasi tingkat pendidikan, usia, jabatan kerja, dan rentang kompensasi gaji"
+                "Arsitektur Dua Perspektif: Dasbor 'HR Summary' untuk metrik makro (headcount, retensi, demografi, kompensasi) dan 'HR Details' untuk audit tabel 8.950 karyawan",
+                "Calculated Fields & LOD Formulas: Mengembangkan kalkulasi masa kerja (Length of Hire), status retensi (Active vs Terminated), rasio persentase via TOTAL(), serta dual-axis donut & lollipop charts",
+                "Figma Modern Dark UI: Merancang mockup kanvas beresolusi tinggi (2801x1601 px) di Figma lengkap dengan collapsible container untuk filter, info overlay, dan tombol navigasi interaktif",
+                "Analisis Strategis 7 Departemen: Memetakan tingkat atrisi tertinggi pada divisi Operations (289 terminasi) dan Sales (201), distribusi HQ vs Cabang (70:30), serta korelasi gaji vs performa"
             ],
             "techStack": [
                 "Tableau Desktop",
-                "Calculated Fields",
+                "Figma (UI Design)",
+                "Calculated Fields & LOD",
                 "HR Analytics",
                 "Data Modeling",
                 "Excel / CSV"
@@ -357,29 +358,32 @@ const portfolioData = {
                     "label": "Retensi Tenaga Kerja"
                 },
                 {
-                    "val": "7",
-                    "label": "Departemen Utama"
+                    "val": "10.8%",
+                    "label": "Tingkat Turnover"
                 }
             ],
             "details": {
-                "problem": "Manajemen SDM kesulitan memantau retensi tenaga kerja, ketimpangan kompensasi per departemen, serta sebaran demografi karyawan di berbagai wilayah tanpa dasbor sentral yang interaktif.",
-                "solution": "Merancang dasbor Tableau dua halaman terintegrasi (HR Overview & Employee Directory) dengan Calculated Fields dinamis, filter lintas dimensi, peta sebaran negara bagian, serta scatter plot korelasi usia dan gaji.",
-                "impact": "Memfasilitasi jajaran eksekutif HR dalam mengidentifikasi departemen dengan tingkat terminasi tertinggi (Operations & Sales) serta merumuskan kebijakan retensi talenta secara presisi."
+                "problem": "Manajemen eksekutif HR dan Department Heads memerlukan dasbor sentral interaktif untuk memantau retensi 8.950 tenaga kerja, mengidentifikasi divisi rentan turnover, serta menganalisis disparitas kompensasi antar tingkat pendidikan dan gender tanpa visualisasi yang membingungkan.",
+                "solution": "Mengadopsi kerangka kerja profesional end-to-end dari Data With Baraa: perancangan wireframe dan styling kanvas gelap di Figma, pemodelan calculated fields (Length of Hire, status retensi, dual-axis donut & lollipop), heatmap matriks performa kerja, peta geospasial sebaran cabang, serta tabel direktori karyawan dengan filter dinamis dan ekspor PDF/Image instan.",
+                "impact": "Memudahkan jajaran pimpinan SDM mendeteksi konsentrasi terminasi di divisi operasional, memastikan transparansi kompensasi (PhD & Master $80K-$93K vs High School $63K), serta mempercepat audit rekam jejak karyawan melalui ekspor laporan satu kali klik."
             },
             "links": {
                 "github": "https://github.com/KhairulRaihan/KhairulRaihan.github.io/tree/main/Tableu",
+                "video": "https://www.youtube.com/watch?v=UcGF09Awm4Y",
+                "tutorial": "https://www.youtube.com/watch?v=UcGF09Awm4Y",
                 "demo": null
             }
         },
         {
             "id": "agentic-ai-workflow",
-            "title": "Freelance AI Content Workflow & Analytics Specialist",
-            "subtitle": "Agentic AI (Antigravity) & Automated Short-form Video Optimization",
+            "title": "Double Coverage Campaign Auto-Clipper & Content Specialist",
+            "subtitle": "Agentic AI (Antigravity) & Automated 9:16 Vertical Video Processing",
             "category": "ai-agentic",
             "categoryName": "Agentic AI & Automasi",
-            "badge": "Agentic AI Case Study",
-            "image": "assets/images/project-football.jpg",
-            "overview": "Mengembangkan alur kerja berbasis Agentic AI menggunakan Antigravity untuk mengidentifikasi momen-momen potensial (high-retention hooks) dari video panjang secara otomatis guna memenuhi target campaign Content Reward.",
+            "featured": true,
+            "badge": "Agentic AI Production Dashboard",
+            "image": "assets/images/project-ai-automation.png",
+            "overview": "Membangun sistem automasi alur kerja Agentic AI (Double Coverage Campaign Auto-Clipper) menggunakan Antigravity dan Python untuk mengkurasi 'golden moments' video podcast berdurasi panjang, menganalisis hook 3 detik pembuka, serta merender batch video vertikal 9:16 secara otomatis.",
             "highlights": [
                 "Mengorkestrasikan Agentic AI (Antigravity) untuk kurasi hook dengan potensi retensi tinggi secara instan",
                 "Mengekstraksi dan menyusun klip pendek teroptimasi (Shorts) di CapCut dengan dynamic captions, visual pacing, dan framing 9:16",

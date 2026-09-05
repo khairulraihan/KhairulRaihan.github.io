@@ -472,10 +472,16 @@ function openProjectModal(projectId) {
             </div>
         ` : ''}
 
-        <div style="display: flex; gap: 0.75rem; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
             ${(project.links && project.links.github) ? `
                 <a href="${project.links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                     Lihat Kode di GitHub
+                </a>
+            ` : ''}
+            ${(project.links && (project.links.video || project.links.tutorial)) ? `
+                <a href="${project.links.video || project.links.tutorial}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display:inline-flex;align-items:center;gap:0.4rem;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    Tutorial Referensi (Data With Baraa)
                 </a>
             ` : ''}
             <button class="btn btn-secondary btn-sm" onclick="closeProjectModal()">Tutup</button>
