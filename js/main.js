@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderAllDynamicContent(data);
         initTypewriter(data);
         initScrollReveal();
-        initStatsCounter();
         initProjectFilters();
         initProjectModal();
         initSentimentAnalyzer(data);
@@ -77,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function renderAllDynamicContent(data = getActiveData()) {
     renderHero(data);
-    renderStats(data);
     renderAbout(data);
     renderSkills(data);
     renderProjects('all', data);
@@ -223,25 +221,7 @@ function renderHero(data) {
 }
 
 /* ==========================================================================
-   4. STATS SECTION RENDER
-   ========================================================================== */
-function renderStats(data) {
-    const container = document.getElementById('stats-grid');
-    if (!container || !data.stats || !Array.isArray(data.stats)) return;
-
-    container.innerHTML = data.stats.map((st, idx) => `
-        <div class="stat-item reveal reveal-delay-${(idx % 4) + 1}">
-            <div class="stat-num-wrapper">
-                <span class="stat-number" data-target="${st.value}">0</span>
-                <span class="stat-suffix">${st.suffix || ''}</span>
-            </div>
-            <div class="stat-desc">${st.label}</div>
-        </div>
-    `).join('');
-}
-
-/* ==========================================================================
-   5. ABOUT & EDUCATION SECTION RENDER
+   4. ABOUT & EDUCATION SECTION RENDER
    ========================================================================== */
 function renderAbout(data) {
     const a = data.about || {};
@@ -675,43 +655,7 @@ function initTypewriter(data) {
 }
 
 /* ==========================================================================
-   14. ANIMATED STATS COUNTER
-   ========================================================================== */
-function initStatsCounter() {
-    const statCards = document.querySelectorAll('.stat-number');
-    let counted = false;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !counted) {
-                counted = true;
-                statCards.forEach(card => {
-                    const target = parseFloat(card.getAttribute('data-target'));
-                    if (isNaN(target)) return;
-                    const isDecimal = target % 1 !== 0;
-                    let count = 0;
-                    const duration = 1600;
-                    const increment = target / (duration / 25);
-
-                    const timer = setInterval(() => {
-                        count += increment;
-                        if (count >= target) {
-                            count = target;
-                            clearInterval(timer);
-                        }
-                        card.textContent = isDecimal ? count.toFixed(2) : Math.floor(count);
-                    }, 25);
-                });
-            }
-        });
-    }, { threshold: 0.4 });
-
-    const statsGrid = document.querySelector('.stats-grid');
-    if (statsGrid) observer.observe(statsGrid);
-}
-
-/* ==========================================================================
-   15. INTERACTIVE RESEARCH CONSOLE (NLP SENTIMENT)
+   14. INTERACTIVE RESEARCH CONSOLE (NLP SENTIMENT)
    ========================================================================== */
 function initSentimentAnalyzer(data) {
     const textarea = document.getElementById('analyzer-input');
