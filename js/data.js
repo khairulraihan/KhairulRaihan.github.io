@@ -74,7 +74,7 @@ const portfolioData = {
             "Basis Data & SQL",
             "Logika & Algoritma"
         ],
-        "story": "Saya merupakan lulusan Sarjana Sistem Informasi peminatan Data Science dari Universitas Budi Luhur dengan predikat Magna Cum Laude (IPK 3.88/4.00). Selama masa studi, saya mendedikasikan fokus pada pemodelan statistik, eksplorasi data relasional, pemrosesan bahasa alami (NLP), serta visualisasi metrik bisnis yang komprehensif.\n\nDalam Tugas Akhir Skripsi, saya merancang pipeline NLP terpadu untuk menganalisis sentimen respons netizen pada video YouTube berbahasa Indonesia menggunakan komparasi Support Vector Machine (SVM) dan Naive Bayes, menghasilkan model dengan akurasi 92.4% yang diintegrasikan ke aplikasi Streamlit interaktif.\n\nSelain data science murni, saya memiliki keahlian mendalam dalam Business Intelligence menggunakan Tableau—membangun dasbor analitik SDM interaktif dua halaman (HR Overview & Employee Directory) yang menganalisis 8.950 data tenaga kerja, melacak KPI retensi, dan memetakan demografi gaji. Saya juga aktif mengeksplorasi implementasi Agentic AI (Antigravity) untuk mengautomasi alur kerja analitis dan memangkas waktu operasional hingga 70%.",
+        "story": "Saya merupakan lulusan Sarjana Sistem Informasi peminatan Data Science dari Universitas Budi Luhur dengan predikat Magna Cum Laude (IPK 3.88/4.00). Selama masa studi, saya mendedikasikan fokus pada pemodelan statistik, eksplorasi data relasional, pemrosesan bahasa alami (NLP), serta visualisasi metrik bisnis yang komprehensif.\n\nDalam Tugas Akhir Skripsi, saya merancang pipeline NLP terpadu untuk menganalisis sentimen respons netizen pada video YouTube berbahasa Indonesia menggunakan komparasi Support Vector Machine (SVM) dan Naive Bayes, menghasilkan model dengan akurasi 88.4% yang diintegrasikan ke aplikasi Streamlit interaktif.\n\nSelain data science murni, saya memiliki keahlian mendalam dalam Business Intelligence menggunakan Tableau—membangun dasbor analitik SDM interaktif dua halaman (HR Overview & Employee Directory) yang menganalisis 8.950 data tenaga kerja, melacak KPI retensi, dan memetakan demografi gaji. Saya juga aktif mengeksplorasi implementasi Agentic AI (Antigravity) untuk mengautomasi alur kerja analitis dan memangkas waktu operasional hingga 70%.",
         "competencies": [
             {
                 "title": "Data Science & Machine Learning",
@@ -89,8 +89,8 @@ const portfolioData = {
                 "desc": "Penerapan orchestrasi Agentic AI (Antigravity) untuk automasi alur kerja analitis, identifikasi hook video panjang otomatis, dan kurasi konten cerdas."
             },
             {
-                "title": "Database Querying & Advanced Analytics",
-                "desc": "Eksplorasi data relasional dengan SQL, analisis tingkat lanjut di Microsoft Excel (Pivot Tables, XLOOKUP, Data Cleaning), serta komputasi ilmiah Python."
+                "title": "MS Excel",
+                "desc": "analisis tingkat lanjut di Microsoft Excel (Pivot Tables, XLOOKUP, Data Cleaning),"
             }
         ]
     },
@@ -337,12 +337,10 @@ const portfolioData = {
             "highlights": [
                 "Arsitektur Dua Perspektif: Dasbor 'HR Summary' untuk metrik makro (headcount, retensi, demografi, kompensasi) dan 'HR Details' untuk audit tabel 8.950 karyawan",
                 "Calculated Fields & LOD Formulas: Mengembangkan kalkulasi masa kerja (Length of Hire), status retensi (Active vs Terminated), rasio persentase via TOTAL(), serta dual-axis donut & lollipop charts",
-                "Figma Modern Dark UI: Merancang mockup kanvas beresolusi tinggi (2801x1601 px) di Figma lengkap dengan collapsible container untuk filter, info overlay, dan tombol navigasi interaktif",
                 "Analisis Strategis 7 Departemen: Memetakan tingkat atrisi tertinggi pada divisi Operations (289 terminasi) dan Sales (201), distribusi HQ vs Cabang (70:30), serta korelasi gaji vs performa"
             ],
             "techStack": [
                 "Tableau Desktop",
-                "Figma (UI Design)",
                 "Calculated Fields & LOD",
                 "HR Analytics",
                 "Data Modeling",
@@ -364,13 +362,13 @@ const portfolioData = {
             ],
             "details": {
                 "problem": "Manajemen eksekutif HR dan Department Heads memerlukan dasbor sentral interaktif untuk memantau retensi 8.950 tenaga kerja, mengidentifikasi divisi rentan turnover, serta menganalisis disparitas kompensasi antar tingkat pendidikan dan gender tanpa visualisasi yang membingungkan.",
-                "solution": "Mengadopsi kerangka kerja profesional end-to-end dari Data With Baraa: perancangan wireframe dan styling kanvas gelap di Figma, pemodelan calculated fields (Length of Hire, status retensi, dual-axis donut & lollipop), heatmap matriks performa kerja, peta geospasial sebaran cabang, serta tabel direktori karyawan dengan filter dinamis dan ekspor PDF/Image instan.",
+                "solution": ", pemodelan calculated fields (Length of Hire, status retensi, dual-axis donut & lollipop), heatmap matriks performa kerja, peta geospasial sebaran cabang, serta tabel direktori karyawan dengan filter dinamis dan ekspor PDF/Image instan.",
                 "impact": "Memudahkan jajaran pimpinan SDM mendeteksi konsentrasi terminasi di divisi operasional, memastikan transparansi kompensasi (PhD & Master $80K-$93K vs High School $63K), serta mempercepat audit rekam jejak karyawan melalui ekspor laporan satu kali klik."
             },
             "links": {
                 "github": "https://github.com/KhairulRaihan/KhairulRaihan.github.io/tree/main/Tableu",
-                "video": "https://www.youtube.com/watch?v=UcGF09Awm4Y",
-                "tutorial": "https://www.youtube.com/watch?v=UcGF09Awm4Y",
+                "video": null,
+                "tutorial": null,
                 "demo": null
             }
         },
