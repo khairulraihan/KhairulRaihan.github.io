@@ -1,6 +1,6 @@
 /**
  * Master Portfolio Data Configuration for Khairul Raihan Hidayat
- * 100% Synced with Latest CV & Personal Projects (Project Skripsi, Tableu, Agentic AI)
+ * Generated automatically from Admin CMS
  */
 
 const portfolioData = {
@@ -96,18 +96,18 @@ const portfolioData = {
     },
     "skills": [
         {
-            "category": "Pemrograman & Basis Data",
+            "category": "Pemrograman",
             "description": "Bahasa pemrograman inti dan manajemen kueri data relasional untuk analisis dan pemodelan.",
             "items": [
                 {
                     "name": "Python (Pandas, NumPy, Scikit-Learn, NLTK)",
-                    "status": "Mahir",
-                    "tags": ["Data Manipulation", "Machine Learning", "NLP Pipeline", "EDA"]
-                },
-                {
-                    "name": "SQL & Relational Database Management",
-                    "status": "Kompeten",
-                    "tags": ["Data Extraction", "Complex Joins", "Aggregations", "Filtering"]
+                    "status": ".",
+                    "tags": [
+                        "Data Manipulation",
+                        "Machine Learning",
+                        "NLP Pipeline",
+                        "EDA"
+                    ]
                 }
             ]
         },
@@ -117,18 +117,32 @@ const portfolioData = {
             "items": [
                 {
                     "name": "Tableau Desktop / Tableau Public",
-                    "status": "Mahir",
-                    "tags": ["Calculated Fields", "Multi-Page Dashboard", "Interactive KPI", "Geographic Mapping"]
+                    "status": ".",
+                    "tags": [
+                        "Calculated Fields",
+                        "Multi-Page Dashboard",
+                        "Interactive KPI",
+                        "Geographic Mapping"
+                    ]
                 },
                 {
                     "name": "Google Looker Studio",
-                    "status": "Kompeten",
-                    "tags": ["Real-time Reporting", "Business KPI", "Executive Metrics"]
+                    "status": ".",
+                    "tags": [
+                        "Real-time Reporting",
+                        "Business KPI",
+                        "Executive Metrics"
+                    ]
                 },
                 {
                     "name": "Microsoft Excel Lanjutan",
-                    "status": "Mahir",
-                    "tags": ["Pivot Tables & Charts", "XLOOKUP", "Data Cleaning", "Formula Modeling"]
+                    "status": ".",
+                    "tags": [
+                        "Pivot Tables & Charts",
+                        "XLOOKUP",
+                        "Data Cleaning",
+                        "Formula Modeling"
+                    ]
                 }
             ]
         },
@@ -138,23 +152,41 @@ const portfolioData = {
             "items": [
                 {
                     "name": "Natural Language Processing (NLP)",
-                    "status": "Mahir",
-                    "tags": ["Tokenization", "Kamus Leksikon InSet", "Stopwords Removal", "Slang Normalization"]
+                    "status": ",",
+                    "tags": [
+                        "Tokenization",
+                        "Kamus Leksikon InSet",
+                        "Stopwords Removal",
+                        "Slang Normalization"
+                    ]
                 },
                 {
                     "name": "Supervised Learning (SVM & Naive Bayes)",
-                    "status": "Mahir",
-                    "tags": ["Text Classification", "TF-IDF / CountVector", "Accuracy Evaluation", "Confusion Matrix"]
+                    "status": ",",
+                    "tags": [
+                        "Text Classification",
+                        "TF-IDF / CountVector",
+                        "Accuracy Evaluation",
+                        "Confusion Matrix"
+                    ]
                 },
                 {
                     "name": "Unsupervised Learning (Clustering K-Means)",
-                    "status": "Kompeten",
-                    "tags": ["Data Modeling", "Pattern Recognition", "Cluster Profiling"]
+                    "status": ",",
+                    "tags": [
+                        "Data Modeling",
+                        "Pattern Recognition",
+                        "Cluster Profiling"
+                    ]
                 },
                 {
                     "name": "RapidMiner & Exploratory Analytics",
-                    "status": "Kompeten",
-                    "tags": ["Visual Workflow", "Data Modeling", "Statistical Validation"]
+                    "status": ",",
+                    "tags": [
+                        "Visual Workflow",
+                        "Data Modeling",
+                        "Statistical Validation"
+                    ]
                 }
             ]
         },
@@ -164,23 +196,41 @@ const portfolioData = {
             "items": [
                 {
                     "name": "Antigravity (Agentic AI Automation)",
-                    "status": "Lanjut",
-                    "tags": ["Autonomous Workflows", "Task Orchestration", "Content Hook Curation", "AI Efficiency"]
+                    "status": ".",
+                    "tags": [
+                        "Autonomous Workflows",
+                        "Task Orchestration",
+                        "Content Hook Curation",
+                        "AI Efficiency"
+                    ]
                 },
                 {
                     "name": "VS Code & Git / GitHub",
-                    "status": "Mahir",
-                    "tags": ["Version Control", "Repository Management", "Clean Code Architecture"]
+                    "status": ".",
+                    "tags": [
+                        "Version Control",
+                        "Repository Management",
+                        "Clean Code Architecture"
+                    ]
                 },
                 {
                     "name": "Desain UI/UX & Presentasi (Figma & Canva)",
-                    "status": "Kompeten",
-                    "tags": ["UI Mockup", "Executive Decks", "Data Infographics"]
+                    "status": ".",
+                    "tags": [
+                        "UI Mockup",
+                        "Executive Decks",
+                        "Data Infographics"
+                    ]
                 },
                 {
                     "name": "CapCut Video Production & Optimization",
-                    "status": "Mahir",
-                    "tags": ["9:16 Shorts Framing", "Dynamic Captions", "Visual Pacing", "Audience Retention"]
+                    "status": ".",
+                    "tags": [
+                        "9:16 Shorts Framing",
+                        "Dynamic Captions",
+                        "Visual Pacing",
+                        "Audience Retention"
+                    ]
                 }
             ]
         },
@@ -190,23 +240,36 @@ const portfolioData = {
             "items": [
                 {
                     "name": "Critical Thinking & Problem Solving",
-                    "status": "Inti",
-                    "tags": ["Analisis Akar Masalah", "Logika Solutif", "Pendekatan Terstruktur"]
+                    "status": ".",
+                    "tags": [
+                        "Analisis Akar Masalah",
+                        "Logika Solutif",
+                        "Pendekatan Terstruktur"
+                    ]
                 },
                 {
                     "name": "Analytical Skills & Multitasking",
-                    "status": "Inti",
-                    "tags": ["Sintesis Data Kompleks", "Manajemen Prioritas Proyek"]
+                    "status": ".",
+                    "tags": [
+                        "Sintesis Data Kompleks",
+                        "Manajemen Prioritas Proyek"
+                    ]
                 },
                 {
                     "name": "Communication & Negotiation",
-                    "status": "Inti",
-                    "tags": ["Penyampaian Insight Bisnis", "Diskusi Kolaboratif"]
+                    "status": ".",
+                    "tags": [
+                        "Penyampaian Insight Bisnis",
+                        "Diskusi Kolaboratif"
+                    ]
                 },
                 {
                     "name": "Teamwork & Time Management",
-                    "status": "Inti",
-                    "tags": ["Kolaborasi Tim Efektif", "Tepat Waktu & Adaptif"]
+                    "status": ".",
+                    "tags": [
+                        "Kolaborasi Tim Efektif",
+                        "Tepat Waktu & Adaptif"
+                    ]
                 }
             ]
         }
@@ -350,52 +413,6 @@ const portfolioData = {
             },
             "links": {
                 "github": "https://github.com/KhairulRaihan",
-                "demo": null
-            }
-        },
-        {
-            "id": "amazon-sales-bi",
-            "title": "Amazon Sales & Revenue Performance Dashboard",
-            "subtitle": "Business Intelligence & Commercial Analytics di Tableau",
-            "category": "bi-tableau",
-            "categoryName": "Business Intelligence & BI",
-            "badge": "Tableau BI Project",
-            "image": "assets/images/project-tableau.jpg",
-            "overview": "Analisis data transaksi penjualan regional Amazon untuk memetakan margin laba, prioritas pesanan pengiriman, dan performa komersial multi-saluran (Online vs Offline).",
-            "highlights": [
-                "Pembersihan dan validasi data transaksi penjualan regional skala besar",
-                "Visualisasi agregat margin laba, efisiensi waktu kirim (ship days), dan volume unit per kategori barang",
-                "Komparasi efektivitas saluran penjualan Online vs Offline di berbagai benua",
-                "Pembuatan KPI cards dan filter interaktif untuk keputusan strategi stok dan logistik"
-            ],
-            "techStack": [
-                "Tableau Desktop",
-                "SQL",
-                "Data Cleansing",
-                "KPI Modeling",
-                "Commercial Analytics"
-            ],
-            "metrics": [
-                {
-                    "val": "15+",
-                    "label": "Metrik Bisnis & KPI"
-                },
-                {
-                    "val": "Global",
-                    "label": "Cakupan Wilayah Pasar"
-                },
-                {
-                    "val": "Multi-Channel",
-                    "label": "Online & Offline Sales"
-                }
-            ],
-            "details": {
-                "problem": "Data transaksi penjualan global yang terpisah memerlukan agregasi metrik yang intuitif agar manajemen dapat menilai profitabilitas per wilayah secara cepat.",
-                "solution": "Merancang dasbor analitik komersial di Tableau yang menyajikan total revenue, profit margin, dan waktu kirim secara interaktif.",
-                "impact": "Membantu tim bisnis memprioritaskan kategori produk dengan margin keuntungan tertinggi serta mengoptimalkan rute logistik penjualan."
-            },
-            "links": {
-                "github": "https://github.com/KhairulRaihan/KhairulRaihan.github.io/tree/main/Tableu",
                 "demo": null
             }
         }
