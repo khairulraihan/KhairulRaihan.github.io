@@ -16,3 +16,8 @@ Thumbs.db
 admin.html
 css/admin.css
 js/admin.js
+
+# Root copy of presentation deck (tracked under assets/docs/)
+/Khairul_Raihan_Hidayat_Portfolio_Deck.pptx
+/Khairul_Raihan_Hidayat_Portfolio_Deck.pdf
+
