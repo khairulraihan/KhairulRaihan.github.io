@@ -17,7 +17,11 @@ admin.html
 css/admin.css
 js/admin.js
 
-# Root copy of presentation deck (tracked under assets/docs/)
+# Root copy of presentation decks (tracked under assets/docs/)
 /Khairul_Raihan_Hidayat_Portfolio_Deck.pptx
 /Khairul_Raihan_Hidayat_Portfolio_Deck.pdf
+/Biru Putih Minimalis Modern Profesional Portofolio Presentasi*.pptx
+/Biru Putih Minimalis Modern Profesional Portofolio Presentasi*.pdf
+template_preview/
+template_updated_preview/
 
