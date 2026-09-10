@@ -327,23 +327,24 @@ const portfolioData = {
         {
             "id": "tableau-hr-analytics",
             "title": "Human Resources (HR) Analytics Dashboard",
-            "subtitle": "Tableau BI & Figma UI — Dual-Dashboard Architecture (Summary & Employee Records)",
+            "subtitle": "Tableau BI  Dual-Dashboard Architecture (Summary & Employee Records)",
             "category": "bi-tableau",
             "categoryName": "Business Intelligence & Tableau",
             "featured": true,
             "badge": "Tableau End-to-End BI",
             "image": "assets/images/project-hr-analytics.png",
-            "overview": "Membangun dasbor analitik SDM interaktif dua perspektif (Executive Summary & Granular Employee Records) di Tableau dengan perancangan UI di Figma berdasarkan metodologi profesional end-to-end (Data With Baraa) untuk menganalisis 8.950 data karyawan.",
+            "overview": "Membangun dasbor analitik SDM interaktif dua perspektif (Executive Summary & Detailed Employee Records) di Tableau  untuk menganalisis 8.950 data karyawan.",
             "highlights": [
-                "Arsitektur Dua Perspektif: Dasbor 'HR Summary' untuk metrik makro (headcount, retensi, demografi, kompensasi) dan 'HR Details' untuk audit tabel 8.950 karyawan",
-                "Calculated Fields & LOD Formulas: Mengembangkan kalkulasi masa kerja (Length of Hire), status retensi (Active vs Terminated), rasio persentase via TOTAL(), serta dual-axis donut & lollipop charts",
-                "Analisis Strategis 7 Departemen: Memetakan tingkat atrisi tertinggi pada divisi Operations (289 terminasi) dan Sales (201), distribusi HQ vs Cabang (70:30), serta korelasi gaji vs performa"
+                "• Overview: total hired, active, dan terminated employees serta tren hiring & termination per tahun.",
+                "• Workforce Analysis: distribusi karyawan berdasarkan department, job title, HQ/branch, city, dan state.",
+                "• Demographics: gender ratio, age group, education level, dan hubungan education dengan performance rating.",
+                "• Income Analysis: perbandingan salary berdasarkan education & gender serta korelasi age dengan salary pada setiap department.",
+                "• Employee Records: tabel detail karyawan dengan filter berdasarkan name, department, position, gender, age, education, dan salary."
             ],
             "techStack": [
                 "Tableau Desktop",
-                "Calculated Fields & LOD",
+                "Calculated Fields",
                 "HR Analytics",
-                "Data Modeling",
                 "Excel / CSV"
             ],
             "metrics": [
@@ -352,18 +353,18 @@ const portfolioData = {
                     "label": "Total Karyawan"
                 },
                 {
-                    "val": "89.2%",
-                    "label": "Retensi Tenaga Kerja"
+                    "val": "7.984",
+                    "label": "Active Employees"
                 },
                 {
-                    "val": "10.8%",
-                    "label": "Tingkat Turnover"
+                    "val": "966",
+                    "label": "Terminated Employees"
                 }
             ],
             "details": {
-                "problem": "Manajemen eksekutif HR dan Department Heads memerlukan dasbor sentral interaktif untuk memantau retensi 8.950 tenaga kerja, mengidentifikasi divisi rentan turnover, serta menganalisis disparitas kompensasi antar tingkat pendidikan dan gender tanpa visualisasi yang membingungkan.",
-                "solution": ", pemodelan calculated fields (Length of Hire, status retensi, dual-axis donut & lollipop), heatmap matriks performa kerja, peta geospasial sebaran cabang, serta tabel direktori karyawan dengan filter dinamis dan ekspor PDF/Image instan.",
-                "impact": "Memudahkan jajaran pimpinan SDM mendeteksi konsentrasi terminasi di divisi operasional, memastikan transparansi kompensasi (PhD & Master $80K-$93K vs High School $63K), serta mempercepat audit rekam jejak karyawan melalui ekspor laporan satu kali klik."
+                "problem": "Data karyawan perlu dianalisis secara terstruktur untuk membantu HR memahami kondisi workforce, komposisi demografis, serta pola kompensasi. Dashboard ini dirancang untuk menganalisis jumlah karyawan berdasarkan status, tahun, departemen, posisi, lokasi, gender, usia, dan tingkat pendidikan, sekaligus mengidentifikasi pola hubungan antara pendidikan, performa, dan salary.",
+                "solution": "Mengembangkan dashboard  menggunakan Tableau dengan membagi analisis menjadi tiga bagian utama: Overview, Demographics, dan Income Analysis. Overview menampilkan hired, active, terminated employees, tren hiring dan termination, serta distribusi berdasarkan department, job title, HQ/branch, city, dan state. Demographics menganalisis gender, age group, education level, serta hubungan pendidikan dengan performance rating. Income Analysis membandingkan salary berdasarkan education dan gender serta menganalisis hubungan age dan salary pada setiap department. Dashboard juga menyediakan Employee Records dengan filter berdasarkan kolom yang tersedia.",
+                "impact": "Membantu HR memperoleh gambaran workforce secara menyeluruh dalam satu dashboard, mengidentifikasi tren hiring dan turnover, memahami karakteristik demografis karyawan, serta mengevaluasi pola salary berdasarkan gender, pendidikan, usia, dan department untuk mendukung pengambilan keputusan berbasis data"
             },
             "links": {
                 "github": "https://github.com/KhairulRaihan/KhairulRaihan.github.io/tree/main/Tableu",
